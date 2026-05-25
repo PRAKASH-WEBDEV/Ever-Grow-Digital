@@ -6,10 +6,6 @@ const sendContactMail = async (req, res) => {
 
     const { name, email, phone, service } = req.body;
 
-    /* =========================================
-       CHECK FIELDS
-    ========================================= */
-
     if (!name || !email || !phone || !service) {
 
       return res.status(400).json({
@@ -22,7 +18,7 @@ const sendContactMail = async (req, res) => {
     }
 
     /* =========================================
-       TRANSPORTER
+       SMTP TRANSPORT
     ========================================= */
 
     const transporter = nodemailer.createTransport({
@@ -32,8 +28,6 @@ const sendContactMail = async (req, res) => {
       port: 587,
 
       secure: false,
-
-      requireTLS: true,
 
       auth: {
 
@@ -50,14 +44,6 @@ const sendContactMail = async (req, res) => {
       },
 
     });
-
-    /* =========================================
-       VERIFY SMTP
-    ========================================= */
-
-    await transporter.verify();
-
-    console.log("SMTP READY ✅");
 
     /* =========================================
        SEND MAIL
@@ -96,7 +82,7 @@ const sendContactMail = async (req, res) => {
 
   } catch (error) {
 
-    console.log("FULL ERROR =>", error);
+    console.log("MAIL ERROR =>", error);
 
     return res.status(500).json({
 
