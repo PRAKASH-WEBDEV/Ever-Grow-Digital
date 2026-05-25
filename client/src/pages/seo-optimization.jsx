@@ -2,123 +2,139 @@ import { Link } from "react-router-dom";
 import {
   HiArrowRight,
   HiOutlineBadgeCheck,
-  HiOutlineCamera,
-  HiOutlineFilm,
-  HiOutlineLightningBolt,
-  HiOutlinePlay,
-  HiOutlinePresentationChartLine,
-  HiOutlineSparkles,
-  HiOutlineVideoCamera,
+  HiOutlineChartBar,
+  HiOutlineChartPie,
+  HiOutlineChartSquareBar,
+  HiOutlineClipboardCheck,
+  HiOutlineCode,
+  HiOutlineCursorClick,
+  HiOutlineDocumentSearch,
+  HiOutlineGlobeAlt,
+  HiOutlineSearch,
 } from "react-icons/hi";
 
 import MainLayout from "../layouts/MainLayout";
-import videoPreview from "../assets/Video-1.mp4";
 
-const editingServices = [
+const seoServices = [
   {
-    title: "Reels Editing",
-    icon: <HiOutlineVideoCamera />,
+    title: "Technical SEO",
+    icon: <HiOutlineCode />,
     desc:
-      "Fast-paced short videos with hooks, captions, transitions and trend-ready pacing.",
+      "Fix crawl issues, improve indexability, optimize site speed and create a cleaner technical foundation.",
   },
   {
-    title: "YouTube Videos",
-    icon: <HiOutlineFilm />,
+    title: "Keyword Research",
+    icon: <HiOutlineSearch />,
     desc:
-      "Clean long-form edits with storytelling, cuts, b-roll, audio balancing and thumbnails support.",
+      "Find high-intent keywords your customers are searching for and map them to the right pages.",
   },
   {
-    title: "Motion Graphics",
-    icon: <HiOutlineSparkles />,
+    title: "On-Page SEO",
+    icon: <HiOutlineDocumentSearch />,
     desc:
-      "Animated text, lower thirds, brand elements and visual effects that make videos feel premium.",
+      "Optimize titles, meta descriptions, headings, internal links and content structure for rankings.",
   },
   {
-    title: "Advertisement Videos",
-    icon: <HiOutlinePresentationChartLine />,
+    title: "Local SEO",
+    icon: <HiOutlineGlobeAlt />,
     desc:
-      "Conversion-focused ad edits for Meta, Google, YouTube and product promotion campaigns.",
+      "Improve visibility for city-based searches, Google Business Profile and local customer discovery.",
   },
   {
-    title: "Promo Videos",
-    icon: <HiOutlineCamera />,
+    title: "SEO Content",
+    icon: <HiOutlineClipboardCheck />,
     desc:
-      "Business promos, event highlights, product launches and service explainers with strong impact.",
+      "Create blog and landing page content plans that attract traffic and convert visitors into leads.",
   },
   {
-    title: "Short Form Content",
-    icon: <HiOutlineLightningBolt />,
+    title: "SEO Reporting",
+    icon: <HiOutlineChartSquareBar />,
     desc:
-      "High-retention clips for Instagram, YouTube Shorts, Facebook and LinkedIn content calendars.",
+      "Track rankings, traffic, conversions and opportunities with simple monthly performance reports.",
   },
 ];
 
 const tools = [
-  "Adobe Premiere Pro",
-  "After Effects",
-  "DaVinci Resolve",
-  "CapCut Pro",
-  "Canva",
-  "Audition",
+  "Google Search Console",
+  "Google Analytics",
+  "Ahrefs",
+  "SEMrush",
+  "Screaming Frog",
+  "PageSpeed Insights",
 ];
 
 const projects = [
   {
-    title: "Fitness Reels Pack",
-    category: "Short Form",
+    title: "Local Business Growth",
+    category: "Local SEO",
     desc:
-      "A high-energy reel series with beat cuts, bold captions and transformation-focused storytelling.",
-    gradient: "from-[#1D4ED8] via-[#7C3AED] to-[#EC4899]",
+      "Improved local keyword visibility, service pages and map presence for a service-based brand.",
+    gradient: "from-[#1D4ED8] via-[#0F766E] to-[#22C55E]",
   },
   {
-    title: "Restaurant Promo Video",
-    category: "Business Promo",
+    title: "Ecommerce SEO Audit",
+    category: "Technical SEO",
     desc:
-      "A food brand promo with cinematic cuts, menu highlights, offer frames and social-ready exports.",
-    gradient: "from-[#F97316] via-[#EF4444] to-[#FACC15]",
+      "Resolved crawl waste, duplicate pages, metadata gaps and product category optimization issues.",
+    gradient: "from-[#071120] via-[#7C3AED] to-[#EC4899]",
   },
   {
-    title: "Product Ad Campaign",
-    category: "Ad Creative",
+    title: "Blog Traffic Strategy",
+    category: "Content SEO",
     desc:
-      "Performance-focused product videos with problem-solution flow, CTA screens and multiple ratios.",
-    gradient: "from-[#071120] via-[#0F766E] to-[#22C55E]",
+      "Built a topic cluster strategy around high-intent keywords to increase organic traffic quality.",
+    gradient: "from-[#F97316] via-[#FACC15] to-[#13C4A3]",
   },
 ];
 
 const process = [
   {
     step: "01",
-    title: "Footage Review",
-    desc: "We review raw clips, brand references, script, music mood and platform requirements.",
+    title: "SEO Audit",
+    desc: "We check technical issues, content gaps, competitors, backlinks, rankings and analytics data.",
   },
   {
     step: "02",
-    title: "Rough Cut",
-    desc: "We build the story structure, select the best shots and set the video pacing.",
+    title: "Strategy",
+    desc: "We create a keyword, content and optimization roadmap based on business goals.",
   },
   {
     step: "03",
-    title: "Effects & Polish",
-    desc: "We add captions, transitions, motion graphics, sound design and color correction.",
+    title: "Optimization",
+    desc: "We improve pages, speed, metadata, internal links, content quality and local visibility.",
   },
   {
     step: "04",
-    title: "Final Export",
-    desc: "You get ready-to-upload files in the required sizes for each platform.",
+    title: "Tracking",
+    desc: "We monitor rankings, traffic, leads and opportunities to keep improving performance.",
   },
 ];
 
 const deliverables = [
-  "Vertical reels",
-  "YouTube exports",
-  "Captioned versions",
-  "Ad-ready ratios",
-  "Thumbnail frames",
-  "Revision support",
+  "SEO audit report",
+  "Keyword strategy",
+  "On-page fixes",
+  "Technical fixes",
+  "Content roadmap",
+  "Monthly report",
 ];
 
-const VideoEditing = () => {
+const stats = [
+  {
+    value: "120+",
+    label: "SEO Pages Optimized",
+  },
+  {
+    value: "3X",
+    label: "Organic Growth Focus",
+  },
+  {
+    value: "40+",
+    label: "Ranking Factors Checked",
+  },
+];
+
+const SEOOptimization = () => {
   return (
     <MainLayout>
       <section className="relative overflow-hidden bg-[#F8FAFC] py-20 md:py-28">
@@ -133,23 +149,23 @@ const VideoEditing = () => {
                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
 
                 <p className="text-primary font-semibold uppercase tracking-[3px] text-xs md:text-sm">
-                  Video Editing
+                  SEO Optimization
                 </p>
               </div>
 
               <h1 className="text-[40px] sm:text-[56px] md:text-[76px] font-bold font-outfit text-dark leading-[1.02] mt-8">
-                Professional Video Editing Services
+                Rank Higher And Get More Organic Leads
               </h1>
 
               <p className="paragraph mt-7 text-[15px] md:text-[18px] max-w-2xl">
-                High-quality editing for reels, ads, YouTube videos and
-                business promotions with smooth cuts, premium effects and
-                platform-ready exports.
+                We improve your website visibility with technical SEO, keyword
+                strategy, on-page optimization, content planning and local SEO
+                built for long-term growth.
               </p>
 
               <div className="flex flex-wrap gap-4 mt-10">
                 <Link to="/contact" className="gradient-btn">
-                  Start Editing Project
+                  Get SEO Audit
                   <HiArrowRight />
                 </Link>
 
@@ -157,7 +173,7 @@ const VideoEditing = () => {
                   to="/portfolio"
                   className="h-[56px] px-8 rounded-full border border-gray-200 bg-white text-[#071120] font-semibold flex items-center justify-center hover:bg-[#071120] hover:text-white transition-all duration-300"
                 >
-                  View Work
+                  View Results
                 </Link>
               </div>
             </div>
@@ -165,32 +181,61 @@ const VideoEditing = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-primary/10 blur-[90px] rounded-full" />
 
-              <div className="relative overflow-hidden rounded-[36px] border border-gray-200 bg-white p-5 shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
-                <div className="relative overflow-hidden rounded-[28px] bg-[#071120]">
-                  <video
-                    src={videoPreview}
-                    className="w-full h-[360px] md:h-[520px] object-cover opacity-90"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
+              <div className="relative bg-white border border-gray-200 rounded-[36px] p-6 shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
+                <div className="rounded-[28px] bg-[#071120] p-6 md:p-8 overflow-hidden relative">
+                  <div className="absolute -right-16 -top-16 w-52 h-52 rounded-full bg-primary/20" />
+                  <div className="absolute -left-10 bottom-0 w-44 h-44 rounded-full bg-[#22C55E]/10" />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#071120]/70 via-transparent to-transparent" />
+                  <div className="relative grid gap-5">
+                    <div className="bg-white/8 border border-white/10 rounded-[24px] p-6">
+                      <div className="flex items-center justify-between gap-4">
+                        <div>
+                          <p className="text-white/60 text-xs uppercase tracking-[2px] font-semibold">
+                            Organic Traffic
+                          </p>
 
-                  <div className="absolute left-6 bottom-6 right-6 flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-white/70 text-xs font-semibold uppercase tracking-[2px]">
-                        Preview Timeline
-                      </p>
+                          <h3 className="text-white text-[42px] font-bold mt-2">
+                            +186%
+                          </h3>
+                        </div>
 
-                      <h3 className="text-white text-[26px] font-bold mt-2">
-                        Reels, Ads & Promos
-                      </h3>
+                        <div className="w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center text-3xl">
+                          <HiOutlineChartBar />
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="w-14 h-14 rounded-full bg-white text-primary flex items-center justify-center text-2xl shrink-0">
-                      <HiOutlinePlay />
+                    <div className="grid grid-cols-2 gap-5">
+                      {stats.slice(0, 2).map((item) => (
+                        <div
+                          key={item.label}
+                          className="bg-white/8 border border-white/10 rounded-[22px] p-5"
+                        >
+                          <h3 className="text-white text-[30px] font-bold">
+                            {item.value}
+                          </h3>
+
+                          <p className="text-white/60 text-sm mt-2">
+                            {item.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="bg-white rounded-[24px] p-5 flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl">
+                        <HiOutlineCursorClick />
+                      </div>
+
+                      <div>
+                        <h3 className="text-[#071120] text-[22px] font-bold">
+                          Search Visibility
+                        </h3>
+
+                        <p className="text-gray-500 text-sm mt-1">
+                          Better rankings, clicks and qualified leads.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -207,17 +252,17 @@ const VideoEditing = () => {
               <span className="w-2 h-2 rounded-full bg-primary" />
 
               <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
-                Editing Services
+                SEO Services
               </p>
             </div>
 
             <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold font-outfit text-dark leading-[1.05] mt-8">
-              Video Content Built For Views And Leads
+              Everything Your Website Needs To Rank Better
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
-            {editingServices.map((item) => (
+            {seoServices.map((item) => (
               <div
                 key={item.title}
                 className="group bg-[#F8FAFC] rounded-[30px] p-8 border border-gray-200 hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_20px_60px_rgba(2,6,23,0.06)] transition-all duration-300"
@@ -250,12 +295,12 @@ const VideoEditing = () => {
               </div>
 
               <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold font-outfit text-dark leading-[1.05] mt-8">
-                Edited With Professional Production Tools
+                SEO Decisions Backed By Data
               </h2>
 
               <p className="paragraph mt-6 max-w-xl">
-                We use the right software for each type of edit, from social
-                reels and YouTube videos to motion graphics and ad creatives.
+                We use trusted SEO and analytics tools to find search demand,
+                technical issues, content gaps and ranking opportunities.
               </p>
             </div>
 
@@ -266,7 +311,7 @@ const VideoEditing = () => {
                   className="bg-white rounded-[28px] p-7 border border-gray-200 shadow-[0_12px_40px_rgba(15,23,42,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)] transition-all duration-300"
                 >
                   <div className="w-16 h-16 rounded-2xl bg-[#EEF4FF] text-primary flex items-center justify-center text-3xl">
-                    <HiOutlineFilm />
+                    <HiOutlineChartPie />
                   </div>
 
                   <h3 className="text-[22px] font-bold text-dark mt-6">
@@ -274,8 +319,7 @@ const VideoEditing = () => {
                   </h3>
 
                   <p className="text-gray-500 text-[14px] leading-[1.8] mt-3">
-                    Used for editing, effects, audio, color and platform
-                    exports.
+                    Used for audits, tracking, research and growth reporting.
                   </p>
                 </div>
               ))}
@@ -291,12 +335,12 @@ const VideoEditing = () => {
               <span className="w-2 h-2 rounded-full bg-primary" />
 
               <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
-                Recent Projects
+                Recent SEO Work
               </p>
             </div>
 
             <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold font-outfit text-dark leading-[1.05] mt-8">
-              Work We Have Edited Recently
+              Projects Focused On Visibility And Leads
             </h2>
           </div>
 
@@ -317,11 +361,11 @@ const VideoEditing = () => {
                   </span>
 
                   <div className="relative">
-                    <div className="w-14 h-14 rounded-full bg-white/15 border border-white/20 text-white flex items-center justify-center text-2xl mb-5">
-                      <HiOutlinePlay />
-                    </div>
+                    <p className="text-white/70 text-sm font-semibold uppercase tracking-[2px]">
+                      SEO Campaign
+                    </p>
 
-                    <h3 className="text-white text-[30px] font-bold">
+                    <h3 className="text-white text-[30px] font-bold mt-2">
                       {project.title}
                     </h3>
                   </div>
@@ -334,7 +378,7 @@ const VideoEditing = () => {
                     to="/portfolio"
                     className="inline-flex items-center gap-3 text-primary font-semibold mt-7 group-hover:translate-x-2 transition-all duration-300"
                   >
-                    View Project
+                    View Details
                     <HiArrowRight />
                   </Link>
                 </div>
@@ -352,12 +396,12 @@ const VideoEditing = () => {
                 <span className="w-2 h-2 rounded-full bg-primary" />
 
                 <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
-                  Workflow
+                  SEO Process
                 </p>
               </div>
 
               <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold font-outfit text-dark leading-[1.05] mt-8">
-                Clear Editing Process From Raw Footage To Final Video
+                A Clear Process For Sustainable Organic Growth
               </h2>
 
               <div className="grid sm:grid-cols-2 gap-5 mt-10">
@@ -411,16 +455,16 @@ const VideoEditing = () => {
             <div className="relative z-10 grid lg:grid-cols-[1fr_auto] gap-10 items-center">
               <div>
                 <p className="text-primary font-semibold uppercase tracking-[3px] text-[12px]">
-                  Ready To Create Better Videos?
+                  Ready To Grow On Google?
                 </p>
 
                 <h2 className="text-[36px] sm:text-[50px] md:text-[64px] font-bold font-outfit text-white leading-[1.05] mt-5">
-                  Send Raw Clips And Get A Polished Final Edit
+                  Get An SEO Plan For Your Website
                 </h2>
 
                 <p className="text-white/70 text-[15px] md:text-[18px] leading-[1.9] mt-6 max-w-2xl">
-                  Share your content goal and we will edit videos that look
-                  sharp, hold attention and are ready for posting.
+                  Share your website and business goals. We will review your
+                  SEO opportunities and suggest the next best growth steps.
                 </p>
               </div>
 
@@ -439,4 +483,4 @@ const VideoEditing = () => {
   );
 };
 
-export default VideoEditing;
+export default SEOOptimization;

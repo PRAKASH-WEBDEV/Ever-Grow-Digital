@@ -9,6 +9,8 @@ import WebDevelopment from "../pages/WebDevelopment";
 import DigitalMarketing from "../pages/DigitalMarketing";
 import GraphicsDesigning from "../pages/GraphicsDesigning";
 import VideoEditing from "../pages/VideoEditing";
+import SEOOptimization from "../pages/seo-optimization";
+import AIAutomation from "../pages/ai-automation";
 import Portfolio from "../pages/Portfolio";
 import Blog from "../pages/Blog";
 import SingleBlog from "../pages/SingleBlog";
@@ -38,6 +40,16 @@ const AppRoutes = () => {
         <Route
           path="/video-editing"
           element={<VideoEditing />}
+        />
+
+        <Route
+          path="/seo-optimization"
+          element={<SEOOptimization />}
+        />
+
+        <Route
+          path="/ai-automation"
+          element={<AIAutomation />}
         />
 
         <Route path="/portfolio" element={<Portfolio />} />

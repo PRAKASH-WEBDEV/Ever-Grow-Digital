@@ -1,5 +1,5 @@
 import MainLayout from "../layouts/MainLayout";
-import { useNavigate } from "react-router-dom";
+
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
@@ -303,7 +303,6 @@ const Home = () => {
       {/* =========================================
     TOAST
 ========================================= */}
-
       {toast.show && (
         <div className="fixed top-5 right-5 z-[99999] animate-[toast_0.4s_ease]">
           <div
@@ -1668,8 +1667,7 @@ const Home = () => {
       {/* =========================================
     LATEST BLOG SECTION
 ========================================= */}
-
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-white">
+      <section className="relative py-16 md:py-20 lg:py-28 overflow-hidden bg-white">
         {/* BACKGROUND */}
 
         <div className="absolute inset-0 bg-[#F8FBFF]" />
@@ -1680,14 +1678,25 @@ const Home = () => {
 
         {/* BLUR */}
 
-        <div className="absolute top-[-120px] left-[-80px] w-[320px] h-[320px] bg-[#1D4ED8]/10 rounded-full blur-[100px]" />
+        <div className="absolute top-[-120px] left-[-80px] w-[220px] md:w-[320px] h-[220px] md:h-[320px] bg-[#1D4ED8]/10 rounded-full blur-[100px]" />
 
-        <div className="absolute bottom-[-120px] right-[-80px] w-[320px] h-[320px] bg-[#22C55E]/10 rounded-full blur-[100px]" />
+        <div className="absolute bottom-[-120px] right-[-80px] w-[220px] md:w-[320px] h-[220px] md:h-[320px] bg-[#22C55E]/10 rounded-full blur-[100px]" />
 
         {/* CONTAINER */}
 
         <div className="container-custom relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-[420px_1fr] gap-14 lg:gap-20 items-center">
+          <div
+            className="
+        grid
+        grid-cols-1
+        lg:grid-cols-[400px_1fr]
+
+        gap-12
+        lg:gap-20
+
+        items-center
+      "
+          >
             {/* =========================================
           LEFT
       ========================================= */}
@@ -1705,6 +1714,7 @@ const Home = () => {
                 duration: 0.6,
               }}
               viewport={{ once: true }}
+              className="text-center lg:text-left"
             >
               {/* BADGE */}
 
@@ -1714,7 +1724,9 @@ const Home = () => {
             items-center
             gap-2
 
-            px-5
+            px-4
+            md:px-5
+
             py-2.5
 
             rounded-full
@@ -1725,7 +1737,10 @@ const Home = () => {
             border-[#DCE8FF]
 
             text-[#1D4ED8]
-            text-sm
+
+            text-xs
+            md:text-sm
+
             font-semibold
 
             shadow-sm
@@ -1737,21 +1752,51 @@ const Home = () => {
 
               {/* HEADING */}
 
-              <h2 className="heading-lg mt-7">
+              <h2
+                className="
+            mt-6
+
+            text-[30px]
+            sm:text-[38px]
+            md:text-[48px]
+
+            font-bold
+
+            leading-[1.1]
+
+            text-[#071120]
+          "
+              >
                 Latest Insights &
                 <span className="block text-[#1D4ED8]">Marketing Blogs</span>
               </h2>
 
               {/* TEXT */}
 
-              <p className="paragraph mt-7 max-w-md">
+              <p
+                className="
+            mt-6
+
+            text-[15px]
+            md:text-[16px]
+
+            leading-[1.9]
+
+            text-[#64748B]
+
+            max-w-md
+
+            mx-auto
+            lg:mx-0
+          "
+              >
                 Explore SEO strategies, branding ideas, digital marketing tips
                 and modern business growth insights from EverGrow Digital.
               </p>
 
               {/* BUTTON */}
 
-              <div className="mt-10">
+              <div className="mt-8 md:mt-10">
                 <Link
                   to="/blog"
                   className="
@@ -1759,14 +1804,21 @@ const Home = () => {
               items-center
               justify-center
 
-              h-[56px]
-              px-8
+              h-[52px]
+              md:h-[56px]
+
+              px-7
+              md:px-8
 
               rounded-full
 
               bg-[#1D4ED8]
 
               text-white
+
+              text-sm
+              md:text-[15px]
+
               font-semibold
 
               hover:bg-[#1840C4]
@@ -1784,7 +1836,7 @@ const Home = () => {
           RIGHT SLIDER
       ========================================= */}
 
-            <div className="blog-slider-wrapper">
+            <div className="blog-slider-wrapper overflow-hidden">
               <div className="blog-slider-track">
                 {[...blogs, ...blogs].map((blog, index) => (
                   <motion.div
@@ -1805,15 +1857,16 @@ const Home = () => {
                     className="
                 group
 
-                blog-card
+                flex-shrink-0
 
-                min-w-[280px]
-                sm:min-w-[320px]
-                md:min-w-[360px]
+                w-[280px]
+                sm:w-[320px]
+                md:w-[360px]
 
                 bg-white
 
-                rounded-[30px]
+                rounded-[24px]
+                md:rounded-[30px]
 
                 border
                 border-[#EAF2FF]
@@ -1837,7 +1890,10 @@ const Home = () => {
                         alt={blog.title}
                         className="
                     w-full
-                    h-[230px]
+
+                    h-[200px]
+                    sm:h-[220px]
+                    md:h-[230px]
 
                     object-cover
 
@@ -1850,18 +1906,22 @@ const Home = () => {
 
                       {/* CATEGORY */}
 
-                      <div className="absolute top-5 left-5">
+                      <div className="absolute top-4 left-4">
                         <span
                           className="
                       bg-white/90
                       backdrop-blur-md
 
-                      px-4
+                      px-3
+                      md:px-4
+
                       py-2
 
                       rounded-full
 
-                      text-[13px]
+                      text-[11px]
+                      md:text-[13px]
+
                       font-semibold
 
                       text-[#1D4ED8]
@@ -1877,17 +1937,20 @@ const Home = () => {
 
                     {/* CONTENT */}
 
-                    <div className="p-7">
+                    <div className="p-5 md:p-7">
                       {/* TITLE */}
 
                       <h3
                         className="
-                    text-[28px]
+                    text-[22px]
+                    sm:text-[24px]
+                    md:text-[28px]
+
                     font-bold
 
                     text-[#071120]
 
-                    leading-[1.2]
+                    leading-[1.25]
 
                     transition-all
                     duration-300
@@ -1900,7 +1963,21 @@ const Home = () => {
 
                       {/* DESC */}
 
-                      <p className="paragraph mt-5">{blog.description}</p>
+                      <p
+                        className="
+                    mt-4
+                    md:mt-5
+
+                    text-[14px]
+                    md:text-[15px]
+
+                    leading-[1.8]
+
+                    text-[#64748B]
+                  "
+                      >
+                        {blog.description}
+                      </p>
 
                       {/* BUTTON */}
 
@@ -1910,9 +1987,14 @@ const Home = () => {
                     inline-flex
                     items-center
 
-                    mt-7
+                    mt-6
+                    md:mt-7
 
                     text-[#1D4ED8]
+
+                    text-sm
+                    md:text-[15px]
+
                     font-semibold
 
                     transition-all
@@ -1932,33 +2014,74 @@ const Home = () => {
         </div>
       </section>
 
-       {/* =========================================
-   Start here ..........................................................................
-========================================= */}
-
       {/* =========================================
-   TECHNOLOGIES SECTION
+    TECHNOLOGIES SECTION
 ========================================= */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden">
-        <div className="container-custom">
-          {/* TOP */}
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white">
+        {/* BACKGROUND */}
+
+        <div className="absolute inset-0 bg-[#F8FBFF]" />
+
+        {/* GRID */}
+
+        <div className="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#1D4ED8_1px,transparent_1px),linear-gradient(to_bottom,#1D4ED8_1px,transparent_1px)] bg-[size:72px_72px]" />
+
+        {/* BLUR */}
+
+        <div className="absolute top-[-120px] left-[-80px] w-[320px] h-[320px] bg-[#1D4ED8]/10 rounded-full blur-[100px]" />
+
+        <div className="absolute bottom-[-120px] right-[-80px] w-[320px] h-[320px] bg-[#22C55E]/10 rounded-full blur-[100px]" />
+
+        {/* CONTAINER */}
+
+        <div className="container-custom relative z-10">
+          {/* =========================================
+        TOP
+    ========================================= */}
 
           <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+            {/* BADGE */}
 
-              <p className="text-primary font-semibold uppercase tracking-[3px] text-xs md:text-sm">
-                Technologies We Use
-              </p>
+            <div
+              className="
+          inline-flex
+          items-center
+          gap-2
+
+          px-5
+          py-2.5
+
+          rounded-full
+
+          bg-white
+
+          border
+          border-[#DCE8FF]
+
+          text-[#1D4ED8]
+          text-sm
+          font-semibold
+
+          shadow-sm
+        "
+            >
+              <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
+              Technologies We Use
             </div>
 
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-outfit text-dark leading-tight mt-7">
-              Modern Technologies We Use To Build Digital Products
+            {/* HEADING */}
+
+            <h2 className="heading-lg mt-7 max-w-4xl">
+              Modern Technologies
+              <span className="block text-[#1D4ED8]">We Use To Build</span>
+              Premium Digital Products
             </h2>
 
-            <p className="paragraph mt-7 text-base md:text-lg leading-relaxed">
-              We use modern frontend, backend, AI, and eCommerce technologies to
-              build fast, scalable, and premium digital products.
+            {/* TEXT */}
+
+            <p className="paragraph mt-7 max-w-2xl">
+              We use modern frontend, backend, AI and eCommerce technologies to
+              create fast, scalable and premium digital experiences.
             </p>
           </div>
         </div>
@@ -1967,13 +2090,64 @@ const Home = () => {
       FIRST ROW
   ========================================= */}
 
-        <div className="tech-slider-wrapper mt-16">
+        <div className="tech-slider-wrapper mt-20">
           <div className="tech-slider-track">
             {[...technologiesTop, ...technologiesTop].map((tech, index) => (
-              <div key={index} className="tech-card">
-                <div className="tech-icon">{tech.icon}</div>
+              <div
+                key={index}
+                className="
+              group
 
-                <h3 className="tech-name">{tech.name}</h3>
+              tech-card
+
+              bg-white
+
+              border
+              border-[#EAF2FF]
+
+              shadow-[0_15px_40px_rgba(15,23,42,0.05)]
+
+              hover:-translate-y-2
+              hover:border-[#D7E7FF]
+
+              transition-all
+              duration-500
+            "
+              >
+                {/* ICON */}
+
+                <div
+                  className="
+                tech-icon
+
+                text-[#1D4ED8]
+
+                transition-all
+                duration-500
+
+                group-hover:text-[#22C55E]
+                group-hover:scale-110
+              "
+                >
+                  {tech.icon}
+                </div>
+
+                {/* NAME */}
+
+                <h3
+                  className="
+                tech-name
+
+                text-[#071120]
+
+                transition-all
+                duration-300
+
+                group-hover:text-[#1D4ED8]
+              "
+                >
+                  {tech.name}
+                </h3>
               </div>
             ))}
           </div>
@@ -1987,10 +2161,61 @@ const Home = () => {
           <div className="tech-slider-track reverse-tech-slider">
             {[...technologiesBottom, ...technologiesBottom].map(
               (tech, index) => (
-                <div key={index} className="tech-card">
-                  <div className="tech-icon">{tech.icon}</div>
+                <div
+                  key={index}
+                  className="
+              group
 
-                  <h3 className="tech-name">{tech.name}</h3>
+              tech-card
+
+              bg-white
+
+              border
+              border-[#EAF2FF]
+
+              shadow-[0_15px_40px_rgba(15,23,42,0.05)]
+
+              hover:-translate-y-2
+              hover:border-[#D7E7FF]
+
+              transition-all
+              duration-500
+            "
+                >
+                  {/* ICON */}
+
+                  <div
+                    className="
+                tech-icon
+
+                text-[#1D4ED8]
+
+                transition-all
+                duration-500
+
+                group-hover:text-[#22C55E]
+                group-hover:scale-110
+              "
+                  >
+                    {tech.icon}
+                  </div>
+
+                  {/* NAME */}
+
+                  <h3
+                    className="
+                tech-name
+
+                text-[#071120]
+
+                transition-all
+                duration-300
+
+                group-hover:text-[#1D4ED8]
+              "
+                  >
+                    {tech.name}
+                  </h3>
                 </div>
               ),
             )}
@@ -1999,37 +2224,78 @@ const Home = () => {
       </section>
 
       {/* =========================================
-   RECENT PROJECTS STACK SLIDER
+    RECENT PROJECTS SECTION
 ========================================= */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden">
-        <div className="container-custom">
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white">
+        {/* BACKGROUND */}
+
+        <div className="absolute inset-0 bg-[#F8FBFF]" />
+
+        {/* GRID */}
+
+        <div className="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#1D4ED8_1px,transparent_1px),linear-gradient(to_bottom,#1D4ED8_1px,transparent_1px)] bg-[size:72px_72px]" />
+
+        {/* BLUR */}
+
+        <div className="absolute top-[-120px] left-[-80px] w-[320px] h-[320px] bg-[#1D4ED8]/10 rounded-full blur-[100px]" />
+
+        <div className="absolute bottom-[-120px] right-[-80px] w-[320px] h-[320px] bg-[#22C55E]/10 rounded-full blur-[100px]" />
+
+        {/* CONTAINER */}
+
+        <div className="container-custom relative z-10">
           {/* TOP */}
 
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+          <div className="max-w-3xl mx-auto text-center">
+            {/* BADGE */}
 
-              <p className="text-primary font-semibold uppercase tracking-[3px] text-xs md:text-sm">
-                Our Latest Work
-              </p>
+            <div
+              className="
+          inline-flex
+          items-center
+          gap-2
+
+          px-5
+          py-2.5
+
+          rounded-full
+
+          bg-white
+
+          border
+          border-[#DCE8FF]
+
+          text-[#1D4ED8]
+          text-sm
+          font-semibold
+
+          shadow-sm
+        "
+            >
+              <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
+              Featured Projects
             </div>
 
-            <h2 className="text-4xl md:text-6xl font-bold font-outfit text-dark mt-7">
-              Recent Projects
+            {/* HEADING */}
+
+            <h2 className="heading-lg mt-7">
+              Recent Projects &
+              <span className="block text-[#1D4ED8]">Digital Experiences</span>
             </h2>
 
-            <p className="paragraph mt-6 text-base md:text-lg">
-              Showcasing our latest innovations and successful client solutions
+            {/* TEXT */}
+
+            <p className="paragraph mt-7 max-w-2xl mx-auto">
+              Explore premium websites, branding projects and digital
+              experiences designed for modern businesses and startups.
             </p>
           </div>
-        </div>
 
-        {/* =========================================
-      STACK SLIDER
-  ========================================= */}
+          {/* =========================================
+        PROJECT GRID
+    ========================================= */}
 
-        <div className="stack-slider">
-          <div className="stack-track">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-20">
             {[
               {
                 title: "Kidzee Hub",
@@ -2090,74 +2356,487 @@ const Home = () => {
 
                 link: "https://decentsquare.com/",
               },
-
-              /* DUPLICATE */
-
-              {
-                title: "Kidzee Hub",
-                category: "Education Website",
-
-                image:
-                  "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
-
-                link: "https://kidzeehub.com/",
-              },
-
-              {
-                title: "Ajjars",
-                category: "eCommerce Store",
-
-                image:
-                  "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop",
-
-                link: "https://www.ajjars.com/",
-              },
             ].map((project, index) => (
               <a
                 key={index}
                 href={project.link}
                 target="_blank"
                 rel="noreferrer"
-                className={`
-            stack-card
+                className="
+            group
 
-            ${
-              index % 5 === 0
-                ? "center-card"
-                : index % 2 === 0
-                  ? "left-card"
-                  : "right-card"
-            }
-          `}
+            relative
+
+            bg-white
+
+            border
+            border-[#E4EEFF]
+
+            rounded-[32px]
+
+            overflow-hidden
+
+            shadow-[0_15px_40px_rgba(15,23,42,0.05)]
+
+            hover:-translate-y-2
+            hover:border-[#D7E7FF]
+
+            transition-all
+            duration-500
+          "
               >
                 {/* IMAGE */}
 
-                <div className="stack-image-wrapper">
+                <div className="relative overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="stack-image"
+                    className="
+                w-full
+                h-[260px]
+
+                object-cover
+
+                transition-all
+                duration-700
+
+                group-hover:scale-105
+              "
                   />
 
-                  <div className="stack-overlay">
-                    <span className="stack-category">{project.category}</span>
+                  {/* OVERLAY */}
+
+                  <div
+                    className="
+                absolute
+                inset-0
+
+                bg-gradient-to-t
+                from-[#071120]/70
+                via-transparent
+                to-transparent
+              "
+                  />
+
+                  {/* CATEGORY */}
+
+                  <div className="absolute top-5 left-5">
+                    <span
+                      className="
+                  inline-flex
+                  items-center
+
+                  px-4
+                  py-2
+
+                  rounded-full
+
+                  bg-white/90
+                  backdrop-blur-md
+
+                  text-[#1D4ED8]
+                  text-[13px]
+                  font-semibold
+
+                  border
+                  border-white/40
+                "
+                    >
+                      {project.category}
+                    </span>
                   </div>
                 </div>
 
                 {/* CONTENT */}
 
-                <div className="stack-content">
-                  <h3 className="stack-title">{project.title}</h3>
+                <div className="p-7">
+                  {/* TITLE */}
 
-                  <p className="stack-description">
-                    Premium digital experience designed for branding, growth and
-                    conversions.
+                  <h3
+                    className="
+                text-[28px]
+                font-bold
+
+                text-[#071120]
+
+                leading-[1.2]
+
+                transition-all
+                duration-300
+
+                group-hover:text-[#1D4ED8]
+              "
+                  >
+                    {project.title}
+                  </h3>
+
+                  {/* TEXT */}
+
+                  <p className="paragraph mt-5">
+                    Premium digital solutions crafted for branding, engagement
+                    and business growth.
                   </p>
 
-                  <span className="stack-link">View Case Study ↗</span>
+                  {/* LINK */}
+
+                  <div
+                    className="
+                inline-flex
+                items-center
+
+                mt-6
+
+                text-[#1D4ED8]
+                font-semibold
+
+                transition-all
+                duration-300
+
+                group-hover:translate-x-2
+              "
+                  >
+                    View Project →
+                  </div>
                 </div>
               </a>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================
+    AGENCY VIDEO SECTION
+========================================= */}
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white">
+        {/* BACKGROUND */}
+
+        <div className="absolute inset-0 bg-[#F8FBFF]" />
+
+        {/* GRID */}
+
+        <div className="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#1D4ED8_1px,transparent_1px),linear-gradient(to_bottom,#1D4ED8_1px,transparent_1px)] bg-[size:72px_72px]" />
+
+        {/* BLUR */}
+
+        <div className="absolute top-[-120px] left-[-80px] w-[320px] h-[320px] bg-[#1D4ED8]/10 rounded-full blur-[100px]" />
+
+        <div className="absolute bottom-[-120px] right-[-80px] w-[320px] h-[320px] bg-[#22C55E]/10 rounded-full blur-[100px]" />
+
+        {/* CONTAINER */}
+
+        <div className="container-custom relative z-10">
+          <div
+            className="
+        grid
+        grid-cols-1
+        lg:grid-cols-2
+
+        gap-14
+        lg:gap-20
+
+        items-center
+      "
+          >
+            {/* =========================================
+          LEFT CONTENT
+      ========================================= */}
+
+            <div>
+              {/* BADGE */}
+
+              <div
+                className="
+            inline-flex
+            items-center
+            gap-2
+
+            px-5
+            py-2.5
+
+            rounded-full
+
+            bg-white
+
+            border
+            border-[#DCE8FF]
+
+            text-[#1D4ED8]
+            text-sm
+            font-semibold
+
+            shadow-sm
+          "
+              >
+                <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
+                Agency Introduction
+              </div>
+
+              {/* HEADING */}
+
+              <h2 className="heading-lg mt-7">
+                Creative Digital
+                <span className="block text-[#1D4ED8]">Solutions For</span>
+                Modern Businesses
+              </h2>
+
+              {/* TEXT */}
+
+              <p className="paragraph mt-7 max-w-xl">
+                We help startups and businesses grow with premium website
+                development, SEO marketing, branding, AI automation and creative
+                digital experiences.
+              </p>
+
+              {/* FEATURES */}
+
+              <div className="space-y-5 mt-10">
+                {[
+                  "Modern Website Development",
+                  "SEO & Digital Marketing",
+                  "Branding & Creative Design",
+                  "AI Automation Solutions",
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="
+                flex
+                items-center
+                gap-4
+              "
+                  >
+                    {/* DOT */}
+
+                    <div
+                      className="
+                  w-10
+                  h-10
+
+                  rounded-full
+
+                  bg-[#EEF4FF]
+
+                  border
+                  border-[#DCE8FF]
+
+                  flex
+                  items-center
+                  justify-center
+
+                  text-[#1D4ED8]
+                  font-bold
+                "
+                    >
+                      ✓
+                    </div>
+
+                    {/* TEXT */}
+
+                    <p
+                      className="
+                  text-[#071120]
+
+                  text-[16px]
+                  md:text-[17px]
+
+                  font-semibold
+                "
+                    >
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+              {/* BUTTON */}
+
+              <button
+                className="
+            mt-10
+
+            inline-flex
+            items-center
+            justify-center
+
+            px-8
+            py-4
+
+            rounded-full
+
+            bg-[#1D4ED8]
+
+            text-white
+            font-semibold
+
+            shadow-[0_15px_40px_rgba(29,78,216,0.25)]
+
+            hover:-translate-y-1
+            hover:bg-[#1746C9]
+
+            transition-all
+            duration-300
+          "
+              >
+                Explore Services
+              </button>
+            </div>
+
+            {/* =========================================
+          RIGHT VIDEO
+      ========================================= */}
+
+            <div className="relative">
+              {/* GLOW */}
+
+              <div className="absolute inset-0 bg-[#1D4ED8]/10 blur-[80px] rounded-full scale-90" />
+
+              {/* VIDEO CARD */}
+
+              <div
+                className="
+            relative
+
+            overflow-hidden
+
+            rounded-[34px]
+
+            border
+            border-[#E4EEFF]
+
+            bg-white
+
+            shadow-[0_25px_80px_rgba(15,23,42,0.10)]
+          "
+              >
+                {/* TOP BAR */}
+
+                <div
+                  className="
+              flex
+              items-center
+              gap-2
+
+              px-6
+              py-5
+
+              border-b
+              border-[#EEF4FF]
+
+              bg-[#F8FBFF]
+            "
+                >
+                  <span className="w-3 h-3 rounded-full bg-red-400" />
+
+                  <span className="w-3 h-3 rounded-full bg-yellow-400" />
+
+                  <span className="w-3 h-3 rounded-full bg-green-400" />
+                </div>
+
+                {/* VIDEO */}
+
+                <div className="relative overflow-hidden">
+                  <video
+                    src="/src/assets/Video-1.mp4"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="
+                w-full
+
+                h-[260px]
+                sm:h-[380px]
+                lg:h-[500px]
+
+                object-cover
+              "
+                  />
+
+                  {/* OVERLAY */}
+
+                  <div
+                    className="
+                absolute
+                inset-0
+
+                bg-gradient-to-t
+                from-[#071120]/30
+                via-transparent
+                to-transparent
+              "
+                  />
+                </div>
+              </div>
+
+              {/* FLOATING CARD */}
+
+              <div
+                className="
+            hidden
+            md:flex
+
+            absolute
+            -bottom-8
+            -left-8
+
+            items-center
+            gap-5
+
+            px-6
+            py-5
+
+            rounded-3xl
+
+            bg-white/90
+
+            backdrop-blur-xl
+
+            border
+            border-[#E4EEFF]
+
+            shadow-[0_20px_60px_rgba(15,23,42,0.10)]
+          "
+              >
+                {/* NUMBER */}
+
+                <div>
+                  <h3
+                    className="
+                text-3xl
+                font-bold
+
+                text-[#1D4ED8]
+              "
+                  >
+                    150+
+                  </h3>
+
+                  <p className="text-sm text-gray-500 mt-1">
+                    Projects Delivered
+                  </p>
+                </div>
+
+                {/* LINE */}
+
+                <div className="w-[1px] h-12 bg-[#E4EEFF]" />
+
+                {/* TEXT */}
+
+                <div>
+                  <h4
+                    className="
+                text-[#071120]
+                font-semibold
+              "
+                  >
+                    Premium Digital Agency
+                  </h4>
+
+                  <p className="text-sm text-gray-500 mt-1">
+                    Trusted by modern brands
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -2171,7 +2850,7 @@ const Home = () => {
 
           <div className="text-center max-w-4xl mx-auto">
             <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+              <span className="w-2.5 h-2.5 rounded-full bg-[#22C55E]" />
 
               <p className="text-primary font-semibold uppercase tracking-[3px] text-xs md:text-sm">
                 FAQs
@@ -2389,167 +3068,576 @@ const Home = () => {
       </section>
 
       {/* =========================================
-   CONTACT SECTION
+    CONTACT SECTION
 ========================================= */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden">
-        <div className="container-custom">
-          {/* TOP */}
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-white">
+        {/* BACKGROUND */}
+
+        <div className="absolute inset-0 bg-[#F8FBFF]" />
+
+        {/* GRID */}
+
+        <div className="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#1D4ED8_1px,transparent_1px),linear-gradient(to_bottom,#1D4ED8_1px,transparent_1px)] bg-[size:72px_72px]" />
+
+        {/* BLUR */}
+
+        <div className="absolute top-[-120px] left-[-80px] w-[320px] h-[320px] bg-[#1D4ED8]/10 rounded-full blur-[100px]" />
+
+        <div className="absolute bottom-[-120px] right-[-80px] w-[320px] h-[320px] bg-[#22C55E]/10 rounded-full blur-[100px]" />
+
+        {/* CONTAINER */}
+
+        <div className="container-custom relative z-10">
+          {/* =========================================
+        TOP
+    ========================================= */}
 
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+            {/* BADGE */}
 
-              <p className="text-primary font-semibold uppercase tracking-[3px] text-xs md:text-sm">
-                Contact Us
-              </p>
+            <div
+              className="
+          inline-flex
+          items-center
+          gap-2
+
+          px-5
+          py-2.5
+
+          rounded-full
+
+          bg-white
+
+          border
+          border-[#DCE8FF]
+
+          text-[#1D4ED8]
+          text-sm
+          font-semibold
+
+          shadow-sm
+        "
+            >
+              <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
+              Contact Us
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold font-outfit text-dark mt-6">
-              Let’s Grow Your Business
+            {/* HEADING */}
+
+            <h2 className="heading-lg mt-7">
+              Let’s Build Something
+              <span className="block text-[#1D4ED8]">Amazing Together</span>
             </h2>
 
-            <p className="paragraph mt-5 text-base md:text-lg">
-              Connect with our team for websites, SEO, ads and branding
-              solutions.
+            {/* TEXT */}
+
+            <p className="paragraph mt-7 max-w-2xl mx-auto">
+              Connect with EverGrow Digital for website development, SEO
+              marketing, branding, AI automation and premium digital solutions.
             </p>
           </div>
 
           {/* =========================================
-       SINGLE ROW GRID
+        CONTACT WRAPPER
     ========================================= */}
 
-          <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-6 mt-14">
+          <div
+            className="
+        grid
+        grid-cols-1
+        lg:grid-cols-[1fr_420px]
+
+        gap-8
+
+        mt-20
+      "
+          >
             {/* =========================================
-         NOIDA CARD
+          LEFT CONTACT CARDS
       ========================================= */}
 
-            <div className="bg-white rounded-[28px] p-6 border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300">
-              <div className="flex items-center justify-between">
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-3xl">
-                  📍
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* CARD */}
+
+              <div
+                className="
+            group
+
+            bg-white/90
+
+            backdrop-blur-xl
+
+            border
+            border-[#E4EEFF]
+
+            rounded-[32px]
+
+            p-8
+
+            shadow-[0_15px_40px_rgba(15,23,42,0.05)]
+
+            hover:-translate-y-2
+            hover:border-[#D7E7FF]
+
+            transition-all
+            duration-500
+          "
+              >
+                {/* ICON */}
+
+                <div
+                  className="
+              w-16
+              h-16
+
+              rounded-2xl
+
+              bg-[#EEF4FF]
+
+              border
+              border-[#DCE8FF]
+
+              flex
+              items-center
+              justify-center
+
+              text-3xl
+
+              transition-all
+              duration-500
+
+              group-hover:bg-[#1D4ED8]
+            "
+                >
+                  <span className="group-hover:text-white transition-all duration-500">
+                    📍
+                  </span>
                 </div>
 
-                <span className="px-4 py-2 rounded-full border border-primary text-primary text-xs font-semibold">
-                  Head Office
-                </span>
+                {/* TITLE */}
+
+                <h3 className="text-[32px] font-bold text-[#071120] mt-7">
+                  Noida
+                </h3>
+
+                {/* TEXT */}
+
+                <p className="paragraph mt-4">
+                  Sector-62, Noida, Uttar Pradesh, India
+                </p>
+
+                {/* BUTTON */}
+
+                <a
+                  href="tel:+919958938205"
+                  className="
+              inline-flex
+              items-center
+              justify-center
+
+              mt-8
+
+              h-14
+
+              px-7
+
+              rounded-full
+
+              bg-[#1D4ED8]
+
+              text-white
+              font-semibold
+
+              hover:bg-[#1746C9]
+
+              transition-all
+              duration-300
+            "
+                >
+                  +91 9958938205
+                </a>
+              </div>
+              <div
+                className="
+            group
+
+            bg-white/90
+
+            backdrop-blur-xl
+
+            border
+            border-[#E4EEFF]
+
+            rounded-[32px]
+
+            p-8
+
+            shadow-[0_15px_40px_rgba(15,23,42,0.05)]
+
+            hover:-translate-y-2
+            hover:border-[#D7E7FF]
+
+            transition-all
+            duration-500
+          "
+              >
+                {/* ICON */}
+
+                <div
+                  className="
+              w-16
+              h-16
+
+              rounded-2xl
+
+              bg-[#EEF4FF]
+
+              border
+              border-[#DCE8FF]
+
+              flex
+              items-center
+              justify-center
+
+              text-3xl
+
+              transition-all
+              duration-500
+
+              group-hover:bg-[#1D4ED8]
+            "
+                >
+                  <span className="group-hover:text-white transition-all duration-500">
+                    📍
+                  </span>
+                </div>
+
+                {/* TITLE */}
+
+                <h3 className="text-[32px] font-bold text-[#071120] mt-7">
+                  Noida
+                </h3>
+
+                {/* TEXT */}
+
+                <p className="paragraph mt-4">
+                  Sector-62, Noida, Uttar Pradesh, India
+                </p>
+
+                {/* BUTTON */}
+
+                <a
+                  href="tel:+919958938205"
+                  className="
+              inline-flex
+              items-center
+              justify-center
+
+              mt-8
+
+              h-14
+
+              px-7
+
+              rounded-full
+
+              bg-[#1D4ED8]
+
+              text-white
+              font-semibold
+
+              hover:bg-[#1746C9]
+
+              transition-all
+              duration-300
+            "
+                >
+                  +91 9958938205
+                </a>
               </div>
 
-              <h3 className="text-3xl font-bold text-dark mt-6">Noida</h3>
+              {/* CARD */}
 
-              <p className="paragraph mt-3">Sector-62, Noida, India</p>
+              <div
+                className="
+            group
 
-              <a
-                href="tel:+919958938205"
-                className="mt-6 h-14 rounded-2xl bg-gradient-to-r from-primary to-accent text-white flex items-center justify-center text-xl font-bold"
+            bg-white/90
+
+            backdrop-blur-xl
+
+            border
+            border-[#E4EEFF]
+
+            rounded-[32px]
+
+            p-8
+
+            shadow-[0_15px_40px_rgba(15,23,42,0.05)]
+
+            hover:-translate-y-2
+            hover:border-[#D7E7FF]
+
+            transition-all
+            duration-500
+          "
               >
-                +91 9958938205
-              </a>
-            </div>
+                {/* ICON */}
 
-            {/* =========================================
-         MORADABAD CARD
-      ========================================= */}
+                <div
+                  className="
+              w-16
+              h-16
 
-            <div className="bg-white rounded-[28px] p-6 border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300">
-              <div className="flex items-center justify-between">
-                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center text-3xl">
-                  🏢
-                </div>
+              rounded-2xl
 
-                <span className="px-4 py-2 rounded-full border border-dark text-dark text-xs font-semibold">
-                  Branch
-                </span>
-              </div>
+              bg-[#EEF4FF]
 
-              <h3 className="text-3xl font-bold text-dark mt-6">Moradabad</h3>
+              border
+              border-[#DCE8FF]
 
-              <p className="paragraph mt-3">Moradabad, Uttar Pradesh</p>
+              flex
+              items-center
+              justify-center
 
-              <a
-                href="tel:+919958938205"
-                className="mt-6 h-14 rounded-2xl bg-dark text-white flex items-center justify-center text-xl font-bold"
-              >
-                +91 9958938205
-              </a>
-            </div>
+              text-3xl
 
-            {/* =========================================
-         SALES ENQUIRY
-      ========================================= */}
+              transition-all
+              duration-500
 
-            <div className="bg-white rounded-[28px] p-6 border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300">
-              <h3 className="text-3xl font-bold text-dark">Sales Enquiry</h3>
-
-              <div className="space-y-6 mt-8">
-                <div className="flex gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl">
-                    📧
-                  </div>
-
-                  <div>
-                    <p className="font-bold text-dark text-lg">Email</p>
-
-                    <a
-                      href="mailto:demo@growthgarage.in"
-                      className="text-primary font-semibold"
-                    >
-                      demo@growthgarage.in
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-green-100 flex items-center justify-center text-2xl">
+              group-hover:bg-[#1D4ED8]
+            "
+                >
+                  <span className="group-hover:text-white transition-all duration-500">
                     💬
-                  </div>
+                  </span>
+                </div>
 
-                  <div>
-                    <p className="font-bold text-dark text-lg">WhatsApp</p>
+                {/* TITLE */}
 
-                    <a
-                      href="https://wa.me/919958938205"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-primary font-semibold"
-                    >
-                      +91 9958938205
-                    </a>
-                  </div>
+                <h3 className="text-[32px] font-bold text-[#071120] mt-7">
+                  Sales Enquiry
+                </h3>
+
+                {/* EMAIL */}
+
+                <div className="mt-6">
+                  <p className="text-sm text-gray-500">Email Address</p>
+
+                  <a
+                    href="mailto:hello@evergrowdigital.com"
+                    className="
+                inline-block
+
+                mt-2
+
+                text-[#1D4ED8]
+                font-semibold
+
+                break-all
+              "
+                  >
+                    hello@evergrowdigital.com
+                  </a>
+                </div>
+
+                {/* WHATSAPP */}
+
+                <div className="mt-6">
+                  <p className="text-sm text-gray-500">WhatsApp</p>
+
+                  <a
+                    href="https://wa.me/919958938205"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="
+                inline-block
+
+                mt-2
+
+                text-[#1D4ED8]
+                font-semibold
+              "
+                  >
+                    +91 9958938205
+                  </a>
                 </div>
               </div>
             </div>
 
             {/* =========================================
-         QUICK FORM
+          RIGHT FORM
       ========================================= */}
 
-            <div className="bg-white rounded-[28px] p-6 border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.05)] hover:-translate-y-2 transition-all duration-300">
-              <h3 className="text-3xl font-bold text-dark">Quick Contact</h3>
+            <div
+              className="
+          relative
 
-              <form className="space-y-4 mt-8">
+          bg-white/90
+
+          backdrop-blur-xl
+
+          border
+          border-[#E4EEFF]
+
+          rounded-[36px]
+
+          p-8
+          md:p-10
+
+          shadow-[0_20px_60px_rgba(15,23,42,0.08)]
+        "
+            >
+              {/* TOP */}
+
+              <div>
+                <h3 className="text-[34px] font-bold text-[#071120]">
+                  Quick Contact
+                </h3>
+
+                <p className="paragraph mt-4">
+                  Fill out the form and our team will connect with you shortly.
+                </p>
+              </div>
+
+              {/* FORM */}
+
+              <form className="space-y-5 mt-10">
+                {/* INPUT */}
+
                 <input
                   type="text"
                   placeholder="Your Name"
-                  className="w-full h-14 rounded-2xl border border-gray-300 px-4 outline-none focus:border-primary"
+                  className="
+              w-full
+              h-14
+
+              rounded-2xl
+
+              border
+              border-[#DCE8FF]
+
+              bg-[#F8FBFF]
+
+              px-5
+
+              outline-none
+
+              focus:border-[#1D4ED8]
+
+              transition-all
+              duration-300
+            "
                 />
+
+                {/* INPUT */}
 
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="w-full h-14 rounded-2xl border border-gray-300 px-4 outline-none focus:border-primary"
+                  className="
+              w-full
+              h-14
+
+              rounded-2xl
+
+              border
+              border-[#DCE8FF]
+
+              bg-[#F8FBFF]
+
+              px-5
+
+              outline-none
+
+              focus:border-[#1D4ED8]
+
+              transition-all
+              duration-300
+            "
                 />
+
+                {/* INPUT */}
 
                 <input
                   type="text"
                   placeholder="Phone Number"
-                  className="w-full h-14 rounded-2xl border border-gray-300 px-4 outline-none focus:border-primary"
+                  className="
+              w-full
+              h-14
+
+              rounded-2xl
+
+              border
+              border-[#DCE8FF]
+
+              bg-[#F8FBFF]
+
+              px-5
+
+              outline-none
+
+              focus:border-[#1D4ED8]
+
+              transition-all
+              duration-300
+            "
                 />
+
+                {/* TEXTAREA */}
+
+                <textarea
+                  rows="5"
+                  placeholder="Tell us about your project..."
+                  className="
+              w-full
+
+              rounded-2xl
+
+              border
+              border-[#DCE8FF]
+
+              bg-[#F8FBFF]
+
+              px-5
+              py-4
+
+              outline-none
+
+              resize-none
+
+              focus:border-[#1D4ED8]
+
+              transition-all
+              duration-300
+            "
+                />
+
+                {/* BUTTON */}
 
                 <button
                   type="submit"
-                  className="w-full h-14 rounded-2xl bg-gradient-to-r from-primary to-accent text-white font-bold text-lg hover:scale-[1.02] transition-all duration-300"
+                  className="
+              w-full
+              h-14
+
+              rounded-full
+
+              bg-[#1D4ED8]
+
+              text-white
+              font-semibold
+
+              shadow-[0_15px_40px_rgba(29,78,216,0.20)]
+
+              hover:bg-[#1746C9]
+              hover:-translate-y-1
+
+              transition-all
+              duration-300
+            "
                 >
-                  Submit →
+                  Send Message →
                 </button>
               </form>
             </div>
@@ -2557,163 +3645,153 @@ const Home = () => {
         </div>
       </section>
 
-      {/* =========================================
+    {/* =========================================
     SCROLL POPUP
 ========================================= */}
-      {showPopup && (
-        <div className="fixed inset-0 z-[9999] bg-black/70 backdrop-blur-sm flex items-center justify-center px-3 py-5 overflow-y-auto">
-          {/* POPUP */}
 
-          <div className="relative w-full max-w-4xl bg-white rounded-[22px] md:rounded-[36px] overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.25)] grid grid-cols-1 lg:grid-cols-2">
-            {/* CLOSE */}
+{showPopup && (
+  <div className="popup-overlay">
+    {/* POPUP */}
 
-            <button
-              onClick={() => setShowPopup(false)}
-              className="absolute top-3 right-3 md:top-5 md:right-5 w-9 h-9 md:w-11 md:h-11 rounded-full bg-black text-white flex items-center justify-center text-sm md:text-lg z-50 hover:rotate-90 transition duration-300"
-            >
-              ✕
-            </button>
+    <div className="popup-container">
+      {/* CLOSE BUTTON */}
 
-            {/* =========================================
-          LEFT SIDE
-      ========================================= */}
+      <button
+        onClick={() => setShowPopup(false)}
+        className="popup-close-btn"
+      >
+        ✕
+      </button>
 
-            <div className="relative bg-gradient-to-br from-primary via-[#00D4B8] to-[#00B89C] text-white p-5 sm:p-7 md:p-12 flex flex-col justify-center overflow-hidden min-h-[260px] md:min-h-full">
-              {/* SHAPES */}
+      {/* TOP */}
 
-              <div className="absolute -top-12 -right-12 w-32 md:w-72 h-32 md:h-72 rounded-full bg-white/10" />
-
-              <div className="absolute bottom-0 left-0 w-24 md:w-52 h-24 md:h-52 rounded-full bg-white/10" />
-
-              {/* TAG */}
-
-              <span className="inline-flex items-center gap-2 bg-white/15 border border-white/20 backdrop-blur-md px-3 py-2 rounded-full text-[10px] sm:text-xs font-semibold w-fit">
-                🚀 LIMITED OFFER
-              </span>
-
-              {/* TITLE */}
-
-              <h2 className="text-[28px] sm:text-4xl md:text-5xl font-bold font-outfit leading-tight mt-5 md:mt-8">
-                Scale Your
-                <br />
-                Business Faster
-              </h2>
-
-              {/* DESC */}
-
-              <p className="mt-4 text-white/90 text-sm sm:text-base md:text-lg leading-relaxed max-w-md">
-                Premium websites, SEO, AI automation and digital growth
-                solutions.
-              </p>
-
-              {/* FEATURES */}
-
-              <div className="flex flex-wrap gap-2 mt-5 md:mt-8">
-                <div className="bg-white/10 border border-white/20 px-3 py-2 rounded-xl text-[11px] sm:text-sm">
-                  ⚡ Fast Delivery
-                </div>
-
-                <div className="bg-white/10 border border-white/20 px-3 py-2 rounded-xl text-[11px] sm:text-sm">
-                  📈 High ROI
-                </div>
-
-                <div className="bg-white/10 border border-white/20 px-3 py-2 rounded-xl text-[11px] sm:text-sm">
-                  🤖 AI Powered
-                </div>
-              </div>
-            </div>
-
-            {/* =========================================
-          RIGHT SIDE
-      ========================================= */}
-
-            <div className="p-5 sm:p-7 md:p-12">
-              <h3 className="text-[28px] sm:text-3xl md:text-4xl font-bold font-outfit text-dark">
-                Free Consultation
-              </h3>
-
-              <p className="paragraph mt-2 md:mt-4 text-sm md:text-base">
-                Fill the form and our experts will contact you.
-              </p>
-
-              {/* FORM */}
-
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-3 md:space-y-5 mt-6 md:mt-10"
-              >
-                {/* NAME */}
-
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full h-[48px] sm:h-[54px] md:h-[60px] rounded-2xl border border-gray-200 px-4 md:px-6 text-sm md:text-base outline-none focus:border-primary transition"
-                  required
-                />
-
-                {/* EMAIL */}
-
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email Address"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full h-[48px] sm:h-[54px] md:h-[60px] rounded-2xl border border-gray-200 px-4 md:px-6 text-sm md:text-base outline-none focus:border-primary transition"
-                  required
-                />
-
-                {/* PHONE */}
-
-                <input
-                  type="text"
-                  name="phone"
-                  placeholder="Phone Number"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full h-[48px] sm:h-[54px] md:h-[60px] rounded-2xl border border-gray-200 px-4 md:px-6 text-sm md:text-base outline-none focus:border-primary transition"
-                  required
-                />
-
-                {/* SERVICE */}
-
-                <select
-                  name="service"
-                  value={formData.service}
-                  onChange={handleChange}
-                  className="w-full h-[48px] sm:h-[54px] md:h-[60px] rounded-2xl border border-gray-200 px-4 md:px-6 text-sm md:text-base outline-none focus:border-primary transition"
-                  required
-                >
-                  <option value="">Select Service</option>
-
-                  <option>Web Development</option>
-
-                  <option>SEO Optimization</option>
-
-                  <option>Digital Marketing</option>
-
-                  <option>AI Automation</option>
-
-                  <option>Branding</option>
-                </select>
-
-                {/* BUTTON */}
-
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="gradient-btn w-full py-3 sm:py-4 text-sm md:text-lg rounded-2xl"
-                >
-                  {loading ? "Sending..." : "Submit Enquiry →"}
-                </button>
-              </form>
-            </div>
-          </div>
+      <div className="popup-top">
+        <div className="popup-badge">
+          Free Consultation
         </div>
-      )}
+
+        <h2 className="popup-title">
+          Let’s Grow Your
+          Business Online
+        </h2>
+
+        <p className="popup-text">
+          Fill the form and our team
+          will contact you shortly.
+        </p>
+      </div>
+
+      {/* FORM */}
+
+      <form
+        onSubmit={handleSubmit}
+        className="popup-form"
+      >
+        {/* NAME */}
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="popup-input"
+          required
+        />
+
+        {/* EMAIL */}
+
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value={formData.email}
+          onChange={handleChange}
+          className="popup-input"
+          required
+        />
+
+        {/* PHONE */}
+
+        <input
+          type="text"
+          name="phone"
+          placeholder="Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+          className="popup-input"
+          required
+        />
+
+        {/* SERVICE */}
+
+        <select
+  name="service"
+  value={formData.service}
+  onChange={handleChange}
+  className="popup-input"
+  required
+>
+  <option value="" disabled>
+    Select Service
+  </option>
+
+  <option value="Web Development">
+    Web Development
+  </option>
+
+  <option value="SEO Optimization">
+    SEO Optimization
+  </option>
+
+  <option value="Digital Marketing">
+    Digital Marketing
+  </option>
+
+  <option value="Graphics Designing">
+    Graphics Designing
+  </option>
+
+  <option value="Video Editing">
+    Video Editing
+  </option>
+</select>
+
+        {/* BUTTON */}
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="popup-submit-btn"
+        >
+          {loading
+            ? "Sending..."
+            : "Submit Enquiry"}
+        </button>
+      </form>
+
+      {/* CONTACT */}
+
+      <div className="popup-contact">
+        <a
+          href="tel:+919876543210"
+          className="popup-contact-link"
+        >
+          +91 9876543210
+        </a>
+
+        <span className="popup-divider" />
+
+        <a
+          href="mailto:hello@evergrowdigital.com"
+          className="popup-contact-link"
+        >
+          hello@evergrowdigital.com
+        </a>
+      </div>
+    </div>
+  </div>
+)}
     </MainLayout>
   );
 };

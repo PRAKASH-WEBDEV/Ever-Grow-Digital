@@ -1,274 +1,250 @@
 import MainLayout from "../layouts/MainLayout";
-import {
-  HiArrowRight,
-  HiCheckCircle,
-  HiLightBulb,
-  HiGlobeAlt,
-  HiChartBar,
-} from "react-icons/hi";
+import { Link, useLocation } from "react-router-dom";
+import InfiniteMenu from "../components/common/InfiniteMenu";
+
+import { HiCheckCircle, HiArrowRight } from "react-icons/hi2";
+import work1 from "../assets/WorkCultureSection/work-1.webp";
+import work2 from "../assets/WorkCultureSection/work-2.webp";
+import work3 from "../assets/WorkCultureSection/work-3.webp";
+import work4 from "../assets/WorkCultureSection/work-4.webp";
 
 const About = () => {
+  const location = useLocation();
+  const workCultureItems = [
+    {
+      image: work1,
+
+      title: "Creative Team",
+
+      description: "Passionate minds building modern digital experiences.",
+
+      link: "/contact",
+    },
+
+    {
+      image: work2,
+
+      title: "Smart Workspace",
+
+      description: "Focused environment designed for innovation and growth.",
+
+      link: "/about",
+    },
+
+    {
+      image: work3,
+
+      title: "Collaboration",
+
+      description: "Strong teamwork that helps brands scale faster.",
+
+      link: "/services",
+    },
+
+    {
+      image: work4,
+
+      title: "Digital Experts",
+
+      description: "Premium strategy, branding and development solutions.",
+
+      link: "/portfolio",
+    },
+  ];
   return (
     <MainLayout>
       {/* =========================================
-         HERO SECTION
+          HERO SECTION
       ========================================= */}
 
-      <section className="relative overflow-hidden bg-[#F8FAFC] py-20 md:py-28">
+      <section className="relative overflow-hidden bg-[#071120] py-20 md:py-28">
         {/* BG EFFECT */}
 
         <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-primary/10 blur-[120px]" />
 
-        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-accent/10 blur-[120px]" />
+        <div className="absolute bottom-0 right-0 w-[300px] h-[300px] bg-primary/10 blur-[120px]" />
+
+        {/* GRID */}
+
+        <div className="absolute inset-0 opacity-[0.03] bg-[linear-gradient(to_right,#ffffff_1px,transparent_1px),linear-gradient(to_bottom,#ffffff_1px,transparent_1px)] bg-[size:70px_70px]" />
 
         <div className="container-custom relative z-10">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
             {/* LEFT */}
 
             <div>
-              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
-                <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
+              {/* BADGE */}
 
-                <p className="text-primary font-semibold uppercase tracking-[3px] text-xs md:text-sm">
-                  About GrowthGarage
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-white/5 border border-white/10">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+
+                <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
+                  About EverGrow Digital
                 </p>
               </div>
 
-              <h1 className="text-4xl md:text-6xl font-bold font-outfit text-dark leading-tight mt-7">
-                We Build Powerful Digital Experiences For Modern Brands
+              {/* TITLE */}
+
+              <h1 className="text-[34px] sm:text-[42px] md:text-[58px] font-bold text-white leading-[1.08] tracking-[-2px] mt-7">
+                Helping Brands Grow Faster Online
               </h1>
 
-              <p className="paragraph mt-7 text-lg leading-relaxed">
-                GrowthGarage is a modern digital agency helping startups,
-                creators, and businesses scale online with Web Development, SEO,
-                Branding, Google Ads, Shopify, and AI Automation.
+              {/* TEXT */}
+
+              <p className="text-white/70 text-[15px] md:text-[17px] leading-[1.9] mt-7 max-w-[620px]">
+                EverGrow Digital helps startups, creators and businesses grow
+                with modern websites, SEO, branding, marketing and scalable
+                digital solutions.
               </p>
 
               {/* POINTS */}
 
-              <div className="space-y-5 mt-10">
+              <div className="space-y-4 mt-10">
                 {[
-                  "Modern & Responsive Websites",
-                  "ROI Driven Marketing Strategies",
-                  "AI Automation & Smart Solutions",
-                  "Creative Branding & UI/UX Design",
-                ].map((item, index) => (
-                  <div key={index} className="flex items-center gap-4">
-                    <HiCheckCircle className="text-primary text-2xl flex-shrink-0" />
+                  "Modern Responsive Websites",
 
-                    <p className="text-dark text-lg font-medium">{item}</p>
+                  "SEO & Performance Marketing",
+
+                  "Creative Branding Solutions",
+
+                  "Professional Video Editing",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-center gap-3">
+                    <HiCheckCircle className="text-primary text-[20px] flex-shrink-0" />
+
+                    <p className="text-white text-[15px] md:text-[16px]">
+                      {item}
+                    </p>
                   </div>
                 ))}
               </div>
 
               {/* BUTTONS */}
 
-              <div className="flex flex-wrap gap-5 mt-10">
-                <button className="gradient-btn flex items-center gap-3">
+              <div className="flex flex-wrap gap-4 mt-10">
+                <button className="h-[52px] px-7 rounded-full bg-primary text-white font-medium hover:-translate-y-1 transition-all duration-300 flex items-center gap-3">
                   Get Free Consultation
                   <HiArrowRight />
                 </button>
 
-                <button className="outline-btn">View Portfolio</button>
+                <button className="h-[52px] px-7 rounded-full border border-white/15 text-white hover:bg-white hover:text-[#071120] transition-all duration-300">
+                  View Portfolio
+                </button>
               </div>
             </div>
 
             {/* RIGHT */}
 
             <div className="relative">
-              <div className="rounded-[36px] overflow-hidden shadow-[0_20px_80px_rgba(0,0,0,0.12)]">
+              {/* IMAGE */}
+
+              <div className="overflow-hidden rounded-[28px] border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
                 <img
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop"
-                  alt="About GrowthGarage"
-                  className="w-full h-full object-cover"
+                  alt="About EverGrow Digital"
+                  className="w-full h-[320px] sm:h-[420px] md:h-[520px] object-cover"
                 />
               </div>
 
-              {/* FLOATING CARD */}
+              {/* FLOAT CARD */}
 
-              <div className="absolute -bottom-8 -left-6 bg-white rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.12)] p-6 w-[220px]">
-                <h3 className="text-4xl font-bold text-primary">250+</h3>
-
-                <p className="paragraph mt-2">Successful Projects Delivered</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================
-   TEAM SECTION
-========================================= */}
-
-      <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden">
-        <div className="container-custom">
-          {/* TOP */}
-
-          <div className="text-center max-w-4xl mx-auto">
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
-
-              <p className="text-primary font-semibold uppercase tracking-[3px] text-xs md:text-sm">
-                Our Dream Team
-              </p>
-            </div>
-
-            <h2 className="text-4xl md:text-6xl font-bold font-outfit text-dark mt-7">
-              Meet Our Visionaries
-            </h2>
-
-            <p className="paragraph mt-6 text-base md:text-lg">
-              The brilliant minds driving innovation and excellence at
-              GrowthGarage
-            </p>
-          </div>
-
-          {/* =========================================
-       FOUNDER CARD
-    ========================================= */}
-
-          <div className="flex justify-center mt-20">
-            <div className="text-center max-w-[500px]">
-              <div className="relative inline-block">
-                <div className="absolute inset-0 bg-primary/20 blur-[40px] rounded-full scale-110" />
-
-                <img
-                  src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
-                  alt="Founder"
-                  className="relative z-10 w-[190px] h-[190px] rounded-full object-cover border-[6px] border-white shadow-[0_20px_50px_rgba(0,0,0,0.12)]"
-                />
-              </div>
-
-              <h3 className="text-3xl md:text-4xl font-bold text-dark mt-8">
-                Gaurav Mishra
-              </h3>
-
-              <p className="text-primary text-lg md:text-xl font-semibold mt-3">
-                Certified Market Analyst & Client Relations
-              </p>
-
-              <p className="paragraph mt-4 text-lg">
-                Digital Strategy & Website Developer
-              </p>
-
-              <p className="text-gray-500 italic mt-3 text-base md:text-lg">
-                5+ years transforming businesses through technology
-              </p>
-            </div>
-          </div>
-
-          {/* =========================================
-       TEAM MEMBERS
-    ========================================= */}
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mt-24">
-            {[
-              {
-                name: "Shrish Agrawal",
-                role: "AI & ML Specialist",
-                desc: "Technology Architecture & Innovation",
-                exp: "Expert in scalable systems and emerging technologies",
-                image:
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
-              },
-
-              {
-                name: "Abhishek Agrawal",
-                role: "Full Stack Developer",
-                desc: "UI/UX Design & Brand Strategy",
-                exp: "Award-winning designer with global experience",
-                image:
-                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
-              },
-
-              {
-                name: "Udit Mishra",
-                role: "Content Creator & No Code Developer",
-                desc: "Full-Stack Development & DevOps",
-                exp: "Building robust solutions with modern technologies",
-                image:
-                  "https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=800&auto=format&fit=crop",
-              },
-
-              {
-                name: "Sujal Mishra",
-                role: "Marketing Head & App Developer",
-                desc: "Digital Marketing & Analytics",
-                exp: "Data-driven marketing strategies that deliver results",
-                image:
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
-              },
-            ].map((member, index) => (
-              <div key={index} className="text-center group">
-                {/* IMAGE */}
-
-                <div className="relative inline-block">
-                  <div className="absolute inset-0 bg-primary/20 blur-[30px] rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-all duration-500" />
-
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="relative z-10 w-[170px] h-[170px] rounded-full object-cover border-[5px] border-white mx-auto shadow-[0_20px_50px_rgba(0,0,0,0.12)] group-hover:scale-105 transition-all duration-500"
-                  />
-                </div>
-
-                {/* CONTENT */}
-
-                <h3 className="text-2xl font-bold text-dark mt-7">
-                  {member.name}
+              <div className="absolute bottom-5 left-5 bg-white rounded-[22px] p-5 md:p-6 shadow-[0_20px_40px_rgba(0,0,0,0.18)]">
+                <h3 className="text-[34px] md:text-[42px] font-bold text-primary">
+                  250+
                 </h3>
 
-                <p className="text-primary font-semibold text-lg mt-3 leading-relaxed">
-                  {member.role}
-                </p>
-
-                <p className="paragraph mt-4 text-base leading-relaxed">
-                  {member.desc}
-                </p>
-
-                <p className="text-gray-500 italic mt-4 text-sm md:text-base leading-relaxed">
-                  {member.exp}
+                <p className="text-gray-500 text-sm md:text-base mt-2">
+                  Successful Projects Delivered
                 </p>
               </div>
-            ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* =========================================
+    DYNAMIC BREADCRUMB
+========================================= */}
+
+      <section className="border-b border-gray-200 bg-white py-4">
+        <div className="container-custom">
+          <div className="flex items-center gap-3 text-[13px] md:text-[14px] text-gray-500 flex-wrap">
+            {/* HOME */}
+
+            <Link
+              to="/"
+              className="hover:text-primary transition-all duration-300"
+            >
+              Home
+            </Link>
+
+            {/* SLASH */}
+
+            <span>/</span>
+
+            {/* CURRENT PAGE */}
+
+            <span className="text-primary font-medium">
+              {location.pathname
+                .replace("/", "")
+                .replace("-", " ")
+                .replace(/\b\w/g, (char) => char.toUpperCase()) || "Home"}
+            </span>
           </div>
         </div>
       </section>
 
       {/* =========================================
-         STATS SECTION
+          STATS SECTION
       ========================================= */}
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-[#F8FAFC]">
         <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               {
-                number: "250+",
+                number: 250,
+
+                suffix: "+",
+
                 title: "Projects Completed",
               },
+
               {
-                number: "98%",
+                number: 98,
+
+                suffix: "%",
+
                 title: "Client Satisfaction",
               },
+
               {
-                number: "5+",
+                number: 5,
+
+                suffix: "+",
+
                 title: "Years Experience",
               },
+
               {
-                number: "24/7",
+                number: 24,
+
+                suffix: "/7",
+
                 title: "Support & Service",
               },
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-[#F8FAFC] rounded-[30px] p-8 text-center border border-gray-200 hover:-translate-y-2 transition-all duration-300"
+                className="bg-white rounded-[24px] border border-gray-200 p-6 md:p-8 text-center hover:-translate-y-2 transition-all duration-300"
               >
-                <h3 className="text-4xl md:text-5xl font-bold text-primary">
+                <h3 className="text-[34px] md:text-[52px] font-bold text-primary">
                   {item.number}
+                  {item.suffix}
                 </h3>
 
-                <p className="paragraph mt-4 text-lg">{item.title}</p>
+                <p className="text-gray-500 text-[13px] md:text-[16px] mt-3 leading-relaxed">
+                  {item.title}
+                </p>
               </div>
             ))}
           </div>
@@ -276,58 +252,73 @@ const About = () => {
       </section>
 
       {/* =========================================
-         WHY CHOOSE US
+          WHY CHOOSE US
       ========================================= */}
 
-      <section className="py-16 md:py-24 bg-[#F8FAFC]">
+      <section className="py-16 md:py-24 bg-white">
         <div className="container-custom">
+          {/* TOP */}
+
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
-              <span className="w-2.5 h-2.5 rounded-full bg-primary" />
+              <span className="w-2 h-2 rounded-full bg-primary" />
 
-              <p className="text-primary font-semibold uppercase tracking-[3px] text-xs md:text-sm">
+              <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
                 Why Choose Us
               </p>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold font-outfit text-dark mt-7">
+            <h2 className="text-[32px] sm:text-[40px] md:text-[56px] font-bold text-[#071120] leading-[1.08] tracking-[-2px] mt-7">
               We Focus On Real Business Growth
             </h2>
+
+            <p className="text-gray-500 text-[15px] md:text-[17px] leading-[1.9] mt-6">
+              We create premium digital experiences focused on traffic, leads,
+              branding and scalable business growth.
+            </p>
           </div>
 
           {/* CARDS */}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
             {[
               {
-                icon: <HiLightBulb />,
                 title: "Creative Strategy",
-                desc: "Innovative digital solutions tailored to your business goals.",
+
+                desc: "Modern digital solutions tailored for business growth.",
               },
+
               {
-                icon: <HiGlobeAlt />,
                 title: "Global Reach",
+
                 desc: "Helping brands scale worldwide through smart marketing.",
               },
+
               {
-                icon: <HiChartBar />,
                 title: "Result Driven",
-                desc: "Focused on traffic, leads, conversions and business growth.",
+
+                desc: "Focused on traffic, leads, conversions and ROI.",
               },
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-[32px] p-8 border border-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.04)] hover:-translate-y-3 transition-all duration-300"
+                className="bg-[#F8FAFC] rounded-[24px] border border-gray-200 p-7 md:p-8 hover:-translate-y-2 transition-all duration-300"
               >
-                <div className="w-20 h-20 rounded-3xl bg-primary/10 text-primary flex items-center justify-center text-4xl">
-                  {item.icon}
+                {/* DOT */}
+
+                <div className="w-[60px] h-[60px] rounded-[18px] bg-primary/10 flex items-center justify-center">
+                  <div className="w-3 h-3 rounded-full bg-primary" />
                 </div>
 
-                <h3 className="text-3xl font-bold text-dark mt-8">
+                {/* TITLE */}
+
+                <h3 className="text-[24px] md:text-[28px] font-bold text-[#071120] mt-7 leading-tight">
                   {item.title}
                 </h3>
 
-                <p className="paragraph mt-5 text-lg leading-relaxed">
+                {/* TEXT */}
+
+                <p className="text-gray-500 text-[14px] md:text-[16px] leading-[1.9] mt-5">
                   {item.desc}
                 </p>
               </div>
@@ -337,32 +328,400 @@ const About = () => {
       </section>
 
       {/* =========================================
-         CTA SECTION
-      ========================================= */}
+    TEAM SECTION
+========================================= */}
+      <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden">
+        <div className="container-custom">
+          {/* TOP */}
 
-      <section className="py-16 md:py-24 bg-dark overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-[300px] h-[300px] bg-primary/20 blur-[120px]" />
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-14">
+            {/* LEFT */}
 
-        <div className="container-custom relative z-10">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-4xl md:text-6xl font-bold font-outfit text-white leading-tight">
-              Ready To Scale Your Business Digitally?
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+
+                <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
+                  Our Team
+                </p>
+              </div>
+
+              <h2 className="text-[32px] sm:text-[40px] md:text-[56px] font-bold text-[#071120] leading-[1.08] tracking-[-2px] mt-7">
+                Meet The Creative Minds
+              </h2>
+            </div>
+
+            {/* RIGHT */}
+
+            <p className="text-gray-500 text-[15px] md:text-[17px] leading-[1.9] max-w-xl">
+              Passionate professionals helping businesses grow with modern
+              websites, branding, SEO and digital marketing strategies.
+            </p>
+          </div>
+
+          {/* TEAM GRID */}
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7">
+            {[
+              {
+                name: "Gaurav Mishra",
+
+                role: "Digital Strategist",
+
+                desc: "Helping brands scale through performance marketing and SEO.",
+
+                image:
+                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+              },
+
+              {
+                name: "Shrish Agrawal",
+
+                role: "AI & ML Specialist",
+
+                desc: "Building AI systems and automation workflows for businesses.",
+
+                image:
+                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+              },
+
+              {
+                name: "Abhishek Agrawal",
+
+                role: "Full Stack Developer",
+
+                desc: "Developing scalable websites and premium digital products.",
+
+                image:
+                  "https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=800&auto=format&fit=crop",
+              },
+
+              {
+                name: "Sujal Mishra",
+
+                role: "Marketing Head",
+
+                desc: "Focused on growth strategies, branding and lead generation.",
+
+                image:
+                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
+              },
+            ].map((member, index) => (
+              <div
+                key={index}
+                className="
+            relative
+            overflow-hidden
+            rounded-[28px]
+            group
+            h-[420px]
+            md:h-[520px]
+          "
+              >
+                {/* IMAGE */}
+
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="
+              w-full
+              h-full
+              object-cover
+              transition-all
+              duration-700
+              group-hover:scale-110
+            "
+                />
+
+                {/* DARK OVERLAY */}
+
+                <div
+                  className="
+              absolute
+              inset-0
+              bg-gradient-to-t
+              from-[#071120]
+              via-[#071120]/20
+              to-transparent
+            "
+                />
+
+                {/* DEFAULT CONTENT */}
+
+                <div
+                  className="
+              absolute
+              bottom-0
+              left-0
+              w-full
+              p-6
+              md:p-8
+              transition-all
+              duration-500
+              group-hover:opacity-0
+            "
+                >
+                  <h3 className="text-white text-[24px] md:text-[30px] font-bold leading-tight">
+                    {member.name}
+                  </h3>
+
+                  <p className="text-white/70 mt-2 text-[15px] md:text-[16px]">
+                    {member.role}
+                  </p>
+                </div>
+
+                {/* HOVER CARD */}
+
+                <div
+                  className="
+              absolute
+              inset-0
+              bg-primary
+              p-6
+              md:p-8
+              flex
+              flex-col
+              justify-between
+
+              translate-y-full
+              group-hover:translate-y-0
+
+              transition-all
+              duration-500
+            "
+                >
+                  {/* TOP */}
+
+                  <div>
+                    <h3 className="text-white text-[24px] md:text-[30px] font-bold leading-tight">
+                      {member.name}
+                    </h3>
+
+                    <p className="text-white/80 mt-2 text-[15px] md:text-[16px]">
+                      {member.role}
+                    </p>
+
+                    <p className="text-white/90 leading-[1.9] text-[14px] md:text-[16px] mt-10">
+                      {member.desc}
+                    </p>
+                  </div>
+
+                  {/* SOCIALS */}
+
+                  <div className="flex items-center gap-4">
+                    {["in", "tw", "ig"].map((social, i) => (
+                      <div
+                        key={i}
+                        className="
+                      w-[52px]
+                      h-[52px]
+                      rounded-full
+                      border
+                      border-white/20
+
+                      flex
+                      items-center
+                      justify-center
+
+                      text-white
+                      font-semibold
+
+                      hover:bg-white
+                      hover:text-primary
+
+                      transition-all
+                      duration-300
+
+                      cursor-pointer
+                    "
+                      >
+                        {social}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================
+    WORK CULTURE SECTION
+========================================= */}
+      <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden">
+        <div className="container-custom">
+          {/* TOP */}
+
+          <div className="text-center max-w-3xl mx-auto">
+            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
+              <span className="w-2 h-2 rounded-full bg-primary" />
+
+              <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
+                Work Culture
+              </p>
+            </div>
+
+            <h2 className="text-[32px] sm:text-[42px] md:text-[56px] font-bold text-[#071120] leading-[1.08] tracking-[-2px] mt-7">
+              Creative Environment
+              <br />
+              Built For Innovation
             </h2>
 
-            <p className="text-white/70 text-lg md:text-xl mt-7 leading-relaxed">
-              Let’s build modern websites, powerful marketing campaigns and
-              scalable digital systems for your brand.
+            <p className="text-gray-500 text-[15px] md:text-[17px] leading-[1.9] mt-6">
+              We believe creativity, teamwork and innovation are the foundation
+              of modern digital growth.
             </p>
+          </div>
 
-            <div className="flex flex-wrap justify-center gap-5 mt-10">
-              <button className="gradient-btn flex items-center gap-3">
-                Start Your Project
-                <HiArrowRight />
-              </button>
+          {/* 3D SLIDER */}
 
-              <button className="outline-btn border-white text-white hover:bg-white hover:text-dark">
-                Contact Us
-              </button>
+          <div className="mt-20 h-[650px] md:h-[750px] rounded-[32px] overflow-hidden border border-gray-200 bg-white">
+            <InfiniteMenu items={workCultureItems} scale={1} />
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================
+    PREMIUM CTA SECTION
+========================================= */}
+
+      <section className="relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24">
+        {/* BLUR EFFECT */}
+
+        <div className="absolute top-0 left-0 w-[260px] h-[260px] bg-primary/10 blur-[100px]" />
+
+        <div className="absolute bottom-0 right-0 w-[260px] h-[260px] bg-primary/10 blur-[100px]" />
+
+        {/* GRID */}
+
+        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#071120_1px,transparent_1px),linear-gradient(to_bottom,#071120_1px,transparent_1px)] bg-[size:70px_70px]" />
+
+        <div className="container-custom relative z-10">
+          <div
+            className="
+        relative
+        overflow-hidden
+        rounded-[36px]
+        border
+        border-gray-200
+        bg-white
+        px-6
+        sm:px-10
+        md:px-16
+        py-14
+        md:py-20
+        shadow-[0_20px_60px_rgba(2,6,23,0.06)]
+      "
+          >
+            {/* SMALL BLUR */}
+
+            <div className="absolute top-[-80px] right-[-80px] w-[220px] h-[220px] rounded-full bg-primary/10 blur-[90px]" />
+
+            {/* CONTENT */}
+
+            <div className="relative z-10 max-w-4xl mx-auto text-center">
+              {/* BADGE */}
+
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+
+                <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
+                  Start Growing Today
+                </p>
+              </div>
+
+              {/* TITLE */}
+
+              <h2
+                className="
+            text-[30px]
+            sm:text-[42px]
+            md:text-[58px]
+            font-bold
+            text-[#071120]
+            leading-[1.08]
+            tracking-[-2px]
+            mt-8
+          "
+              >
+                Let’s Build Something
+                <br />
+                Amazing Together
+              </h2>
+
+              {/* TEXT */}
+
+              <p
+                className="
+            text-gray-500
+            text-[15px]
+            md:text-[18px]
+            leading-[1.9]
+            mt-7
+            max-w-2xl
+            mx-auto
+          "
+              >
+                We help startups, creators and businesses grow with modern
+                websites, branding, SEO and premium digital experiences designed
+                for long-term success.
+              </p>
+
+              {/* BUTTONS */}
+
+              <div className="flex flex-wrap justify-center gap-4 mt-10">
+                {/* PRIMARY BTN */}
+
+                <button
+                  className="
+              h-[54px]
+              px-8
+              rounded-full
+              bg-primary
+              text-white
+              font-medium
+
+              flex
+              items-center
+              gap-3
+
+              hover:-translate-y-1
+              hover:shadow-[0_12px_30px_rgba(37,99,235,0.25)]
+
+              transition-all
+              duration-300
+            "
+                >
+                  Start Your Project
+                  <HiArrowRight />
+                </button>
+
+                {/* SECONDARY BTN */}
+
+                <button
+                  className="
+              h-[54px]
+              px-8
+              rounded-full
+
+              border
+              border-gray-200
+
+              text-[#071120]
+              font-medium
+
+              hover:bg-[#071120]
+              hover:text-white
+              hover:border-[#071120]
+
+              transition-all
+              duration-300
+            "
+                >
+                  Contact Us
+                </button>
+              </div>
             </div>
           </div>
         </div>

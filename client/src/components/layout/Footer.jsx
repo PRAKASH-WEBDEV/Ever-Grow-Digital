@@ -26,17 +26,23 @@ const Footer = () => {
   };
 
   return (
-    <footer className="relative bg-[#071326] text-white overflow-hidden">
-      {/* BACKGROUND GLOW */}
+    <footer className="footer-section">
+      {/* BACKGROUND */}
 
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary/20 blur-[120px]" />
+      <div className="footer-bg" />
 
-      <div className="container-custom relative z-10 pt-20">
+      <div className="footer-grid-bg" />
+
+      <div className="footer-blur-left" />
+
+      <div className="footer-blur-right" />
+
+      <div className="container-custom relative z-10">
         {/* =========================================
             TOP GRID
         ========================================= */}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-14 border-b border-white/10 pb-16">
+        <div className="footer-top-grid">
           {/* BRAND */}
 
           <div>
@@ -44,28 +50,30 @@ const Footer = () => {
               <img
                 src={logo2}
                 alt="EverGrow Digital"
-                className="w-[260px] object-contain"
+                className="footer-logo"
               />
             </Link>
 
-            <p className="text-primary mt-4 uppercase tracking-[3px] text-sm font-semibold">
+            <p className="footer-tagline">
               Digital Growth Partner
             </p>
 
-            <p className="mt-8 text-gray-400 leading-relaxed">
-              EverGrow Digital helps startups, brands and businesses grow with
-              powerful websites, SEO strategies, branding and digital marketing
+            <p className="footer-text mt-6">
+              EverGrow Digital helps startups,
+              brands and businesses grow with
+              premium websites, SEO strategies,
+              branding and digital marketing
               solutions.
             </p>
 
-            {/* SOCIAL ICONS */}
+            {/* SOCIAL */}
 
-            <div className="flex items-center gap-4 mt-8">
+            <div className="footer-socials">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300"
+                className="footer-social-icon"
               >
                 <FaFacebookF />
               </a>
@@ -74,7 +82,7 @@ const Footer = () => {
                 href="https://twitter.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300"
+                className="footer-social-icon"
               >
                 <FaXTwitter />
               </a>
@@ -83,7 +91,7 @@ const Footer = () => {
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300"
+                className="footer-social-icon"
               >
                 <FaLinkedinIn />
               </a>
@@ -92,7 +100,7 @@ const Footer = () => {
                 href="https://instagram.com"
                 target="_blank"
                 rel="noreferrer"
-                className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-primary hover:-translate-y-1 transition-all duration-300"
+                className="footer-social-icon"
               >
                 <FaInstagram />
               </a>
@@ -102,52 +110,35 @@ const Footer = () => {
           {/* QUICK LINKS */}
 
           <div>
-            <h3 className="text-2xl font-semibold mb-8">
+            <h3 className="footer-heading">
               Quick Links
             </h3>
 
-            <ul className="space-y-5 text-gray-400">
+            <ul className="footer-links">
               <li>
-                <Link
-                  to="/"
-                  className="hover:text-primary transition duration-300"
-                >
-                  Home
-                </Link>
+                <Link to="/">Home</Link>
               </li>
 
               <li>
-                <Link
-                  to="/about"
-                  className="hover:text-primary transition duration-300"
-                >
+                <Link to="/about">
                   About Us
                 </Link>
               </li>
 
               <li>
-                <Link
-                  to="/portfolio"
-                  className="hover:text-primary transition duration-300"
-                >
+                <Link to="/portfolio">
                   Portfolio
                 </Link>
               </li>
 
               <li>
-                <Link
-                  to="/blog"
-                  className="hover:text-primary transition duration-300"
-                >
+                <Link to="/blog">
                   Blog
                 </Link>
               </li>
 
               <li>
-                <Link
-                  to="/contact"
-                  className="hover:text-primary transition duration-300"
-                >
+                <Link to="/contact">
                   Contact
                 </Link>
               </li>
@@ -157,67 +148,56 @@ const Footer = () => {
           {/* SERVICES */}
 
           <div>
-            <h3 className="text-2xl font-semibold mb-8">
+            <h3 className="footer-heading">
               Services
             </h3>
 
-            <ul className="space-y-5 text-gray-400">
-              <li className="hover:text-primary transition duration-300 cursor-pointer">
-                Web Development
-              </li>
+            <ul className="footer-links">
+              <li>Web Development</li>
 
-              <li className="hover:text-primary transition duration-300 cursor-pointer">
-                SEO Optimization
-              </li>
+              <li>SEO Optimization</li>
 
-              <li className="hover:text-primary transition duration-300 cursor-pointer">
-                Digital Marketing
-              </li>
+              <li>Digital Marketing</li>
 
-              <li className="hover:text-primary transition duration-300 cursor-pointer">
-                Graphics Designing
-              </li>
+              <li>Graphics Designing</li>
 
-              <li className="hover:text-primary transition duration-300 cursor-pointer">
-                Video Editing
-              </li>
+              <li>Video Editing</li>
 
-              <li className="hover:text-primary transition duration-300 cursor-pointer">
-                Branding Strategy
-              </li>
+              <li>Branding Strategy</li>
             </ul>
           </div>
 
           {/* CONTACT */}
 
           <div>
-            <h3 className="text-2xl font-semibold mb-8">
+            <h3 className="footer-heading">
               Contact Info
             </h3>
 
-            <div className="space-y-7 text-gray-400">
+            <div className="footer-contact-list">
               {/* LOCATION */}
 
-              <div className="flex gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-2xl shrink-0">
+              <div className="footer-contact-item">
+                <div className="footer-contact-icon">
                   <HiOutlineLocationMarker />
                 </div>
 
-                <p className="leading-relaxed">
-                  Ghaziabad, Uttar Pradesh, India
+                <p className="footer-text">
+                  Ghaziabad, Uttar Pradesh,
+                  India
                 </p>
               </div>
 
               {/* PHONE */}
 
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-2xl shrink-0">
+              <div className="footer-contact-item">
+                <div className="footer-contact-icon">
                   <HiOutlinePhone />
                 </div>
 
                 <a
                   href="tel:+919876543210"
-                  className="hover:text-primary transition"
+                  className="footer-contact-link"
                 >
                   +91 9876543210
                 </a>
@@ -225,14 +205,14 @@ const Footer = () => {
 
               {/* EMAIL */}
 
-              <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary text-2xl shrink-0">
+              <div className="footer-contact-item">
+                <div className="footer-contact-icon">
                   <HiOutlineMail />
                 </div>
 
                 <a
                   href="mailto:hello@evergrowdigital.com"
-                  className="hover:text-primary transition"
+                  className="footer-contact-link"
                 >
                   hello@evergrowdigital.com
                 </a>
@@ -242,24 +222,25 @@ const Footer = () => {
         </div>
 
         {/* =========================================
-            CTA SECTION
+            CTA
         ========================================= */}
 
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-10 py-14 border-b border-white/10">
+        <div className="footer-cta">
           {/* LEFT */}
 
-          <div className="flex gap-5">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center text-primary text-3xl shrink-0">
+          <div className="footer-cta-content">
+            <div className="footer-cta-icon">
               🚀
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold">
+              <h3 className="footer-heading">
                 Let’s Grow Together
               </h3>
 
-              <p className="text-gray-400 mt-3 leading-relaxed">
-                Ready to scale your business online? Let’s build something
+              <p className="footer-text mt-3">
+                Ready to scale your business
+                online? Let’s build something
                 powerful together.
               </p>
             </div>
@@ -270,7 +251,7 @@ const Footer = () => {
           <div className="flex items-center justify-center">
             <Link
               to="/contact"
-              className="gradient-btn px-10 py-4 text-lg"
+              className="footer-btn"
             >
               Get Free Consultation
             </Link>
@@ -279,18 +260,18 @@ const Footer = () => {
           {/* NEWSLETTER */}
 
           <div>
-            <h3 className="text-2xl font-semibold mb-5">
+            <h3 className="footer-heading mb-5">
               Subscribe Newsletter
             </h3>
 
-            <div className="flex overflow-hidden rounded-2xl border border-white/10">
+            <div className="footer-newsletter">
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="w-full bg-white/5 px-5 py-4 outline-none text-white placeholder:text-gray-500"
+                className="footer-input"
               />
 
-              <button className="bg-primary px-6 hover:bg-primary/90 transition">
+              <button className="footer-submit-btn">
                 ➜
               </button>
             </div>
@@ -301,39 +282,31 @@ const Footer = () => {
             BOTTOM BAR
         ========================================= */}
 
-        <div className="py-8 flex flex-col lg:flex-row items-center justify-between gap-6">
-          <p className="text-gray-500 text-center lg:text-left">
-            © 2026 EverGrow Digital. All rights reserved.
+        <div className="footer-bottom">
+          <p className="footer-copyright">
+            © 2026 EverGrow Digital.
+            All rights reserved.
           </p>
 
-          <div className="flex items-center gap-8 text-gray-500 text-sm">
-            <Link
-              to="/privacy-policy"
-              className="hover:text-primary transition"
-            >
+          <div className="footer-bottom-links">
+            <Link to="/privacy-policy">
               Privacy Policy
             </Link>
 
-            <Link
-              to="/terms"
-              className="hover:text-primary transition"
-            >
+            <Link to="/terms">
               Terms & Conditions
             </Link>
 
-            <Link
-              to="/cookies"
-              className="hover:text-primary transition"
-            >
+            <Link to="/cookies">
               Cookie Policy
             </Link>
           </div>
 
-          {/* SCROLL TOP */}
+          {/* SCROLL */}
 
           <button
             onClick={scrollTop}
-            className="w-14 h-14 rounded-full bg-primary flex items-center justify-center text-white text-2xl hover:scale-110 transition-all duration-300"
+            className="footer-scroll-btn"
           >
             <HiOutlineArrowUp />
           </button>

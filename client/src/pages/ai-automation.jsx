@@ -2,123 +2,139 @@ import { Link } from "react-router-dom";
 import {
   HiArrowRight,
   HiOutlineBadgeCheck,
-  HiOutlineCamera,
-  HiOutlineFilm,
+  HiOutlineChatAlt2,
+  HiOutlineChip,
+  HiOutlineCog,
+  HiOutlineDatabase,
   HiOutlineLightningBolt,
-  HiOutlinePlay,
-  HiOutlinePresentationChartLine,
+  HiOutlinePuzzle,
+  HiOutlineRefresh,
   HiOutlineSparkles,
-  HiOutlineVideoCamera,
+  HiOutlineSupport,
 } from "react-icons/hi";
 
 import MainLayout from "../layouts/MainLayout";
-import videoPreview from "../assets/Video-1.mp4";
 
-const editingServices = [
+const automationServices = [
   {
-    title: "Reels Editing",
-    icon: <HiOutlineVideoCamera />,
+    title: "AI Chatbots",
+    icon: <HiOutlineChatAlt2 />,
     desc:
-      "Fast-paced short videos with hooks, captions, transitions and trend-ready pacing.",
+      "Smart website chatbots for lead capture, support questions, service guidance and quick replies.",
   },
   {
-    title: "YouTube Videos",
-    icon: <HiOutlineFilm />,
-    desc:
-      "Clean long-form edits with storytelling, cuts, b-roll, audio balancing and thumbnails support.",
-  },
-  {
-    title: "Motion Graphics",
-    icon: <HiOutlineSparkles />,
-    desc:
-      "Animated text, lower thirds, brand elements and visual effects that make videos feel premium.",
-  },
-  {
-    title: "Advertisement Videos",
-    icon: <HiOutlinePresentationChartLine />,
-    desc:
-      "Conversion-focused ad edits for Meta, Google, YouTube and product promotion campaigns.",
-  },
-  {
-    title: "Promo Videos",
-    icon: <HiOutlineCamera />,
-    desc:
-      "Business promos, event highlights, product launches and service explainers with strong impact.",
-  },
-  {
-    title: "Short Form Content",
+    title: "Lead Automation",
     icon: <HiOutlineLightningBolt />,
     desc:
-      "High-retention clips for Instagram, YouTube Shorts, Facebook and LinkedIn content calendars.",
+      "Automate contact forms, follow-ups, lead routing, CRM updates and sales team notifications.",
+  },
+  {
+    title: "Workflow Automation",
+    icon: <HiOutlineCog />,
+    desc:
+      "Connect tools and automate repeated business tasks across marketing, sales and operations.",
+  },
+  {
+    title: "AI Content Systems",
+    icon: <HiOutlineSparkles />,
+    desc:
+      "Build AI-assisted systems for captions, blog outlines, emails, proposals and content workflows.",
+  },
+  {
+    title: "CRM Integration",
+    icon: <HiOutlineDatabase />,
+    desc:
+      "Sync leads, customer data, campaign responses and follow-up status into your CRM or sheets.",
+  },
+  {
+    title: "Support Automation",
+    icon: <HiOutlineSupport />,
+    desc:
+      "Automated FAQs, ticket triage, response templates and customer support workflows.",
   },
 ];
 
 const tools = [
-  "Adobe Premiere Pro",
-  "After Effects",
-  "DaVinci Resolve",
-  "CapCut Pro",
-  "Canva",
-  "Audition",
+  "OpenAI",
+  "Zapier",
+  "Make",
+  "Google Sheets",
+  "WhatsApp API",
+  "CRM Tools",
 ];
 
 const projects = [
   {
-    title: "Fitness Reels Pack",
-    category: "Short Form",
+    title: "Website Lead Bot",
+    category: "Chatbot",
     desc:
-      "A high-energy reel series with beat cuts, bold captions and transformation-focused storytelling.",
+      "An AI assistant that captures visitor details, suggests services and sends leads to the sales team.",
     gradient: "from-[#1D4ED8] via-[#7C3AED] to-[#EC4899]",
   },
   {
-    title: "Restaurant Promo Video",
-    category: "Business Promo",
+    title: "CRM Follow-Up Flow",
+    category: "Sales Automation",
     desc:
-      "A food brand promo with cinematic cuts, menu highlights, offer frames and social-ready exports.",
-    gradient: "from-[#F97316] via-[#EF4444] to-[#FACC15]",
+      "A lead pipeline that updates CRM stages, sends reminders and triggers follow-up messages.",
+    gradient: "from-[#071120] via-[#0F766E] to-[#22C55E]",
   },
   {
-    title: "Product Ad Campaign",
-    category: "Ad Creative",
+    title: "Content Automation Kit",
+    category: "AI Content",
     desc:
-      "Performance-focused product videos with problem-solution flow, CTA screens and multiple ratios.",
-    gradient: "from-[#071120] via-[#0F766E] to-[#22C55E]",
+      "A workflow for generating post ideas, captions, email drafts and campaign briefs faster.",
+    gradient: "from-[#F97316] via-[#FACC15] to-[#13C4A3]",
   },
 ];
 
 const process = [
   {
     step: "01",
-    title: "Footage Review",
-    desc: "We review raw clips, brand references, script, music mood and platform requirements.",
+    title: "Discover",
+    desc: "We understand your repeated tasks, tools, customer journey and team workflow.",
   },
   {
     step: "02",
-    title: "Rough Cut",
-    desc: "We build the story structure, select the best shots and set the video pacing.",
+    title: "Map",
+    desc: "We design the automation flow with triggers, actions, conditions and human checkpoints.",
   },
   {
     step: "03",
-    title: "Effects & Polish",
-    desc: "We add captions, transitions, motion graphics, sound design and color correction.",
+    title: "Build",
+    desc: "We connect tools, create AI prompts, test edge cases and prepare dashboards or logs.",
   },
   {
     step: "04",
-    title: "Final Export",
-    desc: "You get ready-to-upload files in the required sizes for each platform.",
+    title: "Optimize",
+    desc: "We monitor performance, improve prompts, reduce manual work and refine the process.",
   },
 ];
 
 const deliverables = [
-  "Vertical reels",
-  "YouTube exports",
-  "Captioned versions",
-  "Ad-ready ratios",
-  "Thumbnail frames",
-  "Revision support",
+  "Automation blueprint",
+  "AI prompt setup",
+  "Tool integrations",
+  "Testing support",
+  "Team handover",
+  "Optimization plan",
 ];
 
-const VideoEditing = () => {
+const metrics = [
+  {
+    value: "70%",
+    label: "Manual Work Reduced",
+  },
+  {
+    value: "24/7",
+    label: "Lead Response",
+  },
+  {
+    value: "5+",
+    label: "Tools Connected",
+  },
+];
+
+const AIAutomation = () => {
   return (
     <MainLayout>
       <section className="relative overflow-hidden bg-[#F8FAFC] py-20 md:py-28">
@@ -133,23 +149,23 @@ const VideoEditing = () => {
                 <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse" />
 
                 <p className="text-primary font-semibold uppercase tracking-[3px] text-xs md:text-sm">
-                  Video Editing
+                  AI Automation
                 </p>
               </div>
 
               <h1 className="text-[40px] sm:text-[56px] md:text-[76px] font-bold font-outfit text-dark leading-[1.02] mt-8">
-                Professional Video Editing Services
+                Automate Repeated Work And Scale Faster
               </h1>
 
               <p className="paragraph mt-7 text-[15px] md:text-[18px] max-w-2xl">
-                High-quality editing for reels, ads, YouTube videos and
-                business promotions with smooth cuts, premium effects and
-                platform-ready exports.
+                We build AI-powered workflows, chatbots and integrations that
+                save time, capture leads faster and help your team focus on
+                higher-value work.
               </p>
 
               <div className="flex flex-wrap gap-4 mt-10">
                 <Link to="/contact" className="gradient-btn">
-                  Start Editing Project
+                  Automate My Business
                   <HiArrowRight />
                 </Link>
 
@@ -157,7 +173,7 @@ const VideoEditing = () => {
                   to="/portfolio"
                   className="h-[56px] px-8 rounded-full border border-gray-200 bg-white text-[#071120] font-semibold flex items-center justify-center hover:bg-[#071120] hover:text-white transition-all duration-300"
                 >
-                  View Work
+                  View Use Cases
                 </Link>
               </div>
             </div>
@@ -165,32 +181,61 @@ const VideoEditing = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-primary/10 blur-[90px] rounded-full" />
 
-              <div className="relative overflow-hidden rounded-[36px] border border-gray-200 bg-white p-5 shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
-                <div className="relative overflow-hidden rounded-[28px] bg-[#071120]">
-                  <video
-                    src={videoPreview}
-                    className="w-full h-[360px] md:h-[520px] object-cover opacity-90"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  />
+              <div className="relative bg-white border border-gray-200 rounded-[36px] p-6 shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
+                <div className="rounded-[28px] bg-[#071120] p-6 md:p-8 overflow-hidden relative">
+                  <div className="absolute -right-16 -top-16 w-52 h-52 rounded-full bg-primary/20" />
+                  <div className="absolute -left-10 bottom-0 w-44 h-44 rounded-full bg-[#22C55E]/10" />
 
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#071120]/70 via-transparent to-transparent" />
+                  <div className="relative grid gap-5">
+                    <div className="bg-white/8 border border-white/10 rounded-[24px] p-6">
+                      <div className="flex items-center justify-between gap-4">
+                        <div>
+                          <p className="text-white/60 text-xs uppercase tracking-[2px] font-semibold">
+                            Automation Engine
+                          </p>
 
-                  <div className="absolute left-6 bottom-6 right-6 flex items-center justify-between gap-4">
-                    <div>
-                      <p className="text-white/70 text-xs font-semibold uppercase tracking-[2px]">
-                        Preview Timeline
-                      </p>
+                          <h3 className="text-white text-[42px] font-bold mt-2">
+                            Live
+                          </h3>
+                        </div>
 
-                      <h3 className="text-white text-[26px] font-bold mt-2">
-                        Reels, Ads & Promos
-                      </h3>
+                        <div className="w-16 h-16 rounded-2xl bg-primary text-white flex items-center justify-center text-3xl">
+                          <HiOutlineChip />
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="w-14 h-14 rounded-full bg-white text-primary flex items-center justify-center text-2xl shrink-0">
-                      <HiOutlinePlay />
+                    <div className="grid grid-cols-3 gap-4">
+                      {metrics.map((item) => (
+                        <div
+                          key={item.label}
+                          className="bg-white/8 border border-white/10 rounded-[22px] p-4"
+                        >
+                          <h3 className="text-white text-[24px] font-bold">
+                            {item.value}
+                          </h3>
+
+                          <p className="text-white/60 text-xs mt-2">
+                            {item.label}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="bg-white rounded-[24px] p-5 flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center text-2xl">
+                        <HiOutlineRefresh />
+                      </div>
+
+                      <div>
+                        <h3 className="text-[#071120] text-[22px] font-bold">
+                          No-Code + AI Workflows
+                        </h3>
+
+                        <p className="text-gray-500 text-sm mt-1">
+                          Forms, CRM, sheets, email and chat connected.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -207,17 +252,17 @@ const VideoEditing = () => {
               <span className="w-2 h-2 rounded-full bg-primary" />
 
               <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
-                Editing Services
+                Automation Services
               </p>
             </div>
 
             <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold font-outfit text-dark leading-[1.05] mt-8">
-              Video Content Built For Views And Leads
+              Smart Systems For Faster Business Operations
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-20">
-            {editingServices.map((item) => (
+            {automationServices.map((item) => (
               <div
                 key={item.title}
                 className="group bg-[#F8FAFC] rounded-[30px] p-8 border border-gray-200 hover:-translate-y-2 hover:border-primary/20 hover:shadow-[0_20px_60px_rgba(2,6,23,0.06)] transition-all duration-300"
@@ -245,17 +290,17 @@ const VideoEditing = () => {
                 <span className="w-2 h-2 rounded-full bg-primary" />
 
                 <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
-                  Tools We Use
+                  Tools We Connect
                 </p>
               </div>
 
               <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold font-outfit text-dark leading-[1.05] mt-8">
-                Edited With Professional Production Tools
+                Your Favorite Tools Working Together
               </h2>
 
               <p className="paragraph mt-6 max-w-xl">
-                We use the right software for each type of edit, from social
-                reels and YouTube videos to motion graphics and ad creatives.
+                We connect AI with the tools your team already uses so leads,
+                support, content and reporting can move automatically.
               </p>
             </div>
 
@@ -266,7 +311,7 @@ const VideoEditing = () => {
                   className="bg-white rounded-[28px] p-7 border border-gray-200 shadow-[0_12px_40px_rgba(15,23,42,0.04)] hover:-translate-y-2 hover:shadow-[0_20px_60px_rgba(15,23,42,0.08)] transition-all duration-300"
                 >
                   <div className="w-16 h-16 rounded-2xl bg-[#EEF4FF] text-primary flex items-center justify-center text-3xl">
-                    <HiOutlineFilm />
+                    <HiOutlinePuzzle />
                   </div>
 
                   <h3 className="text-[22px] font-bold text-dark mt-6">
@@ -274,8 +319,8 @@ const VideoEditing = () => {
                   </h3>
 
                   <p className="text-gray-500 text-[14px] leading-[1.8] mt-3">
-                    Used for editing, effects, audio, color and platform
-                    exports.
+                    Used for automation, AI responses, data syncs and team
+                    notifications.
                   </p>
                 </div>
               ))}
@@ -291,12 +336,12 @@ const VideoEditing = () => {
               <span className="w-2 h-2 rounded-full bg-primary" />
 
               <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
-                Recent Projects
+                Recent Automation Work
               </p>
             </div>
 
             <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold font-outfit text-dark leading-[1.05] mt-8">
-              Work We Have Edited Recently
+              Automation Use Cases We Can Build
             </h2>
           </div>
 
@@ -317,11 +362,11 @@ const VideoEditing = () => {
                   </span>
 
                   <div className="relative">
-                    <div className="w-14 h-14 rounded-full bg-white/15 border border-white/20 text-white flex items-center justify-center text-2xl mb-5">
-                      <HiOutlinePlay />
-                    </div>
+                    <p className="text-white/70 text-sm font-semibold uppercase tracking-[2px]">
+                      Automation Flow
+                    </p>
 
-                    <h3 className="text-white text-[30px] font-bold">
+                    <h3 className="text-white text-[30px] font-bold mt-2">
                       {project.title}
                     </h3>
                   </div>
@@ -334,7 +379,7 @@ const VideoEditing = () => {
                     to="/portfolio"
                     className="inline-flex items-center gap-3 text-primary font-semibold mt-7 group-hover:translate-x-2 transition-all duration-300"
                   >
-                    View Project
+                    View Details
                     <HiArrowRight />
                   </Link>
                 </div>
@@ -352,12 +397,12 @@ const VideoEditing = () => {
                 <span className="w-2 h-2 rounded-full bg-primary" />
 
                 <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
-                  Workflow
+                  Automation Process
                 </p>
               </div>
 
               <h2 className="text-[36px] sm:text-[48px] md:text-[64px] font-bold font-outfit text-dark leading-[1.05] mt-8">
-                Clear Editing Process From Raw Footage To Final Video
+                From Manual Tasks To Automated Systems
               </h2>
 
               <div className="grid sm:grid-cols-2 gap-5 mt-10">
@@ -411,16 +456,16 @@ const VideoEditing = () => {
             <div className="relative z-10 grid lg:grid-cols-[1fr_auto] gap-10 items-center">
               <div>
                 <p className="text-primary font-semibold uppercase tracking-[3px] text-[12px]">
-                  Ready To Create Better Videos?
+                  Ready To Save Time?
                 </p>
 
                 <h2 className="text-[36px] sm:text-[50px] md:text-[64px] font-bold font-outfit text-white leading-[1.05] mt-5">
-                  Send Raw Clips And Get A Polished Final Edit
+                  Build An AI Workflow For Your Business
                 </h2>
 
                 <p className="text-white/70 text-[15px] md:text-[18px] leading-[1.9] mt-6 max-w-2xl">
-                  Share your content goal and we will edit videos that look
-                  sharp, hold attention and are ready for posting.
+                  Tell us your repeated work. We will map what can be
+                  automated and build a practical system for your team.
                 </p>
               </div>
 
@@ -439,4 +484,4 @@ const VideoEditing = () => {
   );
 };
 
-export default VideoEditing;
+export default AIAutomation;
