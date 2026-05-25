@@ -6,18 +6,44 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors());
+/* =========================================
+   MIDDLEWARE
+========================================= */
+
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+  })
+);
 
 app.use(express.json());
+
+/* =========================================
+   ROUTES
+========================================= */
 
 const contactRoutes = require("./routes/contactRoutes");
 
 app.use("/api/contact", contactRoutes);
 
+/* =========================================
+   TEST ROUTE
+========================================= */
+
 app.get("/", (req, res) => {
-  res.send("Backend Running 🚀");
+  res.status(200).json({
+    success: true,
+    message: "Backend Running 🚀",
+  });
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+/* =========================================
+   SERVER
+========================================= */
+
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running on port ${PORT}`);
 });

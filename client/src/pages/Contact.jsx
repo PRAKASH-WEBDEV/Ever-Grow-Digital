@@ -1,7 +1,23 @@
 import { useState } from "react";
 import MainLayout from "../layouts/MainLayout";
 
+/* =========================================
+   API URL
+========================================= */
+
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL?.replace(/\/$/, "");
+
+const CONTACT_API_URL =
+  `${API_BASE_URL}/api/contact`;
+
 const Contact = () => {
+
+  /* =========================================
+     STATES
+  ========================================= */
+
+  const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
 
@@ -36,11 +52,15 @@ const Contact = () => {
 
     e.preventDefault();
 
+    setLoading(true);
+
     try {
+
+      console.log("API URL =>", CONTACT_API_URL);
 
       const response = await fetch(
 
-        "http://localhost:5000/api/contact",
+        CONTACT_API_URL,
 
         {
 
@@ -60,22 +80,34 @@ const Contact = () => {
 
       const data = await response.json();
 
-      alert(data.message);
+      if (data.success) {
 
-      setFormData({
+        alert("Message Sent Successfully 🚀");
 
-        name: "",
-        email: "",
-        phone: "",
-        service: "",
+        setFormData({
 
-      });
+          name: "",
+          email: "",
+          phone: "",
+          service: "",
+
+        });
+
+      } else {
+
+        alert(data.message);
+
+      }
 
     } catch (error) {
 
-      console.log(error);
+      console.log("CONTACT ERROR =>", error);
 
-      alert("Something went wrong");
+      alert("Server Error. Please try again.");
+
+    } finally {
+
+      setLoading(false);
 
     }
 
@@ -139,9 +171,7 @@ const Contact = () => {
                 <div className="flex items-start gap-5">
 
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl">
-
                     📍
-
                   </div>
 
                   <div>
@@ -164,9 +194,7 @@ const Contact = () => {
                 <div className="flex items-start gap-5">
 
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl">
-
                     📞
-
                   </div>
 
                   <div>
@@ -188,9 +216,7 @@ const Contact = () => {
                 <div className="flex items-start gap-5">
 
                   <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-2xl">
-
                     ✉️
-
                   </div>
 
                   <div>
@@ -306,10 +332,22 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="gradient-btn w-full justify-center py-4 text-lg"
+                  disabled={loading}
+                  className="
+                    gradient-btn
+                    w-full
+                    justify-center
+                    py-4
+                    text-lg
+                    disabled:opacity-70
+                  "
                 >
 
-                  Submit Now →
+                  {
+                    loading
+                      ? "Sending..."
+                      : "Submit Now →"
+                  }
 
                 </button>
 

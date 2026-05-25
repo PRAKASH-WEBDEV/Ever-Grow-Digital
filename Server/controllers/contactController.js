@@ -4,16 +4,30 @@ const sendContactMail = async (req, res) => {
 
   try {
 
-    const {
-      name,
-      email,
-      phone,
-      service,
-    } = req.body;
+    const { name, email, phone, service } = req.body;
+
+    if (!name || !email || !phone || !service) {
+
+      return res.status(400).json({
+
+        success: false,
+        message: "All fields are required",
+
+      });
+
+    }
+
+    /* =========================================
+       TRANSPORTER
+    ========================================= */
 
     const transporter = nodemailer.createTransport({
 
-      service: "gmail",
+      host: "smtp.gmail.com",
+
+      port: 587,
+
+      secure: false,
 
       auth: {
 
@@ -23,118 +37,65 @@ const sendContactMail = async (req, res) => {
 
       },
 
-    });
+      tls: {
 
-    /* ==============================
-       MAIL TO YOU
-    ============================== */
+        rejectUnauthorized: false,
 
-    await transporter.sendMail({
+      },
 
-      from: process.env.EMAIL_USER,
-
-      to: process.env.EMAIL_USER,
-
-      subject: "🚀 New Lead From Website",
-
-      html: `
-
-      <h2>New Lead Received</h2>
-
-      <p><b>Name:</b> ${name}</p>
-
-      <p><b>Email:</b> ${email}</p>
-
-      <p><b>Phone:</b> ${phone}</p>
-
-      <p><b>Service:</b> ${service}</p>
-
-      `,
+      family: 4,
 
     });
 
-    /* ==============================
-       AUTO REPLY TO USER
-    ============================== */
+    /* =========================================
+       SEND MAIL
+    ========================================= */
 
     await transporter.sendMail({
 
-      from: process.env.EMAIL_USER,
+      from: `"EverGrow Digital" <${process.env.EMAIL_USER}>`,
 
-      to: email,
+      to: process.env.CONTACT_RECEIVER,
 
-      subject: "Thank You For Contacting GrowthGarage 🚀",
+      subject: "New Website Lead 🚀",
 
       html: `
 
-      <div style="
-        font-family:Arial;
-        background:#F8FAFC;
-        padding:40px;
-      ">
+        <div style="font-family:Arial;padding:20px">
 
-        <div style="
-          max-width:600px;
-          margin:auto;
-          background:white;
-          border-radius:20px;
-          overflow:hidden;
-        ">
+          <h2>New Lead Received 🚀</h2>
 
-          <div style="
-            background:#00C2A8;
-            padding:40px;
-            text-align:center;
-            color:white;
-          ">
+          <p><b>Name:</b> ${name}</p>
 
-            <h1>GrowthGarage</h1>
+          <p><b>Email:</b> ${email}</p>
 
-            <p>Premium Digital Solutions</p>
+          <p><b>Phone:</b> ${phone}</p>
 
-          </div>
-
-          <div style="padding:40px">
-
-            <h2>Hi ${name} 👋</h2>
-
-            <p>
-              Thank you for contacting us.
-              Our team will connect with you shortly.
-            </p>
-
-            <p>
-              Requested Service:
-              <b>${service}</b>
-            </p>
-
-          </div>
+          <p><b>Service:</b> ${service}</p>
 
         </div>
 
-      </div>
-
       `,
 
     });
 
-    res.status(200).json({
+    return res.status(200).json({
 
       success: true,
 
-      message: "Mail Sent Successfully",
+      message: "Mail Sent Successfully 🚀",
 
     });
 
   } catch (error) {
 
-    console.log(error);
+    console.log("MAIL ERROR =>", error);
 
-    res.status(500).json({
+    return res.status(500).json({
 
       success: false,
 
-      message: "Server Error",
+      message: error.message,
 
     });
 
@@ -143,5 +104,7 @@ const sendContactMail = async (req, res) => {
 };
 
 module.exports = {
+
   sendContactMail,
+
 };

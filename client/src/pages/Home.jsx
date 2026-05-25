@@ -1,5 +1,4 @@
 import MainLayout from "../layouts/MainLayout";
-
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
@@ -28,6 +27,9 @@ import {
 import { FaJava } from "react-icons/fa";
 
 import { MdOutlineAutoAwesome } from "react-icons/md";
+
+const API_BASE_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, "");
+const CONTACT_API_URL = `${API_BASE_URL}/api/contact`;
 
 const technologiesTop = [
   {
@@ -180,7 +182,7 @@ const Home = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/contact", {
+      const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
