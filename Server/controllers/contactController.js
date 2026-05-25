@@ -28,14 +28,19 @@ const createTransporter = () => {
   }
 
   return nodemailer.createTransport({
-    service: "gmail",
+    host: "smtp.gmail.com", // service: "gmail" hata do
+    port: 587, // 465 ki jagah 587
+    secure: false, // 465 = true, 587 = false
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
     },
-    connectionTimeout: 5000,
-    greetingTimeout: 5000,
-    socketTimeout: 8000,
+    connectionTimeout: 10000,
+    greetingTimeout: 10000,
+    socketTimeout: 15000,
+    tls: {
+      rejectUnauthorized: false, // Render SSL issues fix
+    },
   });
 };
 
@@ -307,7 +312,7 @@ const sendContactMail = async (req, res) => {
   try {
     /* ── Validate ── */
     const missingField = requiredFields.find(
-      (field) => !String(req.body[field] || "").trim()
+      (field) => !String(req.body[field] || "").trim(),
     );
 
     if (missingField) {
@@ -317,45 +322,43 @@ const sendContactMail = async (req, res) => {
       });
     }
 
-    const name    = escapeHtml(req.body.name);
-    const email   = escapeHtml(req.body.email);
-    const phone   = escapeHtml(req.body.phone);
+    const name = escapeHtml(req.body.name);
+    const email = escapeHtml(req.body.email);
+    const phone = escapeHtml(req.body.phone);
     const service = escapeHtml(req.body.service);
 
-    const transporter    = createTransporter();
-    const receiverEmail  = process.env.CONTACT_RECEIVER || process.env.EMAIL_USER;
+    const transporter = createTransporter();
+    const receiverEmail =
+      process.env.CONTACT_RECEIVER || process.env.EMAIL_USER;
 
     /* ── Send both emails concurrently for low latency ── */
     await Promise.all([
-
       // 1. Admin notification
       transporter.sendMail({
-        from   : `"GrowthGarage CRM" <${process.env.EMAIL_USER}>`,
-        to     : receiverEmail,
+        from: `"GrowthGarage CRM" <${process.env.EMAIL_USER}>`,
+        to: receiverEmail,
         subject: `🔔 New Lead: ${name} — ${service}`,
-        html   : adminEmailTemplate({ name, email, phone, service }),
+        html: adminEmailTemplate({ name, email, phone, service }),
       }),
 
       // 2. User thank-you
       transporter.sendMail({
-        from   : `"GrowthGarage" <${process.env.EMAIL_USER}>`,
-        to     : req.body.email,
+        from: `"GrowthGarage" <${process.env.EMAIL_USER}>`,
+        to: req.body.email,
         subject: `Thank You for Contacting GrowthGarage, ${name}! 🚀`,
-        html   : userEmailTemplate({ name, service }),
+        html: userEmailTemplate({ name, service }),
       }),
-
     ]);
 
     return res.status(200).json({
       success: true,
       message: "Mail Sent Successfully",
     });
-
   } catch (error) {
     console.error("Contact mail error:", {
-      message : error.message,
-      code    : error.code,
-      command : error.command,
+      message: error.message,
+      code: error.code,
+      command: error.command,
     });
 
     return res.status(500).json({
