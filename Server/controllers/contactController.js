@@ -6,6 +6,10 @@ const sendContactMail = async (req, res) => {
 
     const { name, email, phone, service } = req.body;
 
+    /* =========================================
+       CHECK FIELDS
+    ========================================= */
+
     if (!name || !email || !phone || !service) {
 
       return res.status(400).json({
@@ -29,6 +33,8 @@ const sendContactMail = async (req, res) => {
 
       secure: false,
 
+      requireTLS: true,
+
       auth: {
 
         user: process.env.EMAIL_USER,
@@ -43,9 +49,15 @@ const sendContactMail = async (req, res) => {
 
       },
 
-      family: 4,
-
     });
+
+    /* =========================================
+       VERIFY SMTP
+    ========================================= */
+
+    await transporter.verify();
+
+    console.log("SMTP READY ✅");
 
     /* =========================================
        SEND MAIL
@@ -53,7 +65,7 @@ const sendContactMail = async (req, res) => {
 
     await transporter.sendMail({
 
-      from: `"EverGrow Digital" <${process.env.EMAIL_USER}>`,
+      from: process.env.EMAIL_USER,
 
       to: process.env.CONTACT_RECEIVER,
 
@@ -61,19 +73,15 @@ const sendContactMail = async (req, res) => {
 
       html: `
 
-        <div style="font-family:Arial;padding:20px">
+        <h2>New Lead Received 🚀</h2>
 
-          <h2>New Lead Received 🚀</h2>
+        <p><b>Name:</b> ${name}</p>
 
-          <p><b>Name:</b> ${name}</p>
+        <p><b>Email:</b> ${email}</p>
 
-          <p><b>Email:</b> ${email}</p>
+        <p><b>Phone:</b> ${phone}</p>
 
-          <p><b>Phone:</b> ${phone}</p>
-
-          <p><b>Service:</b> ${service}</p>
-
-        </div>
+        <p><b>Service:</b> ${service}</p>
 
       `,
 
@@ -82,19 +90,17 @@ const sendContactMail = async (req, res) => {
     return res.status(200).json({
 
       success: true,
-
       message: "Mail Sent Successfully 🚀",
 
     });
 
   } catch (error) {
 
-    console.log("MAIL ERROR =>", error);
+    console.log("FULL ERROR =>", error);
 
     return res.status(500).json({
 
       success: false,
-
       message: error.message,
 
     });
