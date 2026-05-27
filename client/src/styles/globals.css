@@ -398,6 +398,67 @@ p,
 }
 
 /* ========================================
+   DRAGGABLE SLIDERS
+======================================== */
+
+.slider,
+.slider-wrapper,
+.blog-slider-wrapper,
+.tech-slider-wrapper {
+  cursor: grab;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain;
+  touch-action: pan-y;
+}
+
+.slider::-webkit-scrollbar,
+.slider-wrapper::-webkit-scrollbar,
+.blog-slider-wrapper::-webkit-scrollbar,
+.tech-slider-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.slider.is-dragging,
+.slider-wrapper.is-dragging,
+.blog-slider-wrapper.is-dragging,
+.tech-slider-wrapper.is-dragging {
+  cursor: grabbing;
+  scroll-behavior: auto;
+  user-select: none;
+}
+
+.slider.is-dragging *,
+.slider-wrapper.is-dragging *,
+.blog-slider-wrapper.is-dragging *,
+.tech-slider-wrapper.is-dragging * {
+  user-select: none;
+}
+
+.slider img,
+.slider-wrapper img,
+.blog-slider-wrapper img,
+.tech-slider-wrapper img {
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.slider:hover .client-slider-track,
+.slider.is-dragging .client-slider-track,
+.slider-wrapper:hover .slider-track,
+.slider-wrapper.is-dragging .slider-track,
+.blog-slider-wrapper:hover .blog-slider-track,
+.blog-slider-wrapper.is-dragging .blog-slider-track,
+.tech-slider-wrapper:hover .tech-slider-track,
+.tech-slider-wrapper.is-dragging .tech-slider-track {
+  animation-play-state: paused !important;
+}
+
+/* ========================================
    INFINITE CLIENT SLIDER
 ======================================== */
 

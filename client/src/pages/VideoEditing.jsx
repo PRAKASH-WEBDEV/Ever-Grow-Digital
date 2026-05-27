@@ -12,7 +12,7 @@ import {
 } from "react-icons/hi";
 
 import MainLayout from "../layouts/MainLayout";
-import videoPreview from "../assets/Video-1.mp4";
+import { videoPreviewUrl } from "../data/media";
 
 const editingServices = [
   {
@@ -168,7 +168,7 @@ const VideoEditing = () => {
               <div className="relative overflow-hidden rounded-[36px] border border-gray-200 bg-white p-5 shadow-[0_25px_80px_rgba(15,23,42,0.08)]">
                 <div className="relative overflow-hidden rounded-[28px] bg-[#071120]">
                   <video
-                    src={videoPreview}
+                    src={videoPreviewUrl}
                     className="w-full h-[360px] md:h-[520px] object-cover opacity-90"
                     autoPlay
                     muted

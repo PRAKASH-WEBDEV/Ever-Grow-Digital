@@ -1,4 +1,5 @@
 const nodemailer = require("nodemailer");
+const path = require("path");
 
 /* =========================================
    REQUIRED FIELDS
@@ -18,28 +19,42 @@ const escapeHtml = (value = "") =>
     .replace(/"/g, "&quot;")
     .replace(/'/g, "&#039;");
 
+const getRequiredEnv = (key) => String(process.env[key] || "").trim();
+
+const normalizeAppPassword = (password) => password.replace(/\s+/g, "");
+
+const thankYouLogoPath = path.join(
+  __dirname,
+  "../../client/src/assets/logo-2.png",
+);
+
+const thankYouLogoCid = "growthgarage-logo";
+
 /* =========================================
    TRANSPORTER
 ========================================= */
 
 const createTransporter = () => {
-  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+  const emailUser = getRequiredEnv("EMAIL_USER");
+  const emailPass = normalizeAppPassword(getRequiredEnv("EMAIL_PASS"));
+
+  if (!emailUser || !emailPass) {
     throw new Error("Email credentials are missing");
   }
 
   return nodemailer.createTransport({
-    host: "smtp.gmail.com", // service: "gmail" hata do
-    port: 587, // 465 ki jagah 587
-    secure: false, // 465 = true, 587 = false
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false,
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASS,
+      user: emailUser,
+      pass: emailPass,
     },
     connectionTimeout: 10000,
     greetingTimeout: 10000,
     socketTimeout: 15000,
     tls: {
-      rejectUnauthorized: false, // Render SSL issues fix
+      rejectUnauthorized: false,
     },
   });
 };
@@ -191,7 +206,21 @@ const userEmailTemplate = ({ name, service }) => `
           <!-- HEADER -->
           <tr>
             <td style="background:linear-gradient(135deg,#00C2A8 0%,#00967E 100%);padding:48px;text-align:center;">
-              <div style="font-size:48px;margin-bottom:16px;">🎉</div>
+              <img
+  src="cid:${thankYouLogoCid}"
+  alt="GrowthGarage"
+  width="190"
+  style="
+    display:block;
+    width:140px;
+    height:140px;
+    object-fit:cover;
+    margin:0 auto 18px;
+    background:#ffffff;
+    border-radius:50%;
+    padding:10px;
+  "
+/>
               <h1 style="margin:0;color:#ffffff;font-size:30px;font-weight:800;letter-spacing:-0.5px;">
                 Thank You, ${name}!
               </h1>
@@ -328,14 +357,14 @@ const sendContactMail = async (req, res) => {
     const service = escapeHtml(req.body.service);
 
     const transporter = createTransporter();
-    const receiverEmail =
-      process.env.CONTACT_RECEIVER || process.env.EMAIL_USER;
+    const emailUser = getRequiredEnv("EMAIL_USER");
+    const receiverEmail = getRequiredEnv("CONTACT_RECEIVER") || emailUser;
 
     /* ── Send both emails concurrently for low latency ── */
     await Promise.all([
       // 1. Admin notification
       transporter.sendMail({
-        from: `"GrowthGarage CRM" <${process.env.EMAIL_USER}>`,
+        from: `"GrowthGarage CRM" <${emailUser}>`,
         to: receiverEmail,
         subject: `🔔 New Lead: ${name} — ${service}`,
         html: adminEmailTemplate({ name, email, phone, service }),
@@ -343,10 +372,17 @@ const sendContactMail = async (req, res) => {
 
       // 2. User thank-you
       transporter.sendMail({
-        from: `"GrowthGarage" <${process.env.EMAIL_USER}>`,
+        from: `"GrowthGarage" <${emailUser}>`,
         to: req.body.email,
         subject: `Thank You for Contacting GrowthGarage, ${name}! 🚀`,
         html: userEmailTemplate({ name, service }),
+        attachments: [
+          {
+            filename: "growthgarage-logo.png",
+            path: thankYouLogoPath,
+            cid: thankYouLogoCid,
+          },
+        ],
       }),
     ]);
 

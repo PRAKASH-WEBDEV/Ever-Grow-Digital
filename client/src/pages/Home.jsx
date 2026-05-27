@@ -3,7 +3,17 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import blogs from "../data/blogs";
+import { videoPreviewUrl } from "../data/media";
 import { Link } from "react-router-dom";
+import clientLogo01 from "../assets/Home/Brands & Agencies/client-logo-01.webp";
+import clientLogo02 from "../assets/Home/Brands & Agencies/client-logo-02.webp";
+import clientLogo03 from "../assets/Home/Brands & Agencies/client-logo-03.webp";
+import clientLogo04 from "../assets/Home/Brands & Agencies/client-logo-04.webp";
+import clientLogo05 from "../assets/Home/Brands & Agencies/client-logo-05.webp";
+import clientLogo06 from "../assets/Home/Brands & Agencies/client-logo-06.webp";
+import clientLogo07 from "../assets/Home/Brands & Agencies/client-logo-07.webp";
+import webDevImg from "../assets/Home/our-services/Web-development-Services.webp";
+
 
 import {
   SiReact,
@@ -30,6 +40,16 @@ import { MdOutlineAutoAwesome } from "react-icons/md";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, "");
 const CONTACT_API_URL = `${API_BASE_URL}/api/contact`;
+
+const clientLogos = [
+  clientLogo01,
+  clientLogo02,
+  clientLogo03,
+  clientLogo04,
+  clientLogo05,
+  clientLogo06,
+  clientLogo07,
+];
 
 const technologiesTop = [
   {
@@ -244,12 +264,14 @@ const Home = () => {
   const services = [
     {
       tab: "Web Development",
+      
+      src: {webDevImg},
 
       title: "Modern Website Development Solutions",
 
-      link: "/web-development",
+      link: "../assets/Home/our-services/Web-development-Services.webp",
 
-      image: "/services/web-development.png",
+      image: "../assets/Home/our-services/Web-development-Services.webp",
 
       desc: "We build fast, scalable, responsive and premium websites for startups, businesses and brands.",
 
@@ -736,43 +758,9 @@ const Home = () => {
       CLIENT LOGO SLIDER
   ========================================= */}
 
-        <div className="relative z-10 overflow-hidden">
+        <div className="slider relative z-10 overflow-hidden">
           <div className="client-slider-track">
-            {[
-              "/clients/rankwrap.png",
-
-              "/clients/dhalls.png",
-
-              "/clients/careerbrainmap.png",
-
-              "/clients/ikkis.png",
-
-              "/clients/kidzee.png",
-
-              "/clients/ajjars.png",
-
-              "/clients/webnest.png",
-
-              "/clients/brandscale.png",
-
-              /* DUPLICATE */
-
-              "/clients/rankwrap.png",
-
-              "/clients/dhalls.png",
-
-              "/clients/careerbrainmap.png",
-
-              "/clients/ikkis.png",
-
-              "/clients/kidzee.png",
-
-              "/clients/ajjars.png",
-
-              "/clients/webnest.png",
-
-              "/clients/brandscale.png",
-            ].map((logo, index) => (
+            {[...clientLogos, ...clientLogos].map((logo, index) => (
               <div
                 key={index}
                 className="
@@ -805,15 +793,13 @@ const Home = () => {
                   src={logo}
                   alt="client-logo"
                   className="
-              max-w-[120px]
-              md:max-w-[150px]
+              max-w-[180px]
+              md:max-w-[200px]
 
-              max-h-[36px]
-              md:max-h-[42px]
+              max-h-[42px]
+              md:max-h-[50px]
 
               object-contain
-
-              opacity-80
 
               hover:opacity-100
 
@@ -2737,7 +2723,7 @@ const Home = () => {
 
                 <div className="relative overflow-hidden">
                   <video
-                    src="/src/assets/Video-1.mp4"
+                    src={videoPreviewUrl}
                     autoPlay
                     muted
                     loop
