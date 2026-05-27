@@ -13,7 +13,16 @@ import clientLogo05 from "../assets/Home/Brands & Agencies/client-logo-05.webp";
 import clientLogo06 from "../assets/Home/Brands & Agencies/client-logo-06.webp";
 import clientLogo07 from "../assets/Home/Brands & Agencies/client-logo-07.webp";
 import webDevImg from "../assets/Home/our-services/Web-development-Services.webp";
+import seoImg from "../assets/Home/our-services/Seo-Optimization.webp";
+import graphicsImg from "../assets/Home/our-services/UI-UX-Services.webp";
+// import graphicsImg from "../assets/Home/our-services/Graphic-Designer-services.webp";
+import videoImg from "../assets/Home/our-services/Content creator editing video footage in studio.webp";
 
+import LottieModule from "lottie-react";
+import brandStrategyAnim from "../assets/Home/Why Choose EverGrow/marketing-network.json";
+import webDevAnim from "../assets/Home/Why Choose EverGrow/laptop.json";
+import digitalMarketingAnim from "../assets/Home/Why Choose EverGrow/programmer.json";
+import creativeDesignAnim from "../assets/Home/Why Choose EverGrow/learning.json";
 
 import {
   SiReact,
@@ -40,6 +49,15 @@ import { MdOutlineAutoAwesome } from "react-icons/md";
 
 const API_BASE_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, "");
 const CONTACT_API_URL = `${API_BASE_URL}/api/contact`;
+const POPUP_STORAGE_KEY = "evergrow_strategy_popup_seen";
+const Lottie = LottieModule.default ?? LottieModule;
+const getProjectScreenshotUrl = (url) =>
+  `https://image.thum.io/get/width/1200/crop/900/noanimate/?url=${encodeURIComponent(
+    url,
+  )}`;
+
+const getProjectScreenshotFallbackUrl = (url) =>
+  `https://image.thum.io/get/width/1200/crop/900/noanimate/${url}`;
 
 const clientLogos = [
   clientLogo01,
@@ -173,20 +191,50 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 600) {
-        setShowPopup(true);
+    if (localStorage.getItem(POPUP_STORAGE_KEY)) {
+      return undefined;
+    }
 
-        window.removeEventListener("scroll", handleScroll);
+    const openPopupOnce = () => {
+      if (localStorage.getItem(POPUP_STORAGE_KEY)) {
+        return;
+      }
+
+      localStorage.setItem(POPUP_STORAGE_KEY, "true");
+      setShowPopup(true);
+      window.removeEventListener("scroll", handleScroll);
+      window.clearTimeout(timer);
+    };
+
+    const handleScroll = () => {
+      const scrollableHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
+
+      if (scrollableHeight <= 0) {
+        return;
+      }
+
+      const scrollProgress = window.scrollY / scrollableHeight;
+
+      if (scrollProgress >= 0.45) {
+        openPopupOnce();
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    const timer = window.setTimeout(openPopupOnce, 13000);
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
+      window.clearTimeout(timer);
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handlePopupClose = () => {
+    localStorage.setItem(POPUP_STORAGE_KEY, "true");
+    setShowPopup(false);
+  };
 
   const handleChange = (e) => {
     setFormData({
@@ -232,6 +280,7 @@ const Home = () => {
       /* AUTO CLOSE POPUP */
 
       setTimeout(() => {
+        localStorage.setItem(POPUP_STORAGE_KEY, "true");
         setShowPopup(false);
       }, 1500);
 
@@ -264,14 +313,12 @@ const Home = () => {
   const services = [
     {
       tab: "Web Development",
-      
-      src: {webDevImg},
 
       title: "Modern Website Development Solutions",
 
-      link: "../assets/Home/our-services/Web-development-Services.webp",
+      link: "/web-development",
 
-      image: "../assets/Home/our-services/Web-development-Services.webp",
+      image: webDevImg,
 
       desc: "We build fast, scalable, responsive and premium websites for startups, businesses and brands.",
 
@@ -285,7 +332,7 @@ const Home = () => {
 
       link: "/digital-marketing",
 
-      image: "/services/seo.png",
+      image: seoImg,
 
       desc: "Boost your search rankings and drive organic traffic with advanced SEO strategies.",
 
@@ -299,7 +346,7 @@ const Home = () => {
 
       link: "/graphics-designing",
 
-      image: "/services/graphics.png",
+      image: graphicsImg,
 
       desc: "Premium branding and graphic solutions for modern businesses.",
 
@@ -313,7 +360,7 @@ const Home = () => {
 
       link: "/video-editing",
 
-      image: "/services/video-editing.png",
+      image: videoImg,
 
       desc: "Modern video editing solutions for brands, creators and businesses.",
 
@@ -956,32 +1003,31 @@ const Home = () => {
             {/* =========================================
           RIGHT CARDS
       ========================================= */}
-
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               {/* CARD */}
 
               {[
                 {
                   title: "Brand Strategy",
-                  image: "/services/branding.png",
+                  animation: brandStrategyAnim,
                   desc: "Modern branding solutions designed to improve business identity and online visibility.",
                 },
 
                 {
                   title: "Web Development",
-                  image: "/services/web-development.png",
+                  animation: webDevAnim,
                   desc: "High-performing responsive websites built for speed, engagement and conversions.",
                 },
 
                 {
                   title: "Digital Marketing",
-                  image: "/services/digital-marketing.png",
+                  animation: digitalMarketingAnim,
                   desc: "SEO and marketing strategies focused on traffic, growth and measurable results.",
                 },
 
                 {
                   title: "Creative Design",
-                  image: "/services/creative-design.png",
+                  animation: creativeDesignAnim,
                   desc: "Clean UI/UX experiences crafted to improve user interaction and brand value.",
                 },
               ].map((item, index) => (
@@ -1019,7 +1065,7 @@ const Home = () => {
       ${index === 1 || index === 3 ? "sm:mt-10" : ""}
     `}
                 >
-                  {/* IMAGE */}
+                  {/* ANIMATION */}
 
                   <div
                     className="
@@ -1042,14 +1088,14 @@ const Home = () => {
         mb-6
       "
                   >
-                    <img
-                      src={item.image}
-                      alt={item.title}
+                    <Lottie
+                      animationData={item.animation}
+                      loop
+                      autoplay
+                      aria-label={item.title}
                       className="
-          w-8
-          h-8
-
-          object-contain
+          w-14
+          h-14
         "
                     />
                   </div>
@@ -2288,60 +2334,31 @@ const Home = () => {
               {
                 title: "Kidzee Hub",
                 category: "Education Website",
-
-                image:
-                  "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=1200&auto=format&fit=crop",
-
                 link: "https://kidzeehub.com/",
               },
-
               {
                 title: "Ajjars",
                 category: "eCommerce Store",
-
-                image:
-                  "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1200&auto=format&fit=crop",
-
                 link: "https://www.ajjars.com/",
               },
-
               {
                 title: "Career BrainMap",
                 category: "Career Platform",
-
-                image:
-                  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop",
-
                 link: "https://careerbrainmap.com/",
               },
-
               {
                 title: "RankWrap",
                 category: "SEO Agency",
-
-                image:
-                  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop",
-
                 link: "https://rankwrap.com/",
               },
-
               {
                 title: "IPL 2026",
                 category: "Sports News",
-
-                image:
-                  "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?q=80&w=1200&auto=format&fit=crop",
-
                 link: "https://ipl2026.com.in/",
               },
-
               {
                 title: "DecentSquare",
                 category: "Business Website",
-
-                image:
-                  "https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=1200&auto=format&fit=crop",
-
                 link: "https://decentsquare.com/",
               },
             ].map((project, index) => (
@@ -2351,59 +2368,55 @@ const Home = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="
-            group
-
-            relative
-
-            bg-white
-
-            border
-            border-[#E4EEFF]
-
-            rounded-[32px]
-
-            overflow-hidden
-
-            shadow-[0_15px_40px_rgba(15,23,42,0.05)]
-
-            hover:-translate-y-2
-            hover:border-[#D7E7FF]
-
-            transition-all
-            duration-500
-          "
+        group
+        relative
+        bg-white
+        border
+        border-[#E4EEFF]
+        rounded-[32px]
+        overflow-hidden
+        shadow-[0_15px_40px_rgba(15,23,42,0.05)]
+        hover:-translate-y-2
+        hover:border-[#D7E7FF]
+        transition-all
+        duration-500
+      "
               >
                 {/* IMAGE */}
 
                 <div className="relative overflow-hidden">
                   <img
-                    src={project.image}
-                    alt={project.title}
+                    src={getProjectScreenshotUrl(project.link)}
+                    alt={`${project.title} website preview`}
+                    loading="lazy"
+                    referrerPolicy="no-referrer"
+                    onError={(event) => {
+                      event.currentTarget.onerror = null;
+                      event.currentTarget.src = getProjectScreenshotFallbackUrl(
+                        project.link,
+                      );
+                    }}
                     className="
-                w-full
-                h-[260px]
-
-                object-cover
-
-                transition-all
-                duration-700
-
-                group-hover:scale-105
-              "
+            w-full
+            h-[260px]
+            object-cover
+            transition-all
+            duration-700
+            group-hover:scale-105
+          "
                   />
 
                   {/* OVERLAY */}
 
                   <div
                     className="
-                absolute
-                inset-0
-
-                bg-gradient-to-t
-                from-[#071120]/70
-                via-transparent
-                to-transparent
-              "
+            absolute
+            inset-0
+            bg-gradient-to-t
+            from-[#071120]/70
+            via-transparent
+            to-transparent
+          "
                   />
 
                   {/* CATEGORY */}
@@ -2411,24 +2424,19 @@ const Home = () => {
                   <div className="absolute top-5 left-5">
                     <span
                       className="
-                  inline-flex
-                  items-center
-
-                  px-4
-                  py-2
-
-                  rounded-full
-
-                  bg-white/90
-                  backdrop-blur-md
-
-                  text-[#1D4ED8]
-                  text-[13px]
-                  font-semibold
-
-                  border
-                  border-white/40
-                "
+              inline-flex
+              items-center
+              px-4
+              py-2
+              rounded-full
+              bg-white/90
+              backdrop-blur-md
+              text-[#1D4ED8]
+              text-[13px]
+              font-semibold
+              border
+              border-white/40
+            "
                     >
                       {project.category}
                     </span>
@@ -2442,18 +2450,14 @@ const Home = () => {
 
                   <h3
                     className="
-                text-[28px]
-                font-bold
-
-                text-[#071120]
-
-                leading-[1.2]
-
-                transition-all
-                duration-300
-
-                group-hover:text-[#1D4ED8]
-              "
+            text-[28px]
+            font-bold
+            text-[#071120]
+            leading-[1.2]
+            transition-all
+            duration-300
+            group-hover:text-[#1D4ED8]
+          "
                   >
                     {project.title}
                   </h3>
@@ -2469,19 +2473,15 @@ const Home = () => {
 
                   <div
                     className="
-                inline-flex
-                items-center
-
-                mt-6
-
-                text-[#1D4ED8]
-                font-semibold
-
-                transition-all
-                duration-300
-
-                group-hover:translate-x-2
-              "
+            inline-flex
+            items-center
+            mt-6
+            text-[#1D4ED8]
+            font-semibold
+            transition-all
+            duration-300
+            group-hover:translate-x-2
+          "
                   >
                     View Project →
                   </div>
@@ -3633,153 +3633,144 @@ const Home = () => {
         </div>
       </section>
 
-    {/* =========================================
+      {/* =========================================
     SCROLL POPUP
 ========================================= */}
 
-{showPopup && (
-  <div className="popup-overlay">
-    {/* POPUP */}
+      {showPopup && (
+        <div
+          className="popup-overlay"
+          role="presentation"
+          onClick={handlePopupClose}
+        >
+          {/* POPUP */}
 
-    <div className="popup-container">
-      {/* CLOSE BUTTON */}
+          <div
+            className="popup-container"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="strategy-popup-title"
+            onClick={(event) => event.stopPropagation()}
+          >
+            {/* CLOSE BUTTON */}
 
-      <button
-        onClick={() => setShowPopup(false)}
-        className="popup-close-btn"
-      >
-        ✕
-      </button>
+            <button
+              type="button"
+              onClick={handlePopupClose}
+              className="popup-close-btn"
+              aria-label="Close popup"
+            >
+              ✕
+            </button>
 
-      {/* TOP */}
+            {/* TOP */}
 
-      <div className="popup-top">
-        <div className="popup-badge">
-          Free Consultation
+            <div className="popup-top">
+              <div className="popup-badge">Free Strategy Call</div>
+
+              <h2 id="strategy-popup-title" className="popup-title">
+                Let’s Build Something Powerful
+              </h2>
+
+              <p className="popup-text">
+                Get a modern high-converting website for your business,
+                startup or brand.
+              </p>
+            </div>
+
+            {/* FORM */}
+
+            <form onSubmit={handleSubmit} className="popup-form">
+              {/* NAME */}
+
+              <input
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={formData.name}
+                onChange={handleChange}
+                className="popup-input"
+                required
+              />
+
+              {/* EMAIL */}
+
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleChange}
+                className="popup-input"
+                required
+              />
+
+              {/* PHONE */}
+
+              <input
+                type="text"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleChange}
+                className="popup-input"
+                required
+              />
+
+              {/* SERVICE */}
+
+              <select
+                name="service"
+                value={formData.service}
+                onChange={handleChange}
+                className="popup-input"
+                required
+              >
+                <option value="" disabled>
+                  Select Service
+                </option>
+
+                <option value="Web Development">Web Development</option>
+
+                <option value="SEO Optimization">SEO Optimization</option>
+
+                <option value="Digital Marketing">Digital Marketing</option>
+
+                <option value="Graphics Designing">Graphics Designing</option>
+
+                <option value="Video Editing">Video Editing</option>
+              </select>
+
+              {/* BUTTON */}
+
+              <button
+                type="submit"
+                disabled={loading}
+                className="popup-submit-btn"
+              >
+                {loading ? "Sending..." : "Submit Enquiry"}
+              </button>
+            </form>
+
+            {/* CONTACT */}
+
+            <div className="popup-contact">
+              <a href="tel:+919876543210" className="popup-contact-link">
+                +91 9876543210
+              </a>
+
+              <span className="popup-divider" />
+
+              <a
+                href="mailto:hello@evergrowdigital.com"
+                className="popup-contact-link"
+              >
+                hello@evergrowdigital.com
+              </a>
+            </div>
+          </div>
         </div>
-
-        <h2 className="popup-title">
-          Let’s Grow Your
-          Business Online
-        </h2>
-
-        <p className="popup-text">
-          Fill the form and our team
-          will contact you shortly.
-        </p>
-      </div>
-
-      {/* FORM */}
-
-      <form
-        onSubmit={handleSubmit}
-        className="popup-form"
-      >
-        {/* NAME */}
-
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          className="popup-input"
-          required
-        />
-
-        {/* EMAIL */}
-
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          value={formData.email}
-          onChange={handleChange}
-          className="popup-input"
-          required
-        />
-
-        {/* PHONE */}
-
-        <input
-          type="text"
-          name="phone"
-          placeholder="Phone Number"
-          value={formData.phone}
-          onChange={handleChange}
-          className="popup-input"
-          required
-        />
-
-        {/* SERVICE */}
-
-        <select
-  name="service"
-  value={formData.service}
-  onChange={handleChange}
-  className="popup-input"
-  required
->
-  <option value="" disabled>
-    Select Service
-  </option>
-
-  <option value="Web Development">
-    Web Development
-  </option>
-
-  <option value="SEO Optimization">
-    SEO Optimization
-  </option>
-
-  <option value="Digital Marketing">
-    Digital Marketing
-  </option>
-
-  <option value="Graphics Designing">
-    Graphics Designing
-  </option>
-
-  <option value="Video Editing">
-    Video Editing
-  </option>
-</select>
-
-        {/* BUTTON */}
-
-        <button
-          type="submit"
-          disabled={loading}
-          className="popup-submit-btn"
-        >
-          {loading
-            ? "Sending..."
-            : "Submit Enquiry"}
-        </button>
-      </form>
-
-      {/* CONTACT */}
-
-      <div className="popup-contact">
-        <a
-          href="tel:+919876543210"
-          className="popup-contact-link"
-        >
-          +91 9876543210
-        </a>
-
-        <span className="popup-divider" />
-
-        <a
-          href="mailto:hello@evergrowdigital.com"
-          className="popup-contact-link"
-        >
-          hello@evergrowdigital.com
-        </a>
-      </div>
-    </div>
-  </div>
-)}
+      )}
     </MainLayout>
   );
 };
