@@ -186,6 +186,7 @@ const Home = () => {
     email: "",
     phone: "",
     service: "",
+    message: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -244,18 +245,23 @@ const Home = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, defaultService = "") => {
     e.preventDefault();
 
     setLoading(true);
 
     try {
+      const payload = {
+        ...formData,
+        service: formData.service || defaultService,
+      };
+
       const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(payload),
       });
 
       await response.json();
@@ -275,6 +281,7 @@ const Home = () => {
         email: "",
         phone: "",
         service: "",
+        message: "",
       });
 
       /* AUTO CLOSE POPUP */
@@ -523,10 +530,15 @@ const Home = () => {
               <div className="flex flex-col sm:flex-row gap-4 mt-10">
                 {/* PRIMARY BUTTON */}
 
-                <button
+                <Link
+                  to="/contact"
                   className="
               h-[56px]
               px-8
+
+              inline-flex
+              items-center
+              justify-center
 
               rounded-full
 
@@ -542,14 +554,19 @@ const Home = () => {
             "
                 >
                   Get Started
-                </button>
+                </Link>
 
                 {/* SECONDARY BUTTON */}
 
-                <button
+                <Link
+                  to="/portfolio"
                   className="
               h-[56px]
               px-8
+
+              inline-flex
+              items-center
+              justify-center
 
               rounded-full
 
@@ -569,7 +586,7 @@ const Home = () => {
             "
                 >
                   View Portfolio
-                </button>
+                </Link>
               </div>
 
               {/* STATS */}
@@ -863,252 +880,121 @@ const Home = () => {
       {/* =========================================
     WHY CHOOSE US
 ========================================= */}
-      <section className="relative py-20 lg:py-28 overflow-hidden bg-white">
-        {/* BACKGROUND */}
-
-        <div className="absolute inset-0 bg-[#F8FBFF]" />
-
-        {/* GRID */}
-
+      <section className="relative py-20 lg:py-28 overflow-hidden bg-[#F8FBFF]">
         <div className="absolute inset-0 opacity-[0.025] bg-[linear-gradient(to_right,#1D4ED8_1px,transparent_1px),linear-gradient(to_bottom,#1D4ED8_1px,transparent_1px)] bg-[size:72px_72px]" />
 
-        {/* BLUR */}
-
-        <div className="absolute top-[-120px] left-[-80px] w-[320px] h-[320px] bg-[#1D4ED8]/10 rounded-full blur-[100px]" />
-
-        <div className="absolute bottom-[-120px] right-[-80px] w-[320px] h-[320px] bg-[#22C55E]/10 rounded-full blur-[100px]" />
-
-        {/* CONTAINER */}
-
         <div className="container-custom relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-            {/* =========================================
-          LEFT CONTENT
-      ========================================= */}
-
+          <div className="grid grid-cols-1 lg:grid-cols-[0.92fr_1.08fr] gap-12 lg:gap-16 items-start">
             <motion.div
-              initial={{ opacity: 0, x: -60 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.7 }}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55 }}
               viewport={{ once: true }}
+              className="lg:sticky lg:top-28"
             >
-              {/* TAG */}
-
-              <div
-                className="
-            inline-flex
-            items-center
-            gap-2
-
-            px-5
-            py-2.5
-
-            rounded-full
-
-            bg-white
-
-            border
-            border-[#DCE8FF]
-
-            text-[#1D4ED8]
-            text-sm
-            font-semibold
-
-            shadow-sm
-
-            mb-7
-          "
-              >
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-[#DCE8FF] text-[#1D4ED8] text-sm font-semibold shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-[#22C55E]" />
-                Why Choose EverGrow
+                Growth Driven Execution
               </div>
 
-              {/* HEADING */}
-
-              <h2 className="heading-lg max-w-[650px]">
-                A Digital Partner
-                <br />
-                Focused On
-                <span className="text-[#1D4ED8]"> Real Growth</span>
+              <h2 className="mt-7 text-[34px] sm:text-[44px] lg:text-[56px] font-black leading-[1.05] text-[#071120]">
+                We Focus On
+                <span className="block text-[#1D4ED8]">
+                  Real Business Growth
+                </span>
               </h2>
 
-              {/* DESCRIPTION */}
-
-              <p className="paragraph mt-7 max-w-xl">
-                EverGrow Digital helps businesses scale with premium websites,
-                branding, SEO, marketing and modern digital experiences built
-                for long-term business growth and visibility.
+              <p className="paragraph mt-6 max-w-xl">
+                We combine strategy, clean design, strong technology and
+                performance marketing to help your brand attract better leads,
+                build trust and convert more customers.
               </p>
 
-              <p className="paragraph mt-5 max-w-xl">
-                We focus on strategy, performance and clean execution to help
-                brands build trust, increase conversions and grow faster online.
-              </p>
+              <div className="grid grid-cols-3 gap-3 sm:gap-4 mt-8 max-w-xl">
+                {[
+                  { value: "120+", label: "Projects" },
+                  { value: "98%", label: "Satisfaction" },
+                  { value: "5+", label: "Years" },
+                ].map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="bg-white border border-[#E4EEFF] rounded-[18px] p-4 shadow-[0_12px_32px_rgba(15,23,42,0.04)]"
+                  >
+                    <h3 className="text-[24px] md:text-[30px] font-black text-[#071120]">
+                      {stat.value}
+                    </h3>
+                    <p className="mt-1 text-xs md:text-sm font-semibold text-[#64748B]">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
 
-              {/* BUTTONS */}
-
-              <div className="flex flex-col sm:flex-row gap-4 mt-10">
-                {/* BUTTON */}
-
-                <button
-                  className="
-              h-[56px]
-              px-8
-
-              rounded-full
-
-              bg-[#1D4ED8]
-
-              text-white
-              font-semibold
-
-              hover:bg-[#1840C4]
-
-              transition-all
-              duration-300
-            "
+              <div className="flex flex-col sm:flex-row gap-4 mt-9">
+                <Link
+                  to="/contact"
+                  className="h-[54px] px-7 inline-flex items-center justify-center rounded-full bg-[#1D4ED8] text-white font-semibold hover:bg-[#1840C4] transition-all duration-300"
                 >
                   Get Free Consultation
-                </button>
+                </Link>
 
-                {/* BUTTON */}
-
-                <button
-                  className="
-              h-[56px]
-              px-8
-
-              rounded-full
-
-              border
-              border-[#DCE8FF]
-
-              bg-white
-
-              text-[#071120]
-              font-semibold
-
-              hover:border-[#1D4ED8]
-              hover:text-[#1D4ED8]
-
-              transition-all
-              duration-300
-            "
+                <Link
+                  to="/services"
+                  className="h-[54px] px-7 inline-flex items-center justify-center rounded-full border border-[#DCE8FF] bg-white text-[#071120] font-semibold hover:border-[#1D4ED8] hover:text-[#1D4ED8] transition-all duration-300"
                 >
                   View Services
-                </button>
+                </Link>
               </div>
             </motion.div>
 
-            {/* =========================================
-          RIGHT CARDS
-      ========================================= */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {/* CARD */}
-
               {[
                 {
-                  title: "Brand Strategy",
+                  title: "Strategy First",
                   animation: brandStrategyAnim,
-                  desc: "Modern branding solutions designed to improve business identity and online visibility.",
+                  desc: "Clear positioning, audience research and practical plans before execution begins.",
                 },
-
                 {
-                  title: "Web Development",
+                  title: "Conversion Websites",
                   animation: webDevAnim,
-                  desc: "High-performing responsive websites built for speed, engagement and conversions.",
+                  desc: "Fast, responsive websites designed to guide visitors toward real business actions.",
                 },
-
                 {
-                  title: "Digital Marketing",
+                  title: "Performance Marketing",
                   animation: digitalMarketingAnim,
-                  desc: "SEO and marketing strategies focused on traffic, growth and measurable results.",
+                  desc: "SEO, ads and content campaigns focused on qualified traffic and measurable growth.",
                 },
-
                 {
-                  title: "Creative Design",
+                  title: "Brand Experience",
                   animation: creativeDesignAnim,
-                  desc: "Clean UI/UX experiences crafted to improve user interaction and brand value.",
+                  desc: "Consistent visuals, UI and content that make your business look credible everywhere.",
                 },
               ].map((item, index) => (
                 <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 60 }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  transition={{
-                    duration: 0.5,
-                    delay: index * 0.1,
-                  }}
+                  key={item.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: index * 0.08 }}
                   viewport={{ once: true }}
-                  className={`
-      bg-white
-
-      rounded-[28px]
-
-      border
-      border-[#EAF2FF]
-
-      p-7
-      md:p-8
-
-      shadow-[0_15px_40px_rgba(15,23,42,0.05)]
-
-      hover:-translate-y-1
-      hover:border-[#D7E7FF]
-
-      transition-all
-      duration-300
-
-      ${index === 1 || index === 3 ? "sm:mt-10" : ""}
-    `}
+                  className="group bg-white border border-[#E4EEFF] rounded-[22px] p-6 md:p-7 shadow-[0_18px_45px_rgba(15,23,42,0.05)] hover:-translate-y-1 hover:border-[#1D4ED8]/25 transition-all duration-300"
                 >
-                  {/* ANIMATION */}
-
-                  <div
-                    className="
-        w-16
-        h-16
-
-        rounded-2xl
-
-        bg-[#F4F8FF]
-
-        border
-        border-[#E4EEFF]
-
-        flex
-        items-center
-        justify-center
-
-        overflow-hidden
-
-        mb-6
-      "
-                  >
+                  <div className="w-14 h-14 rounded-2xl bg-[#F4F8FF] border border-[#E4EEFF] flex items-center justify-center overflow-hidden">
                     <Lottie
                       animationData={item.animation}
                       loop
                       autoplay
                       aria-label={item.title}
-                      className="
-          w-14
-          h-14
-        "
+                      className="w-12 h-12"
                     />
                   </div>
 
-                  {/* TITLE */}
-
-                  <h3 className="text-[26px] font-bold text-[#071120] leading-[1.2]">
+                  <h3 className="mt-6 text-[22px] md:text-[24px] font-bold text-[#071120] leading-tight">
                     {item.title}
                   </h3>
 
-                  {/* DESC */}
-
-                  <p className="paragraph mt-5">{item.desc}</p>
+                  <p className="mt-4 text-[15px] leading-[1.75] text-[#64748B]">
+                    {item.desc}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -2637,7 +2523,8 @@ const Home = () => {
 
               {/* BUTTON */}
 
-              <button
+              <Link
+                to="/services"
                 className="
             mt-10
 
@@ -2665,7 +2552,7 @@ const Home = () => {
           "
               >
                 Explore Services
-              </button>
+              </Link>
             </div>
 
             {/* =========================================
@@ -3490,12 +3377,18 @@ const Home = () => {
 
               {/* FORM */}
 
-              <form className="space-y-5 mt-10">
+              <form
+                onSubmit={(event) => handleSubmit(event, "Quick Contact")}
+                className="space-y-5 mt-10"
+              >
                 {/* INPUT */}
 
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="
               w-full
               h-14
@@ -3522,7 +3415,10 @@ const Home = () => {
 
                 <input
                   type="email"
+                  name="email"
                   placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="
               w-full
               h-14
@@ -3549,7 +3445,10 @@ const Home = () => {
 
                 <input
                   type="text"
+                  name="phone"
                   placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="
               w-full
               h-14
@@ -3575,8 +3474,11 @@ const Home = () => {
                 {/* TEXTAREA */}
 
                 <textarea
+                  name="message"
                   rows="5"
                   placeholder="Tell us about your project..."
+                  value={formData.message}
+                  onChange={handleChange}
                   className="
               w-full
 
@@ -3605,6 +3507,7 @@ const Home = () => {
 
                 <button
                   type="submit"
+                  disabled={loading}
                   className="
               w-full
               h-14
@@ -3625,7 +3528,7 @@ const Home = () => {
               duration-300
             "
                 >
-                  Send Message →
+                  {loading ? "Sending..." : "Send Message →"}
                 </button>
               </form>
             </div>

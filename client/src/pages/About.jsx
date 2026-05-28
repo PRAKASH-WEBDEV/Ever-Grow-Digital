@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import InfiniteMenu from "../components/common/InfiniteMenu";
 
 import { HiCheckCircle, HiArrowRight } from "react-icons/hi2";
+import aboutHeaderImage from "../assets/about/about-header-image.png";
 import work1 from "../assets/WorkCultureSection/work-1.webp";
 import work2 from "../assets/WorkCultureSection/work-2.webp";
 import work3 from "../assets/WorkCultureSection/work-3.webp";
@@ -140,7 +141,7 @@ const About = () => {
 
               <div className="overflow-hidden rounded-[28px] border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
                 <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1400&auto=format&fit=crop"
+                  src={aboutHeaderImage}
                   alt="About EverGrow Digital"
                   className="w-full h-[320px] sm:h-[420px] md:h-[520px] object-cover"
                 />
@@ -197,132 +198,338 @@ const About = () => {
           STATS SECTION
       ========================================= */}
 
-      <section className="py-16 md:py-24 bg-[#F8FAFC]">
-        <div className="container-custom">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
+      {/* =========================================
+          WHY CHOOSE US
+      ========================================= */}
+
+      <section className="relative overflow-hidden bg-white py-16 md:py-24">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+
+        <div className="absolute left-0 top-20 w-[280px] h-[280px] bg-primary/10 blur-[110px]" />
+
+        <div className="container-custom relative z-10">
+          {/* TOP */}
+
+          <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-16 items-end">
+            <div>
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+
+                <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
+                  Why Choose Us
+                </p>
+              </div>
+
+              <h2 className="text-[32px] sm:text-[40px] md:text-[56px] font-bold text-[#071120] leading-[1.08] mt-7 max-w-2xl">
+                We Focus On Real Business Growth
+              </h2>
+            </div>
+
+            <div className="lg:pb-2">
+              <p className="text-gray-500 text-[15px] md:text-[17px] leading-[1.9] max-w-2xl">
+                We combine strategy, design, technology and marketing into one
+                clear growth system, so every digital touchpoint is built to
+                attract better leads and convert them into customers.
+              </p>
+
+              <div className="grid grid-cols-3 gap-3 mt-7 max-w-xl">
+                {[
+                  { value: "250+", label: "Projects" },
+                  { value: "98%", label: "Satisfaction" },
+                  { value: "5+", label: "Years" },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="rounded-[18px] border border-gray-200 bg-[#F8FAFC] px-4 py-4"
+                  >
+                    <h3 className="text-[24px] md:text-[30px] font-bold text-[#071120] leading-none">
+                      {item.value}
+                    </h3>
+
+                    <p className="text-gray-500 text-[12px] md:text-[13px] mt-2 leading-snug">
+                      {item.label}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CARDS */}
+
+          <div className="grid lg:grid-cols-3 gap-6 mt-14 md:mt-16">
             {[
               {
-                number: 250,
+                number: "01",
 
-                suffix: "+",
+                title: "Growth Strategy",
 
-                title: "Projects Completed",
+                desc: "Clear roadmaps based on your goals, audience, offer and competitive position.",
+
+                points: ["Market research", "Conversion planning", "Channel strategy"],
               },
 
               {
-                number: 98,
+                number: "02",
 
-                suffix: "%",
+                title: "Premium Execution",
 
-                title: "Client Satisfaction",
+                desc: "High-quality websites, content and campaigns built with consistent brand standards.",
+
+                points: ["Modern UI systems", "SEO-ready structure", "Fast delivery cycles"],
               },
 
               {
-                number: 5,
+                number: "03",
 
-                suffix: "+",
+                title: "Measurable Results",
 
-                title: "Years Experience",
-              },
+                desc: "Every decision is connected to performance, from traffic quality to lead generation.",
 
-              {
-                number: 24,
-
-                suffix: "/7",
-
-                title: "Support & Service",
+                points: ["Lead tracking", "Performance reviews", "Continuous optimization"],
               },
             ].map((item, index) => (
               <div
                 key={index}
-                className="bg-white rounded-[24px] border border-gray-200 p-6 md:p-8 text-center hover:-translate-y-2 transition-all duration-300"
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-[30px]
+                  border
+                  border-gray-200
+                  bg-white
+                  p-7
+                  md:p-8
+                  shadow-[0_18px_50px_rgba(2,6,23,0.05)]
+                  transition-all
+                  duration-300
+                  hover:-translate-y-2
+                  hover:border-primary/30
+                  hover:shadow-[0_24px_70px_rgba(2,6,23,0.09)]
+                "
               >
-                <h3 className="text-[34px] md:text-[52px] font-bold text-primary">
-                  {item.number}
-                  {item.suffix}
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-[#1D4ED8] to-[#22C55E] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className="flex items-center justify-between gap-4">
+                  <div className="w-[66px] h-[66px] rounded-[22px] bg-[#071120] text-white flex items-center justify-center font-bold text-[18px]">
+                    {item.number}
+                  </div>
+
+                  <div className="w-11 h-11 rounded-full bg-primary/10 text-primary flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+                    <HiArrowRight />
+                  </div>
+                </div>
+
+                <h3 className="text-[24px] md:text-[30px] font-bold text-[#071120] mt-8 leading-tight">
+                  {item.title}
                 </h3>
 
-                <p className="text-gray-500 text-[13px] md:text-[16px] mt-3 leading-relaxed">
-                  {item.title}
+                <p className="text-gray-500 text-[14px] md:text-[16px] leading-[1.85] mt-4">
+                  {item.desc}
                 </p>
+
+                <div className="space-y-3 mt-7 pt-7 border-t border-gray-100">
+                  {item.points.map((point, pointIndex) => (
+                    <div key={pointIndex} className="flex items-center gap-3">
+                      <HiCheckCircle className="text-primary text-[20px] flex-shrink-0" />
+
+                      <p className="text-[#071120] text-[14px] md:text-[15px] font-medium leading-snug">
+                        {point}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </div>
             ))}
+          </div>
+
+          {/* PROOF STRIP */}
+
+          <div className="mt-6 rounded-[28px] border border-gray-200 bg-[#F8FAFC] p-5 md:p-7">
+            <div className="grid md:grid-cols-3 gap-4">
+              {[
+                "Business-first planning before design",
+                "Responsive builds with strong performance",
+                "Long-term support after launch",
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 rounded-[20px] bg-white px-5 py-4 border border-gray-100"
+                >
+                  <HiCheckCircle className="text-primary text-[22px] flex-shrink-0" />
+
+                  <p className="text-[#071120] text-[14px] md:text-[15px] font-semibold leading-snug">
+                    {item}
+                  </p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
       {/* =========================================
-          WHY CHOOSE US
-      ========================================= */}
+    OUR COLLABORATIONS SECTION
+========================================= */}
 
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container-custom">
-          {/* TOP */}
+      <section className="relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24">
+        <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#071120_1px,transparent_1px),linear-gradient(to_bottom,#071120_1px,transparent_1px)] bg-[size:72px_72px]" />
 
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
-              <span className="w-2 h-2 rounded-full bg-primary" />
+        <div className="absolute top-[-120px] right-[-80px] w-[360px] h-[360px] bg-primary/20 blur-[130px]" />
 
-              <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
-                Why Choose Us
-              </p>
-            </div>
+        <div className="absolute bottom-[-140px] left-[-90px] w-[360px] h-[360px] bg-[#1D4ED8]/15 blur-[130px]" />
 
-            <h2 className="text-[32px] sm:text-[40px] md:text-[56px] font-bold text-[#071120] leading-[1.08] tracking-[-2px] mt-7">
-              We Focus On Real Business Growth
-            </h2>
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-center">
+            {/* LEFT */}
 
-            <p className="text-gray-500 text-[15px] md:text-[17px] leading-[1.9] mt-6">
-              We create premium digital experiences focused on traffic, leads,
-              branding and scalable business growth.
-            </p>
-          </div>
+            <div
+              className="
+                relative
+                overflow-hidden
+                rounded-[34px]
+                border
+                border-white/10
+                bg-[#071120]
+                p-7
+                sm:p-9
+                md:p-10
+                shadow-[0_28px_90px_rgba(2,6,23,0.22)]
+              "
+            >
+              <div className="absolute top-0 right-0 w-[230px] h-[230px] bg-primary/20 blur-[90px]" />
 
-          {/* CARDS */}
+              <div className="absolute bottom-0 left-0 w-[220px] h-[220px] bg-[#1D4ED8]/20 blur-[90px]" />
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-16">
-            {[
-              {
-                title: "Creative Strategy",
+              <div className="relative z-10">
+                <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-5 py-3 backdrop-blur-xl">
+                  <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
 
-                desc: "Modern digital solutions tailored for business growth.",
-              },
-
-              {
-                title: "Global Reach",
-
-                desc: "Helping brands scale worldwide through smart marketing.",
-              },
-
-              {
-                title: "Result Driven",
-
-                desc: "Focused on traffic, leads, conversions and ROI.",
-              },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="bg-[#F8FAFC] rounded-[24px] border border-gray-200 p-7 md:p-8 hover:-translate-y-2 transition-all duration-300"
-              >
-                {/* DOT */}
-
-                <div className="w-[60px] h-[60px] rounded-[18px] bg-primary/10 flex items-center justify-center">
-                  <div className="w-3 h-3 rounded-full bg-primary" />
+                  <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
+                    Official Growth Partner
+                  </p>
                 </div>
 
-                {/* TITLE */}
+                <h2 className="text-[32px] sm:text-[42px] md:text-[58px] font-bold text-white leading-[1.08] mt-8">
+                  Trusted Industry Collaborations
+                </h2>
 
-                <h3 className="text-[24px] md:text-[28px] font-bold text-[#071120] mt-7 leading-tight">
-                  {item.title}
+                <p className="text-white/70 text-[15px] md:text-[17px] leading-[1.9] mt-6">
+                  We proudly collaborate with leading marketing agencies to
+                  deliver high-performance digital growth solutions for brands
+                  worldwide.
+                </p>
+
+                <div className="relative mt-9 rounded-[28px] border border-white/10 bg-white/[0.06] p-5 md:p-6 backdrop-blur-xl">
+                  <div className="absolute left-[38px] right-[38px] top-[50%] h-px bg-gradient-to-r from-primary/0 via-primary/60 to-[#1D4ED8]/0" />
+
+                  <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+                    <div className="rounded-[24px] border border-white/10 bg-white/10 p-5">
+                      <p className="text-white/50 text-[11px] font-semibold uppercase tracking-[2px]">
+                        Agency
+                      </p>
+
+                      <h3 className="text-white text-[22px] md:text-[26px] font-bold mt-2">
+                        EverGrow
+                      </h3>
+                    </div>
+
+                    <div className="relative w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-[0_0_35px_rgba(19,196,163,0.55)]">
+                      <HiArrowRight />
+                    </div>
+
+                    <div className="rounded-[24px] border border-primary/25 bg-primary/15 p-5">
+                      <p className="text-primary text-[11px] font-semibold uppercase tracking-[2px]">
+                        Partner
+                      </p>
+
+                      <h3 className="text-white text-[22px] md:text-[26px] font-bold mt-2">
+                        Rank Wrap
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-7">
+                  {[
+                    { value: "120+", label: "Projects" },
+                    { value: "18M+", label: "Reach" },
+                    { value: "240+", label: "Campaigns" },
+                    { value: "90+", label: "Clients" },
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="rounded-[20px] border border-white/10 bg-white/[0.06] px-4 py-4 backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.1]"
+                    >
+                      <h3 className="text-white text-[24px] md:text-[28px] font-bold leading-none">
+                        {item.value}
+                      </h3>
+
+                      <p className="text-white/50 text-[12px] md:text-[13px] mt-2 leading-snug">
+                        {item.label}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT */}
+
+            <div className="relative min-h-[560px]">
+              <div className="absolute left-1/2 top-1/2 w-[70%] h-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[90px]" />
+
+              <div className="absolute left-[8%] top-[5%] w-[62%] overflow-hidden rounded-[30px] border border-white shadow-[0_24px_70px_rgba(2,6,23,0.16)] transition-all duration-500 hover:-translate-y-3 hover:rotate-0 rotate-[-2deg]">
+                <img
+                  src={work1}
+                  alt="Digital campaign collaboration"
+                  className="h-[260px] w-full object-cover"
+                />
+              </div>
+
+              <div className="absolute right-[2%] top-[18%] w-[42%] overflow-hidden rounded-[26px] border border-white shadow-[0_24px_70px_rgba(2,6,23,0.14)] transition-all duration-500 hover:-translate-y-3 hover:rotate-0 rotate-[3deg]">
+                <img
+                  src={work2}
+                  alt="Marketing strategy workshop"
+                  className="h-[230px] w-full object-cover"
+                />
+              </div>
+
+              <div className="absolute left-[2%] bottom-[8%] w-[46%] overflow-hidden rounded-[26px] border border-white shadow-[0_24px_70px_rgba(2,6,23,0.14)] transition-all duration-500 hover:-translate-y-3 hover:rotate-0 rotate-[2deg]">
+                <img
+                  src={work3}
+                  alt="Creative agency collaboration"
+                  className="h-[240px] w-full object-cover"
+                />
+              </div>
+
+              <div className="absolute right-[8%] bottom-[2%] w-[58%] overflow-hidden rounded-[30px] border border-white shadow-[0_24px_70px_rgba(2,6,23,0.16)] transition-all duration-500 hover:-translate-y-3 hover:rotate-0 rotate-[-3deg]">
+                <img
+                  src={work4}
+                  alt="Digital growth project planning"
+                  className="h-[255px] w-full object-cover"
+                />
+              </div>
+
+              <div className="absolute left-1/2 top-1/2 w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-white/50 bg-white/80 p-6 text-center shadow-[0_28px_80px_rgba(2,6,23,0.18)] backdrop-blur-xl">
+                <div className="mx-auto flex w-16 h-16 items-center justify-center rounded-[22px] bg-[#071120] text-white text-[24px] font-bold">
+                  RW
+                </div>
+
+                <p className="text-primary text-[11px] font-bold uppercase tracking-[2px] mt-5">
+                  Featured Partner
+                </p>
+
+                <h3 className="text-[#071120] text-[28px] font-bold mt-2">
+                  Rank Wrap
                 </h3>
 
-                {/* TEXT */}
-
-                <p className="text-gray-500 text-[14px] md:text-[16px] leading-[1.9] mt-5">
-                  {item.desc}
+                <p className="text-gray-500 text-[13px] leading-[1.7] mt-3">
+                  Strategic marketing collaboration for scalable brand growth.
                 </p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>
