@@ -1,57 +1,59 @@
 import MainLayout from "../layouts/MainLayout";
 import { Link, useLocation } from "react-router-dom";
-import InfiniteMenu from "../components/common/InfiniteMenu";
-
 import { HiCheckCircle, HiArrowRight } from "react-icons/hi2";
 import aboutHeaderImage from "../assets/about/about-header-image.png";
-import work1 from "../assets/WorkCultureSection/work-1.webp";
-import work2 from "../assets/WorkCultureSection/work-2.webp";
-import work3 from "../assets/WorkCultureSection/work-3.webp";
-import work4 from "../assets/WorkCultureSection/work-4.webp";
+import collab1 from "../assets/about/Collaborations/collab-1.webp";
+import collab2 from "../assets/about/Collaborations/collab-2.webp";
+import collab3 from "../assets/about/Collaborations/collab-3.webp";
+import collab4 from "../assets/about/Collaborations/collab-4.webp";
+import team1 from "../assets/about/Our Team/person-1.webp";
+import team2 from "../assets/about/Our Team/person-2.webp";
+import team3 from "../assets/about/Our Team/person-3.webp";
+import team4 from "../assets/about/Our Team/person-4.webp";
 
 const About = () => {
   const location = useLocation();
-  const workCultureItems = [
-    {
-      image: work1,
 
-      title: "Creative Team",
+  //   {
+  //     image: work1,
 
-      description: "Passionate minds building modern digital experiences.",
+  //     title: "Creative Team",
 
-      link: "/contact",
-    },
+  //     description: "Passionate minds building modern digital experiences.",
 
-    {
-      image: work2,
+  //     link: "/contact",
+  //   },
 
-      title: "Smart Workspace",
+  //   {
+  //     image: work2,
 
-      description: "Focused environment designed for innovation and growth.",
+  //     title: "Smart Workspace",
 
-      link: "/about",
-    },
+  //     description: "Focused environment designed for innovation and growth.",
 
-    {
-      image: work3,
+  //     link: "/about",
+  //   },
 
-      title: "Collaboration",
+  //   {
+  //     image: work3,
 
-      description: "Strong teamwork that helps brands scale faster.",
+  //     title: "Collaboration",
 
-      link: "/services",
-    },
+  //     description: "Strong teamwork that helps brands scale faster.",
 
-    {
-      image: work4,
+  //     link: "/services",
+  //   },
 
-      title: "Digital Experts",
+  //   {
+  //     image: work4,
 
-      description: "Premium strategy, branding and development solutions.",
+  //     title: "Digital Experts",
 
-      link: "/portfolio",
-    },
-  ];
+  //     description: "Premium strategy, branding and development solutions.",
+
+  //     link: "/portfolio",
+  //   },
+  // ];
   return (
     <MainLayout>
       {/* =========================================
@@ -123,14 +125,20 @@ const About = () => {
               {/* BUTTONS */}
 
               <div className="flex flex-wrap gap-4 mt-10">
-                <button className="h-[52px] px-7 rounded-full bg-primary text-white font-medium hover:-translate-y-1 transition-all duration-300 flex items-center gap-3">
+                <Link
+                  to="/contact"
+                  className="h-[52px] px-7 rounded-full bg-primary text-white font-medium hover:-translate-y-1 transition-all duration-300 flex items-center gap-3"
+                >
                   Get Free Consultation
                   <HiArrowRight />
-                </button>
+                </Link>
 
-                <button className="h-[52px] px-7 rounded-full border border-white/15 text-white hover:bg-white hover:text-[#071120] transition-all duration-300">
+                <Link
+                  to="/portfolio"
+                  className="h-[52px] px-7 rounded-full border border-white/15 text-white hover:bg-white hover:text-[#071120] transition-all duration-300 flex items-center"
+                >
                   View Portfolio
-                </button>
+                </Link>
               </div>
             </div>
 
@@ -149,12 +157,12 @@ const About = () => {
 
               {/* FLOAT CARD */}
 
-              <div className="absolute bottom-5 left-5 bg-white rounded-[22px] p-5 md:p-6 shadow-[0_20px_40px_rgba(0,0,0,0.18)]">
-                <h3 className="text-[34px] md:text-[42px] font-bold text-primary">
+              <div className="absolute bottom-3 left-3 sm:bottom-5 sm:left-5 max-w-[165px] sm:max-w-[210px] bg-white/95 backdrop-blur-md rounded-[16px] sm:rounded-[20px] p-3 sm:p-4 md:p-5 shadow-[0_14px_32px_rgba(0,0,0,0.16)]">
+                <h3 className="text-[24px] sm:text-[30px] md:text-[36px] font-bold text-primary leading-none">
                   250+
                 </h3>
 
-                <p className="text-gray-500 text-sm md:text-base mt-2">
+                <p className="text-gray-500 text-[11px] sm:text-[13px] md:text-sm leading-snug mt-2">
                   Successful Projects Delivered
                 </p>
               </div>
@@ -165,7 +173,6 @@ const About = () => {
       {/* =========================================
     DYNAMIC BREADCRUMB
 ========================================= */}
-
       <section className="border-b border-gray-200 bg-white py-4">
         <div className="container-custom">
           <div className="flex items-center gap-3 text-[13px] md:text-[14px] text-gray-500 flex-wrap">
@@ -195,13 +202,8 @@ const About = () => {
       </section>
 
       {/* =========================================
-          STATS SECTION
-      ========================================= */}
-
-      {/* =========================================
           WHY CHOOSE US
       ========================================= */}
-
       <section className="relative overflow-hidden bg-white py-16 md:py-24">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
 
@@ -372,7 +374,6 @@ const About = () => {
       {/* =========================================
     OUR COLLABORATIONS SECTION
 ========================================= */}
-
       <section className="relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24">
         <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#071120_1px,transparent_1px),linear-gradient(to_bottom,#071120_1px,transparent_1px)] bg-[size:72px_72px]" />
 
@@ -422,9 +423,9 @@ const About = () => {
                 </p>
 
                 <div className="relative mt-9 rounded-[28px] border border-white/10 bg-white/[0.06] p-5 md:p-6 backdrop-blur-xl">
-                  <div className="absolute left-[38px] right-[38px] top-[50%] h-px bg-gradient-to-r from-primary/0 via-primary/60 to-[#1D4ED8]/0" />
+                  <div className="hidden sm:block absolute left-[38px] right-[38px] top-[50%] h-px bg-gradient-to-r from-primary/0 via-primary/60 to-[#1D4ED8]/0" />
 
-                  <div className="relative grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+                  <div className="relative grid grid-cols-1 sm:grid-cols-[1fr_auto_1fr] items-center gap-4">
                     <div className="rounded-[24px] border border-white/10 bg-white/10 p-5">
                       <p className="text-white/50 text-[11px] font-semibold uppercase tracking-[2px]">
                         Agency
@@ -435,11 +436,16 @@ const About = () => {
                       </h3>
                     </div>
 
-                    <div className="relative w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-[0_0_35px_rgba(19,196,163,0.55)]">
+                    <div className="relative mx-auto w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-[0_0_35px_rgba(19,196,163,0.55)] rotate-90 sm:rotate-0">
                       <HiArrowRight />
                     </div>
 
-                    <div className="rounded-[24px] border border-primary/25 bg-primary/15 p-5">
+                    <a
+                      href="https://rankwrap.com/"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="rounded-[24px] border border-primary/25 bg-primary/15 p-5 transition-all duration-300 hover:-translate-y-1 hover:bg-primary/20"
+                    >
                       <p className="text-primary text-[11px] font-semibold uppercase tracking-[2px]">
                         Partner
                       </p>
@@ -447,7 +453,7 @@ const About = () => {
                       <h3 className="text-white text-[22px] md:text-[26px] font-bold mt-2">
                         Rank Wrap
                       </h3>
-                    </div>
+                    </a>
                   </div>
                 </div>
 
@@ -477,42 +483,50 @@ const About = () => {
 
             {/* RIGHT */}
 
-            <div className="relative min-h-[560px]">
+            <div className="relative grid grid-cols-2 gap-4 sm:gap-5 lg:block lg:min-h-[560px]">
               <div className="absolute left-1/2 top-1/2 w-[70%] h-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-[90px]" />
 
-              <div className="absolute left-[8%] top-[5%] w-[62%] overflow-hidden rounded-[30px] border border-white shadow-[0_24px_70px_rgba(2,6,23,0.16)] transition-all duration-500 hover:-translate-y-3 hover:rotate-0 rotate-[-2deg]">
+              <div className="relative z-10 overflow-hidden rounded-[24px] border border-white bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)] transition-all duration-500 hover:-translate-y-2 lg:absolute lg:left-[8%] lg:top-[5%] lg:w-[62%] lg:rounded-[30px] lg:shadow-[0_24px_70px_rgba(2,6,23,0.16)] lg:hover:-translate-y-3 lg:hover:rotate-0 lg:rotate-[-2deg]">
                 <img
-                  src={work1}
+                  src={collab1}
                   alt="Digital campaign collaboration"
-                  className="h-[260px] w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[170px] sm:h-[220px] lg:h-[260px] w-full object-cover"
                 />
               </div>
 
-              <div className="absolute right-[2%] top-[18%] w-[42%] overflow-hidden rounded-[26px] border border-white shadow-[0_24px_70px_rgba(2,6,23,0.14)] transition-all duration-500 hover:-translate-y-3 hover:rotate-0 rotate-[3deg]">
+              <div className="relative z-10 overflow-hidden rounded-[24px] border border-white bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)] transition-all duration-500 hover:-translate-y-2 lg:absolute lg:right-[2%] lg:top-[18%] lg:w-[42%] lg:rounded-[26px] lg:shadow-[0_24px_70px_rgba(2,6,23,0.14)] lg:hover:-translate-y-3 lg:hover:rotate-0 lg:rotate-[3deg]">
                 <img
-                  src={work2}
+                  src={collab2}
                   alt="Marketing strategy workshop"
-                  className="h-[230px] w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[170px] sm:h-[220px] lg:h-[230px] w-full object-cover"
                 />
               </div>
 
-              <div className="absolute left-[2%] bottom-[8%] w-[46%] overflow-hidden rounded-[26px] border border-white shadow-[0_24px_70px_rgba(2,6,23,0.14)] transition-all duration-500 hover:-translate-y-3 hover:rotate-0 rotate-[2deg]">
+              <div className="relative z-10 overflow-hidden rounded-[24px] border border-white bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)] transition-all duration-500 hover:-translate-y-2 lg:absolute lg:left-[2%] lg:bottom-[8%] lg:w-[46%] lg:rounded-[26px] lg:shadow-[0_24px_70px_rgba(2,6,23,0.14)] lg:hover:-translate-y-3 lg:hover:rotate-0 lg:rotate-[2deg]">
                 <img
-                  src={work3}
+                  src={collab3}
                   alt="Creative agency collaboration"
-                  className="h-[240px] w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[170px] sm:h-[220px] lg:h-[240px] w-full object-cover"
                 />
               </div>
 
-              <div className="absolute right-[8%] bottom-[2%] w-[58%] overflow-hidden rounded-[30px] border border-white shadow-[0_24px_70px_rgba(2,6,23,0.16)] transition-all duration-500 hover:-translate-y-3 hover:rotate-0 rotate-[-3deg]">
+              <div className="relative z-10 overflow-hidden rounded-[24px] border border-white bg-white shadow-[0_18px_45px_rgba(2,6,23,0.12)] transition-all duration-500 hover:-translate-y-2 lg:absolute lg:right-[8%] lg:bottom-[2%] lg:w-[58%] lg:rounded-[30px] lg:shadow-[0_24px_70px_rgba(2,6,23,0.16)] lg:hover:-translate-y-3 lg:hover:rotate-0 lg:rotate-[-3deg]">
                 <img
-                  src={work4}
+                  src={collab4}
                   alt="Digital growth project planning"
-                  className="h-[255px] w-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[170px] sm:h-[220px] lg:h-[255px] w-full object-cover"
                 />
               </div>
 
-              <div className="absolute left-1/2 top-1/2 w-[260px] -translate-x-1/2 -translate-y-1/2 rounded-[28px] border border-white/50 bg-white/80 p-6 text-center shadow-[0_28px_80px_rgba(2,6,23,0.18)] backdrop-blur-xl">
+              <div className="relative z-20 col-span-2 mx-auto w-full max-w-[320px] rounded-[28px] border border-white/60 bg-white/90 p-6 text-center shadow-[0_22px_60px_rgba(2,6,23,0.14)] backdrop-blur-xl lg:absolute lg:left-1/2 lg:top-1/2 lg:w-[260px] lg:-translate-x-1/2 lg:-translate-y-1/2 lg:bg-white/80 lg:shadow-[0_28px_80px_rgba(2,6,23,0.18)]">
                 <div className="mx-auto flex w-16 h-16 items-center justify-center rounded-[22px] bg-[#071120] text-white text-[24px] font-bold">
                   RW
                 </div>
@@ -577,8 +591,7 @@ const About = () => {
 
                 desc: "Helping brands scale through performance marketing and SEO.",
 
-                image:
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=800&auto=format&fit=crop",
+                image: team1,
               },
 
               {
@@ -588,8 +601,7 @@ const About = () => {
 
                 desc: "Building AI systems and automation workflows for businesses.",
 
-                image:
-                  "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=800&auto=format&fit=crop",
+                image: team2,
               },
 
               {
@@ -599,8 +611,7 @@ const About = () => {
 
                 desc: "Developing scalable websites and premium digital products.",
 
-                image:
-                  "https://images.unsplash.com/photo-1504593811423-6dd665756598?q=80&w=800&auto=format&fit=crop",
+                image: team3,
               },
 
               {
@@ -610,8 +621,7 @@ const About = () => {
 
                 desc: "Focused on growth strategies, branding and lead generation.",
 
-                image:
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=800&auto=format&fit=crop",
+                image: team4,
               },
             ].map((member, index) => (
               <div
@@ -716,9 +726,17 @@ const About = () => {
                   {/* SOCIALS */}
 
                   <div className="flex items-center gap-4">
-                    {["in", "tw", "ig"].map((social, i) => (
-                      <div
-                        key={i}
+                    {[
+                      { label: "in", url: "https://www.linkedin.com/" },
+                      { label: "tw", url: "https://x.com/" },
+                      { label: "ig", url: "https://www.instagram.com/" },
+                    ].map((social) => (
+                      <a
+                        key={social.label}
+                        href={social.url}
+                        target="_blank"
+                        rel="noreferrer"
+                        aria-label={`${member.name} ${social.label} profile`}
                         className="
                       w-[52px]
                       h-[52px]
@@ -742,8 +760,8 @@ const About = () => {
                       cursor-pointer
                     "
                       >
-                        {social}
-                      </div>
+                        {social.label}
+                      </a>
                     ))}
                   </div>
                 </div>
@@ -754,45 +772,8 @@ const About = () => {
       </section>
 
       {/* =========================================
-    WORK CULTURE SECTION
-========================================= */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] overflow-hidden">
-        <div className="container-custom">
-          {/* TOP */}
-
-          <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
-              <span className="w-2 h-2 rounded-full bg-primary" />
-
-              <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
-                Work Culture
-              </p>
-            </div>
-
-            <h2 className="text-[32px] sm:text-[42px] md:text-[56px] font-bold text-[#071120] leading-[1.08] tracking-[-2px] mt-7">
-              Creative Environment
-              <br />
-              Built For Innovation
-            </h2>
-
-            <p className="text-gray-500 text-[15px] md:text-[17px] leading-[1.9] mt-6">
-              We believe creativity, teamwork and innovation are the foundation
-              of modern digital growth.
-            </p>
-          </div>
-
-          {/* 3D SLIDER */}
-
-          <div className="mt-20 h-[650px] md:h-[750px] rounded-[32px] overflow-hidden border border-gray-200 bg-white">
-            <InfiniteMenu items={workCultureItems} scale={1} />
-          </div>
-        </div>
-      </section>
-
-      {/* =========================================
     PREMIUM CTA SECTION
 ========================================= */}
-
       <section className="relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24">
         {/* BLUR EFFECT */}
 
@@ -880,7 +861,8 @@ const About = () => {
               <div className="flex flex-wrap justify-center gap-4 mt-10">
                 {/* PRIMARY BTN */}
 
-                <button
+                <Link
+                  to="/contact"
                   className="
               h-[54px]
               px-8
@@ -902,11 +884,12 @@ const About = () => {
                 >
                   Start Your Project
                   <HiArrowRight />
-                </button>
+                </Link>
 
                 {/* SECONDARY BTN */}
 
-                <button
+                <Link
+                  to="/contact"
                   className="
               h-[54px]
               px-8
@@ -927,12 +910,13 @@ const About = () => {
             "
                 >
                   Contact Us
-                </button>
+                </Link>
               </div>
             </div>
           </div>
         </div>
       </section>
+
     </MainLayout>
   );
 };

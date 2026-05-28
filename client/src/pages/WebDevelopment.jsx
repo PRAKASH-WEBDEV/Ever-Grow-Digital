@@ -1,6 +1,7 @@
 import MainLayout from "../layouts/MainLayout";
+import { Link } from "react-router-dom";
 
-import webHero from "../assets/web-development/hero.jpg";
+import webHero from "../assets/web-development/hero.webp";
 
 import {
   HiArrowRight,
@@ -14,6 +15,26 @@ import {
   HiOutlineChip,
   HiOutlineDesktopComputer,
 } from "react-icons/hi";
+import {
+  SiReact,
+  SiWordpress,
+  SiShopify,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiMongodb,
+  SiVercel,
+  SiVuedotjs,
+  SiTypescript,
+  SiFramer,
+  SiExpress,
+  SiFirebase,
+  SiPostgresql,
+  SiMysql,
+  SiWebflow,
+  SiRender,
+  SiNetlify,
+} from "react-icons/si";
 
 const services = [
   {
@@ -21,13 +42,21 @@ const services = [
 
     icon: <HiOutlineGlobeAlt />,
 
+    logo: <SiReact />,
+
+    tag: "React",
+
     desc: "Professional business websites with modern UI/UX and premium performance.",
   },
 
   {
     title: "WordPress Development",
 
-    icon: <HiOutlineTemplate />,
+    icon: <SiWordpress />,
+
+    logo: <HiOutlineTemplate />,
+
+    tag: "WordPress",
 
     desc: "Custom WordPress websites with fast speed, SEO optimization and scalability.",
   },
@@ -35,7 +64,11 @@ const services = [
   {
     title: "Shopify Store",
 
-    icon: <HiOutlineShoppingCart />,
+    icon: <SiShopify />,
+
+    logo: <HiOutlineShoppingCart />,
+
+    tag: "Shopify",
 
     desc: "Modern Shopify stores designed for conversions and eCommerce growth.",
   },
@@ -43,7 +76,11 @@ const services = [
   {
     title: "Custom Web App",
 
-    icon: <HiOutlineCube />,
+    icon: <SiNextdotjs />,
+
+    logo: <HiOutlineCube />,
+
+    tag: "Next JS",
 
     desc: "Scalable web applications using modern technologies and secure architecture.",
   },
@@ -53,13 +90,21 @@ const services = [
 
     icon: <HiOutlineChip />,
 
+    logo: <SiNodedotjs />,
+
+    tag: "Node JS",
+
     desc: "AI-powered tools and SaaS platforms built for automation and productivity.",
   },
 
   {
     title: "Portfolio Website",
 
-    icon: <HiOutlineCode />,
+    icon: <SiTailwindcss />,
+
+    logo: <HiOutlineCode />,
+
+    tag: "Tailwind",
 
     desc: "Creative portfolio websites for creators, agencies and professionals.",
   },
@@ -69,6 +114,10 @@ const services = [
 
     icon: <HiOutlineLightningBolt />,
 
+    logo: <HiOutlineGlobeAlt />,
+
+    tag: "Conversion",
+
     desc: "High-converting landing pages optimized for ads and marketing campaigns.",
   },
 
@@ -76,6 +125,10 @@ const services = [
     title: "Responsive Design",
 
     icon: <HiOutlineDeviceMobile />,
+
+    logo: <SiTailwindcss />,
+
+    tag: "Mobile UI",
 
     desc: "Fully responsive and mobile-friendly digital experiences.",
   },
@@ -85,7 +138,92 @@ const services = [
 
     icon: <HiOutlineDesktopComputer />,
 
+    logo: <SiReact />,
+
+    tag: "Dashboard",
+
     desc: "Modern admin dashboards and CRM systems with premium UI.",
+  },
+];
+
+const projectShowcases = [
+  {
+    title: "Business Growth Website",
+    category: "Corporate Website",
+    desc: "A premium lead-generation website built for speed, trust and conversion-focused service pages.",
+    tech: ["React", "Tailwind CSS", "SEO", "Analytics"],
+    metrics: "42% lead uplift",
+  },
+  {
+    title: "Online Store Platform",
+    category: "eCommerce",
+    desc: "A scalable shopping experience with optimized product pages, checkout flow and campaign landing pages.",
+    tech: ["Shopify", "Custom UI", "Payments", "CRM"],
+    metrics: "2.4x sales growth",
+  },
+  {
+    title: "SaaS Dashboard",
+    category: "Web Application",
+    desc: "A clean admin dashboard with role-based views, data cards, forms and responsive product workflows.",
+    tech: ["React", "Node JS", "MongoDB", "REST API"],
+    metrics: "60% faster workflow",
+  },
+];
+
+const technologyGroups = [
+  {
+    category: "Frontend Technologies",
+    desc: "Interfaces that feel fast, polished and easy to use.",
+    color: "from-[#38BDF8] to-[#1D4ED8]",
+    items: [
+      { name: "React", icon: <SiReact /> },
+      { name: "Next.js", icon: <SiNextdotjs /> },
+      { name: "Vue.js", icon: <SiVuedotjs /> },
+      { name: "TypeScript", icon: <SiTypescript /> },
+      { name: "Tailwind CSS", icon: <SiTailwindcss /> },
+      { name: "Framer Motion", icon: <SiFramer /> },
+    ],
+  },
+  {
+    category: "Backend Technologies",
+    desc: "Reliable APIs and business logic for scalable products.",
+    color: "from-[#22C55E] to-[#15803D]",
+    items: [
+      { name: "Node.js", icon: <SiNodedotjs /> },
+      { name: "Express.js", icon: <SiExpress /> },
+      { name: "Firebase", icon: <SiFirebase /> },
+    ],
+  },
+  {
+    category: "Database Technologies",
+    desc: "Structured and flexible data layers for modern applications.",
+    color: "from-[#16A34A] to-[#065F46]",
+    items: [
+      { name: "MongoDB", icon: <SiMongodb /> },
+      { name: "PostgreSQL", icon: <SiPostgresql /> },
+      { name: "MySQL", icon: <SiMysql /> },
+    ],
+  },
+  {
+    category: "CMS & eCommerce",
+    desc: "Content and commerce systems built for teams and sales.",
+    color: "from-[#A3E635] to-[#15803D]",
+    items: [
+      { name: "WordPress", icon: <SiWordpress /> },
+      { name: "Shopify", icon: <SiShopify /> },
+      { name: "Webflow", icon: <SiWebflow /> },
+    ],
+  },
+  {
+    category: "Hosting & Deployment",
+    desc: "Fast, secure launches with dependable cloud infrastructure.",
+    color: "from-[#0F172A] to-[#475569]",
+    items: [
+      { name: "Vercel", icon: <SiVercel /> },
+      { name: "Render", icon: <SiRender /> },
+      { name: "AWS", icon: <HiOutlineGlobeAlt /> },
+      { name: "Netlify", icon: <SiNetlify /> },
+    ],
   },
 ];
 
@@ -95,17 +233,19 @@ const WebDevelopment = () => {
       {/* =========================================
           HERO SECTION
       ========================================= */}
-      <section className="relative overflow-hidden bg-[#F8FAFC] py-20 md:py-28">
+      <section className="relative overflow-hidden bg-[#F8FAFC] py-16 md:py-24">
         {/* GRID */}
 
         <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(to_right,#071120_1px,transparent_1px),linear-gradient(to_bottom,#071120_1px,transparent_1px)] bg-[size:70px_70px]" />
 
         {/* BLUR */}
 
-        <div className="absolute top-0 right-0 w-[260px] h-[260px] bg-primary/10 blur-[120px]" />
+        <div className="absolute top-[-120px] right-[-80px] w-[420px] h-[420px] bg-primary/10 blur-[130px]" />
+
+        <div className="absolute bottom-[-160px] left-[-120px] w-[420px] h-[420px] bg-[#1D4ED8]/10 blur-[130px]" />
 
         <div className="container-custom relative z-10">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             {/* LEFT */}
 
             <div>
@@ -138,7 +278,8 @@ const WebDevelopment = () => {
               {/* BUTTONS */}
 
               <div className="flex flex-wrap gap-4 mt-10">
-                <button
+                <Link
+                  to="/contact"
                   className="
                     h-[54px]
                     px-8
@@ -160,9 +301,10 @@ const WebDevelopment = () => {
                 >
                   Start Your Project
                   <HiArrowRight />
-                </button>
+                </Link>
 
-                <button
+                <Link
+                  to="/portfolio"
                   className="
                     h-[54px]
                     px-8
@@ -183,29 +325,30 @@ const WebDevelopment = () => {
                   "
                 >
                   View Portfolio
-                </button>
+                </Link>
               </div>
 
               {/* STATS */}
 
-              <div className="flex flex-wrap gap-10 mt-14">
-                <div>
-                  <h3 className="text-[34px] font-bold text-[#071120]">250+</h3>
+              <div className="grid grid-cols-3 gap-3 mt-12 max-w-[560px]">
+                {[
+                  { value: "250+", label: "Projects" },
+                  { value: "98%", label: "Satisfaction" },
+                  { value: "24/7", label: "Support" },
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="rounded-[20px] border border-gray-200 bg-white/80 px-4 py-5 shadow-[0_12px_35px_rgba(2,6,23,0.04)]"
+                  >
+                    <h3 className="text-[24px] sm:text-[30px] font-bold text-[#071120] leading-none">
+                      {item.value}
+                    </h3>
 
-                  <p className="text-gray-500 mt-2">Projects Completed</p>
-                </div>
-
-                <div>
-                  <h3 className="text-[34px] font-bold text-[#071120]">98%</h3>
-
-                  <p className="text-gray-500 mt-2">Client Satisfaction</p>
-                </div>
-
-                <div>
-                  <h3 className="text-[34px] font-bold text-[#071120]">24/7</h3>
-
-                  <p className="text-gray-500 mt-2">Support</p>
-                </div>
+                    <p className="text-gray-500 text-[12px] sm:text-sm mt-2 leading-snug">
+                      {item.label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -237,7 +380,9 @@ const WebDevelopment = () => {
                   alt="Web Development"
                   className="
                     w-full
-                    h-full
+                    h-[330px]
+                    sm:h-[440px]
+                    lg:h-[520px]
                     object-cover
                     rounded-[28px]
                   "
@@ -248,8 +393,8 @@ const WebDevelopment = () => {
                 <div
                   className="
                     absolute
-                    bottom-8
-                    left-8
+                    bottom-5
+                    left-5
 
                     bg-white/90
                     backdrop-blur-md
@@ -259,17 +404,19 @@ const WebDevelopment = () => {
 
                     rounded-[22px]
 
-                    px-6
-                    py-5
+                    px-4
+                    py-4
+                    md:px-6
+                    md:py-5
 
                     shadow-lg
                   "
                 >
-                  <p className="text-primary font-semibold text-sm uppercase tracking-[2px]">
+                  <p className="text-primary font-semibold text-[11px] md:text-sm uppercase tracking-[2px]">
                     Modern Development
                   </p>
 
-                  <h3 className="text-[#071120] text-[24px] font-bold mt-2">
+                  <h3 className="text-[#071120] text-[20px] md:text-[24px] font-bold mt-2">
                     Fast & Scalable
                   </h3>
                 </div>
@@ -328,31 +475,45 @@ const WebDevelopment = () => {
 
                   hover:-translate-y-2
                   hover:border-primary/20
+                  hover:bg-white
                   hover:shadow-[0_20px_60px_rgba(2,6,23,0.08)]
 
                   transition-all
                   duration-300
                 "
               >
+                <div className="absolute right-[-34px] top-[-34px] w-[125px] h-[125px] rounded-full bg-primary/10 blur-[6px] transition-all duration-500 group-hover:scale-125 group-hover:bg-primary/15" />
+
+                <div className="absolute right-6 top-6 flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 px-3 py-2 text-[12px] font-semibold text-[#071120] shadow-[0_10px_25px_rgba(2,6,23,0.05)] backdrop-blur-md">
+                  <span className="text-primary text-[15px]">{item.logo}</span>
+                  {item.tag}
+                </div>
+
                 {/* ICON */}
 
                 <div
                   className="
+                    relative
+                    z-10
                     w-[74px]
                     h-[74px]
 
                     rounded-[24px]
 
-                    bg-primary/10
+                    bg-gradient-to-br
+                    from-primary
+                    to-[#1D4ED8]
 
                     flex
                     items-center
                     justify-center
 
-                    text-primary
+                    text-white
                     text-[34px]
 
                     group-hover:scale-110
+                    group-hover:rotate-3
+                    shadow-[0_18px_35px_rgba(19,196,163,0.22)]
 
                     transition-all
                     duration-300
@@ -363,15 +524,20 @@ const WebDevelopment = () => {
 
                 {/* TITLE */}
 
-                <h3 className="text-[26px] font-bold text-[#071120] mt-8 leading-tight">
+                <h3 className="relative z-10 text-[26px] font-bold text-[#071120] mt-8 leading-tight">
                   {item.title}
                 </h3>
 
                 {/* TEXT */}
 
-                <p className="text-gray-500 leading-[1.9] text-[15px] mt-5">
+                <p className="relative z-10 text-gray-500 leading-[1.9] text-[15px] mt-5">
                   {item.desc}
                 </p>
+
+                <div className="relative z-10 mt-7 inline-flex items-center gap-2 text-primary text-[14px] font-semibold opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                  Explore service
+                  <HiArrowRight />
+                </div>
 
                 {/* HOVER LINE */}
 
@@ -401,9 +567,14 @@ const WebDevelopment = () => {
       {/* =========================================
     TECHNOLOGIES WE USE
 ========================================= */}
+      <section className="relative py-20 md:py-28 bg-[#F8FAFC] overflow-hidden">
+        <div className="absolute inset-0 opacity-[0.035] bg-[linear-gradient(to_right,#071120_1px,transparent_1px),linear-gradient(to_bottom,#071120_1px,transparent_1px)] bg-[size:72px_72px]" />
 
-      <section className="py-20 md:py-28 bg-[#F8FAFC] overflow-hidden">
-        <div className="container-custom">
+        <div className="absolute top-[-140px] left-[-100px] w-[360px] h-[360px] bg-primary/10 blur-[120px]" />
+
+        <div className="absolute bottom-[-140px] right-[-100px] w-[360px] h-[360px] bg-[#1D4ED8]/10 blur-[120px]" />
+
+        <div className="container-custom relative z-10">
           {/* TOP */}
 
           <div className="text-center max-w-3xl mx-auto">
@@ -455,77 +626,49 @@ const WebDevelopment = () => {
             </p>
           </div>
 
+          <div className="relative mt-14 overflow-hidden rounded-[34px] border border-white/10 bg-[#071120] p-6 md:p-8 shadow-[0_28px_90px_rgba(2,6,23,0.18)]">
+            <div className="absolute right-[-90px] top-[-90px] w-[260px] h-[260px] rounded-full bg-primary/20 blur-[90px]" />
+
+            <div className="absolute left-[-90px] bottom-[-90px] w-[260px] h-[260px] rounded-full bg-[#1D4ED8]/20 blur-[90px]" />
+
+            <div className="relative z-10 grid lg:grid-cols-[1fr_1.4fr] gap-7 lg:gap-10 items-center">
+              <div>
+                <p className="text-primary text-[12px] font-bold uppercase tracking-[3px]">
+                  Stack Strategy
+                </p>
+
+                <h3 className="text-white text-[28px] md:text-[38px] font-bold leading-tight mt-4">
+                  We choose technology around performance, scale and business
+                  outcomes.
+                </h3>
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-3">
+                {[
+                  "Fast frontend systems",
+                  "Secure backend APIs",
+                  "Reliable cloud deployment",
+                ].map((item, index) => (
+                  <div
+                    key={index}
+                    className="rounded-[20px] border border-white/10 bg-white/[0.06] p-5 backdrop-blur-xl"
+                  >
+                    <p className="text-white text-[15px] font-semibold leading-snug">
+                      {item}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* GRID */}
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-20">
-            {[
-              {
-                icon: "⚛️",
-
-                title: "React JS",
-
-                desc: "Modern frontend development",
-              },
-
-              {
-                icon: "▲",
-
-                title: "Next JS",
-
-                desc: "Fast scalable web apps",
-              },
-
-              {
-                icon: "🟢",
-
-                title: "Node JS",
-
-                desc: "Backend & APIs",
-              },
-
-              {
-                icon: "🍃",
-
-                title: "MongoDB",
-
-                desc: "Database management",
-              },
-
-              {
-                icon: "🛒",
-
-                title: "Shopify",
-
-                desc: "eCommerce development",
-              },
-
-              {
-                icon: "📰",
-
-                title: "WordPress",
-
-                desc: "CMS website solutions",
-              },
-
-              {
-                icon: "🎨",
-
-                title: "Tailwind CSS",
-
-                desc: "Modern responsive UI",
-              },
-
-              {
-                icon: "☁️",
-
-                title: "Cloud Hosting",
-
-                desc: "Fast & secure deployment",
-              },
-            ].map((item, index) => (
+          <div className="grid lg:grid-cols-6 gap-6 mt-10">
+            {technologyGroups.map((group, index) => (
               <div
                 key={index}
-                className="
+                className={`
             group
             relative
 
@@ -536,9 +679,11 @@ const WebDevelopment = () => {
             border
             border-gray-200
 
-            rounded-[32px]
+            rounded-[30px]
+            md:rounded-[34px]
 
-            p-8
+            p-6
+            md:p-8
 
             hover:-translate-y-2
             hover:border-primary/20
@@ -546,67 +691,58 @@ const WebDevelopment = () => {
 
             transition-all
             duration-500
-          "
+            ${index < 2 ? "lg:col-span-3" : "lg:col-span-2"}
+          `}
               >
-                {/* ICON */}
-
                 <div
-                  className="
-              w-[78px]
-              h-[78px]
+                  className={`absolute right-[-42px] top-[-42px] w-[150px] h-[150px] rounded-full bg-gradient-to-br ${group.color} opacity-10 blur-xl transition-all duration-500 group-hover:scale-125 group-hover:opacity-20`}
+                />
 
-              rounded-[24px]
+                <div className="relative z-10 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5">
+                  <div>
+                    <p className="text-primary text-[12px] font-bold uppercase tracking-[2px]">
+                      Stack Layer 0{index + 1}
+                    </p>
 
-              bg-primary/10
+                    <h3 className="text-[24px] md:text-[32px] font-bold text-[#071120] leading-tight mt-3">
+                      {group.category}
+                    </h3>
 
-              flex
-              items-center
-              justify-center
+                    <p className="text-gray-500 text-[14px] md:text-[15px] leading-[1.8] mt-4 max-w-xl">
+                      {group.desc}
+                    </p>
+                  </div>
 
-              text-[34px]
-
-              group-hover:scale-110
-
-              transition-all
-              duration-300
-            "
-                >
-                  {item.icon}
+                  <div
+                    className={`w-[58px] h-[58px] rounded-[20px] bg-gradient-to-br ${group.color} flex items-center justify-center text-white shadow-[0_18px_36px_rgba(2,6,23,0.12)] transition-all duration-300 group-hover:scale-110 group-hover:rotate-3`}
+                  >
+                    <HiOutlineCode className="text-[28px]" />
+                  </div>
                 </div>
 
-                {/* TITLE */}
+                <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 gap-3 mt-8">
+                  {group.items.map((tech) => (
+                    <div
+                      key={tech.name}
+                      className="flex items-center gap-3 rounded-[18px] border border-gray-200 bg-[#F8FAFC] px-4 py-3.5 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:bg-white"
+                    >
+                      <div
+                        className={`w-10 h-10 rounded-[14px] bg-gradient-to-br ${group.color} flex items-center justify-center text-white text-[20px] flex-shrink-0`}
+                      >
+                        {tech.icon}
+                      </div>
 
-                <h3
-                  className="
-              text-[28px]
+                      <p className="text-[#071120] text-[13px] md:text-[14px] font-bold leading-snug">
+                        {tech.name}
+                      </p>
+                    </div>
+                  ))}
+                </div>
 
-              font-bold
-
-              text-[#071120]
-
-              leading-[1.2]
-
-              mt-8
-            "
-                >
-                  {item.title}
-                </h3>
-
-                {/* DESC */}
-
-                <p
-                  className="
-              text-gray-500
-
-              text-[15px]
-
-              leading-[1.9]
-
-              mt-4
-            "
-                >
-                  {item.desc}
-                </p>
+                <div className="relative z-10 mt-7 flex items-center gap-2 text-primary text-[13px] md:text-[14px] font-semibold opacity-0 translate-y-2 transition-all duration-300 group-hover:opacity-100 group-hover:translate-y-0">
+                  Recommended stack
+                  <HiArrowRight />
+                </div>
 
                 {/* HOVER LINE */}
 
@@ -627,6 +763,108 @@ const WebDevelopment = () => {
               duration-500
             "
                 />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================
+    PROJECTS BUILT WITH TECH
+========================================= */}
+
+      <section className="relative overflow-hidden bg-white py-16 md:py-24">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+
+        <div className="absolute right-[-120px] top-[-120px] w-[360px] h-[360px] bg-primary/10 blur-[120px]" />
+
+        <div className="container-custom relative z-10">
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10 lg:gap-14 items-end">
+            <div>
+              <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-primary/10 border border-primary/10">
+                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+
+                <p className="text-primary font-semibold uppercase tracking-[3px] text-[11px] md:text-xs">
+                  Project Showcase
+                </p>
+              </div>
+
+              <h2 className="text-[34px] sm:text-[46px] md:text-[60px] font-bold text-[#071120] leading-[1.08] mt-7">
+                Projects Built With The Right Tech
+              </h2>
+            </div>
+
+            <p className="text-gray-500 text-[15px] md:text-[17px] leading-[1.9] max-w-2xl lg:pb-2">
+              We build each project with a technology stack that matches the
+              business goal, whether it needs speed, SEO, eCommerce, automation
+              or a scalable custom dashboard.
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-6 mt-14 md:mt-16">
+            {projectShowcases.map((project, index) => (
+              <div
+                key={index}
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-[32px]
+                  border
+                  border-gray-200
+                  bg-[#F8FAFC]
+                  p-6
+                  md:p-8
+                  transition-all
+                  duration-500
+                  hover:-translate-y-2
+                  hover:border-primary/30
+                  hover:bg-white
+                  hover:shadow-[0_24px_70px_rgba(2,6,23,0.08)]
+                "
+              >
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-[#1D4ED8] to-[#22C55E] opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+
+                <div className="flex items-start justify-between gap-5">
+                  <div>
+                    <p className="text-primary text-[12px] font-bold uppercase tracking-[2px]">
+                      {project.category}
+                    </p>
+
+                    <h3 className="text-[24px] md:text-[30px] font-bold text-[#071120] leading-tight mt-4">
+                      {project.title}
+                    </h3>
+                  </div>
+
+                  <div className="w-12 h-12 rounded-full bg-white border border-gray-200 text-primary flex items-center justify-center transition-all duration-300 group-hover:bg-primary group-hover:text-white">
+                    <HiArrowRight />
+                  </div>
+                </div>
+
+                <p className="text-gray-500 text-[14px] md:text-[15px] leading-[1.85] mt-5">
+                  {project.desc}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mt-7">
+                  {project.tech.map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="rounded-full border border-gray-200 bg-white px-4 py-2 text-[12px] font-semibold text-[#071120]"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-8 rounded-[22px] bg-[#071120] px-5 py-4">
+                  <p className="text-white/50 text-[11px] font-semibold uppercase tracking-[2px]">
+                    Result Focus
+                  </p>
+
+                  <h4 className="text-white text-[22px] font-bold mt-2">
+                    {project.metrics}
+                  </h4>
+                </div>
               </div>
             ))}
           </div>
