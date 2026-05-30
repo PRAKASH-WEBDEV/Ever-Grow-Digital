@@ -46,6 +46,7 @@ const createTransporter = () => {
     host: "smtp.gmail.com",
     port: 587,
     secure: false,
+    family: 4, // force IPv4
     auth: {
       user: emailUser,
       pass: emailPass,
