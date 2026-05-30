@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
+const path = require("path");
 
 dotenv.config();
 
@@ -28,14 +29,26 @@ const contactRoutes = require("./routes/contactRoutes");
 app.use("/api/contact", contactRoutes);
 
 /* =========================================
-   TEST ROUTE
+   HEALTH CHECK
 ========================================= */
 
-app.get("/", (req, res) => {
+app.get("/api/health", (req, res) => {
   res.status(200).json({
     success: true,
     message: "Backend Running 🚀",
   });
+});
+
+/* =========================================
+   FRONTEND
+========================================= */
+
+const clientDistPath = path.join(__dirname, "../client/dist");
+
+app.use(express.static(clientDistPath));
+
+app.use((req, res) => {
+  res.sendFile(path.join(clientDistPath, "index.html"));
 });
 
 /* =========================================
