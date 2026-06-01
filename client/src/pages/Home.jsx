@@ -47,7 +47,9 @@ import { FaJava } from "react-icons/fa";
 
 import { MdOutlineAutoAwesome } from "react-icons/md";
 
-const API_BASE_URL = import.meta.env.VITE_API_URL?.replace(/\/$/, "");
+const API_BASE_URL = (
+  import.meta.env.VITE_API_URL || window.location.origin
+).replace(/\/$/, "");
 const CONTACT_API_URL = `${API_BASE_URL}/api/contact`;
 const POPUP_STORAGE_KEY = "evergrow_strategy_popup_seen";
 const Lottie = LottieModule.default ?? LottieModule;
